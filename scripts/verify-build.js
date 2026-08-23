@@ -136,15 +136,15 @@ const svgDir = path.join(siteDir, 'figures');
 const svgsEmitted = fs.existsSync(svgDir)
   ? fs.readdirSync(svgDir).filter(f => f.endsWith('.svg')).length
   : 0;
-let missingSvgs = 0;
+let missingFigures = 0;
 for (const ref of figureRefs) {
-  if (!fs.existsSync(path.join(svgDir, ref))) missingSvgs++;
+  if (!fs.existsSync(path.join(svgDir, ref))) missingFigures++;
 }
-if (missingSvgs > 0) {
-  if (CI) fail(`${missingSvgs}/${figureRefs.size} referenced figure SVGs missing`);
-  else note(`${missingSvgs}/${figureRefs.size} figure SVGs missing (dvisvgm not run locally)`);
+if (missingFigures > 0) {
+  if (CI) fail(`${missingFigures}/${figureRefs.size} referenced figures missing`);
+  else note(`${missingFigures}/${figureRefs.size} figures missing (dvisvgm not run locally)`);
 } else {
-  pass(`all ${figureRefs.size} referenced figure SVGs exist (${svgsEmitted} emitted)`);
+  pass(`all ${figureRefs.size} referenced figures exist (${svgsEmitted} SVGs emitted)`);
 }
 if (figureRefs.size < epsCount)
   note(`${epsCount - figureRefs.size} of ${epsCount} EPS files are unreferenced by any figure`);
