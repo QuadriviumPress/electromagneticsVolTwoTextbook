@@ -1,0 +1,161 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Power Dissipated by an Electrically-Short Dipole
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191126   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0208_Total_Power_Dissipated_by_an_Electrically-Short_Dipole} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{antenna!electrically-short dipole (ESD)|(}
+
+The power delivered to an antenna by a source connected to the terminals is nominally radiated.
+However, it is possible that some fraction of the power delivered by the source will be dissipated within the antenna. 
+In this section, we consider the dissipation due to the finite conductivity of materials comprising the antenna.
+Specifically, we determine the total power dissipated by an electrically-short dipole (ESD) antenna in response to a sinusoidally-varying current applied to the antenna terminals.  
+(The ESD is introduced in Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}, and a review of that section is suggested before attempting this section.)
+The result allows us to determine \emph{radiation efficiency} 
+\index{radiation efficiency}
+and is a step toward determining the impedance of the ESD.
+
+Consider an ESD centered at the origin and aligned along the $z$ axis.
+In Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}, it is shown that the current distribution is:
+%
+\begin{equation}
+\widetilde{I}(z) \approx I_0 \left(1-\frac{2}{L}\left|z\right|\right) 
+\label{m0208_eI}
+\end{equation}
+%
+where $I_0$ (SI base units of A) is a complex-valued constant indicating the maximum current magnitude and phase, 
+and $L$ is the length of the ESD.
+This current distribution may be interpreted as a set of discrete very-short segments of constant-magnitude current (sometimes referred to as ``Hertzian dipoles'').
+\index{Hertzian dipole}
+In this interpretation, the $n^{th}$ current segment is located at $z=z_n$ and has magnitude $\widetilde{I}(z_n)$.
+
+Now let us assume that the material comprising the ESD is a homogeneous good conductor.
+\index{conductor!good}
+Then each segment exhibits the same resistance $R_{seg}$.
+Subsequently, the power dissipated in the $n^{th}$ segment is 
+%
+\begin{equation}
+P_{seg}(z_n) = \frac{1}{2}\left|\widetilde{I}(z_n)\right|^2 R_{seg}
+\label{m0208_ePseg1}
+\end{equation}
+
+The segment resistance can be determined as follows.
+Let us assume that the wire comprising the ESD has circular cross-section of radius $a$.
+Since the wire is a good conductor, the segment resistance may be calculated using Equation~\ref{m0159_eACZ2} (Section~\ref{m0159_Impedance_of_a_Wire}, ``Impedance of a Wire''):
+%
+\begin{equation}
+R_{seg} \approx \frac{1}{2} \sqrt{\frac{\mu f}{\pi \sigma}} \cdot \frac{\Delta l}{a}
+\end{equation}
+%
+where $\mu$ is permeability, $f$ is frequency, $\sigma$ is conductivity, and $\Delta l$ is the length of the segment.
+Substitution into Equation~\ref{m0208_ePseg1} yields:
+%
+\begin{equation}
+P_{seg}(z_n) \approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \left|\widetilde{I}(z_n)\right|^2 \Delta l
+\end{equation}
+
+Now the total power dissipated in the antenna, $P_{loss}$, can be expressed as the sum of the power dissipated in each segment:
+%
+\begin{equation}
+P_{loss} \approx \sum_{n=1}^N { \left[ \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \left|\widetilde{I}(z_n)\right|^2 \Delta l \right] }
+\end{equation}
+%
+where $N$ is the number of segments. This may be rewritten as follows:
+%
+\begin{equation}
+P_{loss} \approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \sum_{n=1}^N { \left|\widetilde{I}(z_n)\right|^2 \Delta l } 
+\end{equation}
+%
+Reducing $\Delta l$ to the differential length $dz'$, we may write this in the following integral form:
+%
+\begin{equation}
+P_{loss} \approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \int_{z'=-L/2}^{+L/2} { \left|\widetilde{I}(z')\right|^2 dz' } 
+\end{equation}
+%
+It is worth noting that the above expression applies to \emph{any} straight wire antenna of length $L$.  
+For the ESD specifically, the current distribution is given by Equation~\ref{m0208_eI}.
+Making the substitution:
+%
+\begin{flalign}
+P_{loss} &\approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \int_{z'=-L/2}^{+L/2} { \left|I_0 \left(1-\frac{2}{L}\left|z'\right|\right) \right|^2 dz' } \nonumber \\
+         &\approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \left|I_0\right|^2 \int_{z'=-L/2}^{+L/2} { \left|1-\frac{2}{L}\left|z'\right| \right|^2 dz' }
+\end{flalign}
+%
+The integral is straightforward to solve, albeit a bit tedious.
+The integral is found to be equal to $L/3$, so we obtain:
+%
+\begin{flalign}
+P_{loss} &\approx \frac{1}{4a} \sqrt{\frac{\mu f}{\pi \sigma}} \left|I_0\right|^2 \cdot \frac{L}{3} \nonumber \\
+         &\approx \frac{L}{12a} \sqrt{\frac{\mu f}{\pi \sigma}} \left|I_0\right|^2 \label{m0208_Ploss2}
+\end{flalign}
+
+Now let us return to interpretation of the ESD as a circuit component.
+We have found that applying the current $I_0$ to the terminals results in the dissipated power indicated in Equation~\ref{m0208_Ploss2}.
+A current source driving the ESD does not perceive the current distribution of the ESD nor does it perceive the varying power over the length of the ESD.
+Instead, the current source perceives only a net resistance $R_{loss}$ such that
+%
+\begin{equation}
+P_{loss} = \frac{1}{2}\left|I_0\right|^2 R_{loss}
+\label{m0208_Pnet}
+\end{equation} 
+%
+Comparing Equations~\ref{m0208_Ploss2} and \ref{m0208_Pnet}, we find
+%
+\begin{flalign}
+\boxed{
+R_{loss} \approx \frac{L}{6a} \sqrt{\frac{\mu f}{\pi \sigma}}  
+}
+\label{m0208_eRloss}
+\end{flalign}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power dissipated within an ESD in response to a sinusoidal current $I_0$ applied at the terminals is $\frac{1}{2}\left|I_0\right|^2 R_{loss}$ where $R_{loss}$ (Equation~\ref{m0208_eRloss}) is the resistance perceived by a source applied to the ESD's terminals. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Note that $R_{loss}$ is \emph{not} the impedance of the ESD.
+$R_{loss}$ is merely the contribution of internal loss to the impedance of the ESD.
+The impedance of the ESD must also account for contributions from radiation resistance (an additional real-valued contribution) and energy storage (perceived as a reactance).
+These quantities are addressed in other sections of this book. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Power dissipated within an ESD. 
+\\~\\
+A dipole is 10~cm in length, 1~mm in radius, and is surrounded by free space.
+The antenna is comprised of aluminum having conductivity $\approx 3.7 \times 10^7$~S/m and $\mu\approx\mu_0$.
+A sinusoidal current having frequency 30~MHz and peak magnitude 100~mA is applied to the antenna terminals.
+What is the power dissipated within this antenna?
+
+{\bf Solution.}
+The wavelength $\lambda=c/f \cong 10$~m, so $L = 10~\mbox{cm} \cong 0.01\lambda$.
+This certainly qualifies as electrically-short, so we may use Equation~\ref{m0208_eRloss}.
+In the present problem, $a=1$~mm and $\sigma\approx 3.7 \times 10^7$~S/m.
+Thus, we find that the loss resistance $R_{loss} \approx 9.49~\mbox{m}\Omega$.
+Subsequently, the power dissipated within this antenna is 
+%
+\begin{equation}
+P_{loss} = \frac{1}{2}\left|I_0\right|^2 R_{loss} \approx \underline{47.5~\mu\mbox{W}}
+\end{equation}
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We conclude this section with one additional caveat:
+Whereas this section focuses on the limited conductivity of wire,
+other physical mechanisms may contribute to the loss resistance of the ESD.
+In particular, materials used to coat the antenna or to provide mechanical support near the terminals may potentially absorb and dissipate power that might otherwise be radiated. 
+
+\index{antenna!electrically-short dipole (ESD)|)}
+

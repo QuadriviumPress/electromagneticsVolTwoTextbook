@@ -1,0 +1,134 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Vector Operators
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20190308   # yyyymmdd
+%ORB ABSTRACT Vector Operators
+
+\label{m0139_Vector_Operators} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+This section contains a summary of vector operators expressed in each of the three major coordinate systems:
+%
+\begin{itemize}
+\item Cartesian ($x$,$y$,$z$)
+\item cylindrical ($\rho$,$\phi$,$z$)
+\item spherical ($r$,$\theta$,$\phi$)
+\end{itemize}
+%
+Associated basis vectors are identified using a caret ($\hat{~}$) over the symbol.
+The vector operand ${\bf A}$ is expressed in terms of components in the basis directions as follows:
+%
+\begin{itemize}
+\item Cartesian: ${\bf A} = \hat{\bf x}A_x + \hat{\bf y}A_y + \hat{\bf z}A_z$
+\item cylindrical: ${\bf A} = \hat{\bf \rho}A_{\rho} + \hat{\bf \phi}A_{\phi} + \hat{\bf z}A_z$
+\item spherical: ${\bf A} = \hat{\bf r}A_r + \hat{\bf \theta}A_{\theta} + \hat{\bf \phi}A_{\phi}$
+\end{itemize}
+
+{\bf Gradient}\\
+\index{gradient}
+%
+Gradient in Cartesian coordinates:
+%
+\begin{flalign}
+\nabla f &= \hat{\bf x}\frac{\partial f}{\partial x} + \hat{\bf y}\frac{\partial f}{\partial y} + \hat{\bf z}\frac{\partial f}{\partial z} & 
+\end{flalign}
+%
+Gradient in cylindrical coordinates:
+%
+\begin{flalign}
+\nabla f &= \hat{\bf \rho}\frac{\partial f}{\partial \rho} 
++\hat{\bf \phi}\frac{1}{\rho}\frac{\partial f}{\partial \phi}
++ \hat{\bf z}\frac{\partial f}{\partial z} &
+\end{flalign}
+%
+Gradient in spherical coordinates:
+%
+\begin{flalign}
+\nabla f &= \hat{\bf r}\frac{\partial f}{\partial r}
++\hat{\bf \theta}\frac{1}{r}\frac{\partial f}{\partial \theta}
++\hat{\bf \phi}\frac{1}{r\sin\theta}\frac{\partial f}{\partial \phi} &
+\end{flalign}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\bf Divergence}\\
+\index{divergence}
+%
+Divergence in Cartesian coordinates:
+%
+\begin{flalign}
+\nabla \cdot {\bf A} &= \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z} &
+\end{flalign}
+%
+Divergence in cylindrical coordinates:
+%
+\begin{flalign}
+\nabla \cdot {\bf A} &= \frac{1}{\rho}\frac{\partial}{\partial \rho}\left(\rho A_{\rho}\right)
++\frac{1}{\rho}\frac{\partial A_{\phi}}{\partial \phi}
++ \frac{\partial A_z}{\partial z} &
+\end{flalign}
+%
+Divergence in spherical coordinates:
+%
+\begin{flalign}
+\nabla \cdot {\bf A} &= ~~\frac{1}{r^2}\frac{\partial }{\partial r}\left(r^2 A_r\right) & \nonumber \\
+                     &~~ +\frac{1}{r\sin\theta}\frac{\partial}{\partial \theta}\left(A_{\theta}\sin\theta\right)& \nonumber \\
+                     &~~ +\frac{1}{r\sin\theta}\frac{\partial A_{\phi}}{\partial \phi} & 
+\end{flalign}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\bf Curl}\\
+\index{curl}
+%
+Curl in Cartesian coordinates:
+%
+\begin{flalign}
+\nabla \times {\bf A} &= ~~\hat{\bf x}\left( \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \right) & \nonumber \\
+                      &~~ +\hat{\bf y}\left( \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} \right) & \nonumber \\
+                      &~~ +\hat{\bf z}\left( \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} \right) & \label{m0139_eCurlCart}
+\end{flalign} 
+%
+Curl in cylindrical coordinates:
+%   
+\begin{flalign}
+\nabla \times {\bf A} &= ~~\hat{\bf \rho}\left( \frac{1}{\rho}\frac{\partial A_z}{\partial \phi} - \frac{\partial A_{\phi}}{\partial z} \right) & \nonumber \\
+                      &~~ +\hat{\bf \phi}\left( \frac{\partial A_{\rho}}{\partial z} - \frac{\partial A_z}{\partial \rho} \right)               & \nonumber \\
+                      &~~ +\hat{\bf z}\frac{1}{\rho}\left[ \frac{\partial}{\partial \rho}\left(\rho A_{\phi}\right) - \frac{\partial A_{\rho}}{\partial \phi} \right] &
+\end{flalign} 
+%
+Curl in spherical coordinates:
+%   
+\begin{flalign}
+\nabla \times {\bf A} &= ~~\hat{\bf r}\frac{1}{r\sin\theta} \left[ \frac{\partial}{\partial \theta}\left(A_{\phi}\sin\theta\right) - \frac{\partial A_{\theta}}{\partial \phi} \right] & \nonumber \\
+                      &~~ +\hat{\bf \theta}\frac{1}{r}\left[ \frac{1}{\sin\theta}\frac{\partial A_r}{\partial \phi} - \frac{\partial}{\partial r}\left(rA_{\phi}\right) \right]      & \nonumber \\
+                      &~~ +\hat{\bf \phi}\frac{1}{r}\left[ \frac{\partial}{\partial r}\left(r A_{\theta}\right) - \frac{\partial A_r}{\partial \theta} \right] \label{m0139_eCurlSph} &
+\end{flalign} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\bf Laplacian}\\
+\index{Laplacian (operator)}
+%
+Laplacian in Cartesian coordinates:
+%
+\begin{flalign}
+\nabla^2 f &= \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} +  \frac{\partial^2 f}{\partial z^2} &
+\end{flalign} 
+%
+Laplacian in cylindrical coordinates:
+%
+\begin{flalign}
+\nabla^2 f &= \frac{1}{\rho}\frac{\partial }{\partial \rho}\left(\rho\frac{\partial f}{\partial \rho} \right) 
++ \frac{1}{\rho^2}\frac{\partial^2 f}{\partial \phi^2} 
++ \frac{\partial^2 f}{\partial z^2} &
+\end{flalign}
+%
+Laplacian in spherical coordinates:
+%
+\begin{flalign}
+\nabla^2 f &= ~~\frac{1}{r^2}\frac{\partial }{\partial r}\left(r^2\frac{\partial f}{\partial r} \right) & \nonumber \\
+           &~~ +\frac{1}{r^2\sin\theta}\frac{\partial}{\partial \theta}\left(\frac{\partial f}{\partial \theta}\sin\theta\right) & \nonumber \\
+           &~~ +\frac{1}{r^2\sin^2\theta}\frac{\partial^2 f}{\partial \phi^2} &
+\end{flalign}
+

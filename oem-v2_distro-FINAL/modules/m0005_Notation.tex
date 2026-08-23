@@ -1,0 +1,39 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Notation
+%ORB AUTHOR 0       # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191113  # yyyymmdd
+%ORB ABSTRACT Explanation of notation; e.g., boldface means vector, tilde means phasor, carat means unit vector, etc. 
+
+\label{m0005_Notation} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{notation|(}
+
+The list below describes notation used in this book. 
+%
+\begin{itemize}
+\item \emph{Vectors}: Boldface is used to indicate a vector; e.g., the electric field intensity vector will typically appear as ${\bf E}$.  Quantities not in boldface are scalars.  When writing by hand, it is common to write ``$\overline{E}$'' or ``$\overrightarrow{E}$'' in lieu of ``${\bf E}$.''
+\item \emph{Unit vectors}: A circumflex is used to indicate a unit vector; i.e., a vector having magnitude equal to one.  For example, the unit vector pointing in the $+x$ direction will be indicated as $\hat{\bf x}$.  In discussion, the quantity ``$\hat{\bf x}$'' is typically spoken ``$x$ hat.'' 
+\item \emph{Time}: The symbol $t$ is used to indicate time. 
+\item \emph{Position}: The symbols $(x,y,z)$, $(\rho,\phi,z)$, and $(r,\theta,\phi)$ indicate positions using the Cartesian, cylindrical, and spherical coordinate systems, respectively.  It is sometimes convenient to express position in a manner which is independent of a coordinate system; in this case, we typically use the symbol ${\bf r}$. For example, ${\bf r}=\hat{\bf x}x+\hat{\bf y}y+\hat{\bf z}z$ in the Cartesian coordinate system.
+\item \emph{Phasors:}  A tilde is used to indicate a phasor quantity; e.g., a voltage phasor might be indicated as $\widetilde{V}$, and the phasor representation of ${\bf E}$ will be indicated as $\widetilde{{\bf E}}$.
+\item \emph{Curves, surfaces, and volumes:} These geometrical entities will usually be indicated in script; e.g., an open surface might be indicated as $\mathcal{S}$ and the curve bounding this surface might be indicated as $\mathcal{C}$.  Similarly, the volume enclosed by a closed surface $\mathcal{S}$ may be indicated as $\mathcal{V}$.
+\item \emph{Integrations over curves, surfaces, and volumes} will usually be indicated using a single integral sign with the appropriate subscript. For example:
+$$ \int_{\mathcal{C}} \cdot\cdot\cdot ~dl ~~~~ \mbox{is an integral over the curve $\mathcal{C}$}$$
+$$ \int_{\mathcal{S}} \cdot\cdot\cdot ~ds ~~~~ \mbox{is an integral over the surface $\mathcal{S}$}$$  
+$$ \int_{\mathcal{V}} \cdot\cdot\cdot ~dv ~~~~ \mbox{is an integral over the volume $\mathcal{V}$.}$$ 
+\item \emph{Integrations over \underline{closed} curves and surfaces} will be indicated using a circle superimposed on the integral sign. For example: 
+$$ \oint_{\mathcal{C}} \cdot\cdot\cdot ~dl ~~~~ \mbox{is an integral over the closed curve $\mathcal{C}$}$$
+$$ \oint_{\mathcal{S}} \cdot\cdot\cdot ~ds ~~~~ \mbox{is an integral over the closed surface $\mathcal{S}$}$$ 
+A ``closed curve'' is one which forms an unbroken loop; e.g., a circle.  
+A ``closed surface'' is one which encloses a volume with no openings; e.g., a sphere.
+\item The symbol ``$\cong$'' means ``approximately equal to.''  This symbol is used when equality exists, but is not being expressed with exact numerical precision.  For example, the ratio of the circumference of a circle to its diameter is $\pi$, where $\pi \cong 3.14$.
+\item The symbol ``$\approx$'' also indicates ``approximately equal to,'' but in this case the two quantities are unequal even if expressed with exact numerical precision.  For example, $e^x = 1+x+x^2/2+...$ as an infinite series, but $e^x \approx 1+x$ for $x\ll 1$.  Using this approximation, $e^{0.1} \approx 1.1$, which is in good agreement with the actual value $e^{0.1} \cong 1.1052$. 
+\item The symbol ``$\sim$'' indicates ``on the order of,'' which is a relatively weak statement of equality indicating that the indicated quantity is within a factor of 10 or so of the indicated value.  For example, $\mu\sim10^5$  for a class of iron alloys, with exact values being larger or smaller by a factor of 5 or so. 
+\item The symbol ``$\triangleq$'' means ``is defined as'' or ``is equal as the result of a definition.''  
+\item \emph{Complex numbers}: $j\triangleq\sqrt{-1}$.
+\item See Appendix~\ref{m0141_Physical_Constants} for notation used to identify commonly-used physical constants.
+\end{itemize}
+
+\index{notation|)}

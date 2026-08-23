@@ -1,0 +1,269 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Total Transmission Through a Slab
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191116   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0163_Total_Transmission_Slab} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{slab|(}
+
+Section~\ref{m0162_Waves_at_Double_Planar_Boundary} details the solution of the ``single-slab'' problem.
+This problem is comprised of three material regions: 
+A semi-infinite Region~1, from which a uniform plane wave is normally incident;
+Region~2, the slab, defined by parallel planar boundaries separated by distance $d$; and
+a semi-infinite Region~3, through which the plane wave exits.
+The solution that was developed assumes simple media with negligible loss, so that the media in each region is characterized entirely by permittivity and permeability.
+
+We now focus on a particular class of applications involving this structure.  
+In this class of applications, we seek total transmission through the slab.
+By ``total transmission'' we mean 100\% of power incident on the slab is transmitted through the slab into Region~3, and 0\% of the power is reflected back into Region~1.
+There are many applications for such a structure.
+One application is the {\it radome},
+\index{radome}
+a protective covering which partially or completely surrounds an antenna, but nominally does not interfere with waves being received by or transmitted from the antenna.  
+Another application is RF and optical wave filtering; that is, passing or rejecting waves falling within a narrow range of frequencies.  
+In this section, we will first describe the conditions for total transmission, and then shall provide some examples of these applications.
+
+We begin with characterization of the media.  
+Region~1 is characterized by its permittivity $\epsilon_1$ and permeability $\mu_1$, such that the wave impedance in Region~1 is $\eta_1=\sqrt{\mu_1/\epsilon_1}$.
+Similarly, 
+Region~2 is characterized by its permittivity $\epsilon_2$ and permeability $\mu_2$, such that the wave impedance in Region~2 is $\eta_2=\sqrt{\mu_2/\epsilon_2}$.
+Region~3 is characterized by its permittivity $\epsilon_3$ and permeability $\mu_3$, such that the wave impedance in Region~3 is $\eta_3=\sqrt{\mu_3/\epsilon_3}$. 
+The analysis in this section also depends on $\beta_2$, the phase propagation constant in Region~2, which is given by $\omega\sqrt{\mu_2\epsilon_2}$.
+
+Recall that reflection from the slab is quantified by the reflection coefficient
+%
+\begin{equation}
+\Gamma_{1,eq} = \frac{\eta_{eq}-\eta_1}{\eta_{eq}+\eta_1} 
+\label{m0163_fGeq}
+\end{equation}
+%
+where $\eta_{eq}$ is given by
+%
+\begin{equation}
+\eta_{eq} = \eta_2 \frac{ 1 + \Gamma_{23} e^{-j2\beta_2 d} }{ 1 - \Gamma_{23} e^{-j2\beta_2 d} } 
+\label{m0163_eetaeq}
+\end{equation}
+%
+and where $\Gamma_{23}$ is given by
+%
+\begin{equation}
+\Gamma_{23} = \frac{\eta_3-\eta_2}{\eta_3+\eta_2}
+\label{m0163_eGamma23}
+\end{equation}
+
+Total transmission requires that $\Gamma_{1,eq}=0$.
+From Equation~\ref{m0163_fGeq} we see that $\Gamma_{1,eq}$ is zero when $\eta_1=\eta_{eq}$.
+Now employing Equation~\ref{m0163_eetaeq}, we see that total transmission requires:
+%
+\begin{equation}
+\eta_{1} = \eta_2 \frac{ 1 + \Gamma_{23} e^{-j2\beta_2 d} }{ 1 - \Gamma_{23} e^{-j2\beta_2 d} } 
+\label{m0163_ePT}
+\end{equation}
+%
+For convenience and clarity, let us define the quantity
+%
+\begin{equation}
+P \triangleq e^{-j2\beta_2 d}
+\label{m0163_ePdef}
+\end{equation}
+%
+Using this definition, Equation~\ref{m0163_ePT} becomes
+%
+\begin{equation}
+\eta_{1}  = \eta_2 \frac{ 1 + \Gamma_{23} P }{ 1 - \Gamma_{23} P }
+\label{m0163_ePT2}
+\end{equation}
+%
+Also, let us substitute Equation~\ref{m0163_eGamma23} for $\Gamma_{23}$, and multiply numerator and denominator by $\eta_3+\eta_2$ (the denominator of Equation~\ref{m0163_eGamma23}). We obtain: 
+%
+\begin{equation}
+\eta_{1}  = \eta_2 \frac{ \eta_3 + \eta_2 + (\eta_3 - \eta_2)P }{ \eta_3 + \eta_2 - (\eta_3 - \eta_2)P  }
+\end{equation}
+%
+Rearranging the numerator and denominator, we obtain:
+%
+\begin{equation}
+\boxed{
+\eta_{1}  
+= \eta_2 \frac{ (1+P)\eta_3 + (1-P)\eta_2 }{ (1-P)\eta_3 + (1+P)\eta_2  }
+}
+\label{m0163_eCPT}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The parameters $\eta_1$, $\eta_2$, $\eta_3$, $\beta_2$, and $d$ defining any single-slab structure that exhibits total transmission must satisfy Equation~\ref{m0163_eCPT}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Our challenge now is to identify combinations of parameters that satisfy this condition. 
+There are two general categories of solutions. 
+These categories are known as {\it half-wave matching} and {\it quarter-wave matching}.
+
+\index{half-wave matching (slab)|(}
+{\bf Half-wave matching} applies when we have the same material on either side of the slab; i.e., $\eta_1=\eta_3$.  
+Let us refer to this common value of $\eta_1$ and $\eta_3$ as $\eta_{ext}$.  Then the condition for total transmission becomes:
+%
+\begin{equation}
+\eta_{ext}  
+= \eta_2 \frac{ (1+P)\eta_{ext} + (1-P)\eta_2 }{ (1-P)\eta_{ext} + (1+P)\eta_2  }
+\label{m0163_eCPT2}
+\end{equation}
+%
+For the above condition to be satisfied, we need the fraction on the right side of the equation to be equal to $\eta_{ext}/\eta_{2}$.  
+From Equation~\ref{m0163_ePdef}, the magnitude of $P$ is always 1, so the first value of $P$ you might think to try is $P=+1$. 
+In fact, this value satisfies Equation~\ref{m0163_eCPT2}. 
+Therefore, $e^{-j2\beta_2 d} = +1$.  
+This new condition is satisfied when $2\beta_2 d = 2\pi m$, where $m=1, 2, 3,... $ 
+(We do not consider $m\le0$ to be valid solutions since these would represent zero or negative values of $d$.)   
+Thus, we find 
+%
+\begin{equation}
+d = \frac{\pi m}{\beta_2} = \frac{\lambda_2}{2}m ~\mbox{, where} ~ m=1, 2, 3,... 
+\end{equation}
+%
+where $\lambda_2 = 2\pi/\beta_2$ is the wavelength inside the slab.
+Summarizing: 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Total transmission through a slab embedded in regions of material having equal wave impedance (i.e., $\eta_1=\eta_3$) may be achieved by setting the thickness of the slab equal to an integer number of half-wavelengths at the frequency of interest.  This is known as \emph{half-wave matching}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+A remarkable feature of half-wave matching is that there is {\it no} restriction on the permittivity or permeability of the slab, and the only constraint on the media in Regions~1 and 3 is that they have equal wave impedance. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Radome design by half-wave matching.
+\\~\\
+The antenna for a 60 GHz radar is to be protected from weather by a radome panel positioned directly in front of the radar.  The panel is to be constructed from a low-loss material having $\mu_r\approx 1$ and $\epsilon_r=4$.  To have sufficient mechanical integrity, the panel must be at least 3~mm thick.  What thickness should be used?\\
+~\\       
+
+\noindent
+{\bf Solution}. This is a good application for half-wave matching because the material on either side of the slab is the same (presumably free space) whereas the material used for the slab is unspecified.  The phase velocity in the slab is
+%
+\begin{equation}
+v_p = \frac{c}{\sqrt{\epsilon_r}} 
+\cong 1.5 \times 10^8~\mbox{m/s}
+\end{equation}  
+%
+so the wavelength in the slab is 
+%
+\begin{equation}
+\lambda_2 = \frac{v_p}{f} 
+\cong 2.5~\mbox{mm}
+\end{equation}  
+%
+Thus, the minimum thickness of the slab that satisfies the half-wave matching condition is $d=\lambda_2/2 \cong 1.25$~mm. However, this does not meet the $3$~mm minimum-thickness requirement.  Neither does the next available thickness, $d=\lambda_2\cong 2.5$~mm.  The next-thickest option, $d=3\lambda_2/2\cong 3.75$~mm, does meet the requirement. 
+Therefore, we select \underline{$d\cong 3.75$~mm}.
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+It should be emphasized that designs employing half-wave matching will be {\it narrowband} -- that is, total only for the design frequency.  
+As frequency increases or decreases from the design frequency, there will be increasing reflection and decreasing transmission.
+
+\index{half-wave matching (slab)|)}
+
+\index{quarter-wave matching (slab)|(}
+{\bf Quarter-wave matching} requires that the wave impedances in each region are different and related in a particular way.
+The quarter-wave solution is obtained by requiring $P=-1$, so that 
+%
+\begin{equation}
+\eta_1  
+= \eta_2 \frac{ (1+P)\eta_3 + (1-P)\eta_2 }{ (1-P)\eta_3 + (1+P)\eta_2  }
+= \eta_2 \frac{ \eta_2 }{ \eta_3 }
+\end{equation}
+%
+Solving this equation for wave impedance of the slab material, we find
+%
+\begin{equation}
+\eta_2 = \sqrt{\eta_1\eta_3}
+\end{equation}
+%
+Note that $P=-1$ is obtained when $2\beta_2 d = \pi + 2\pi m$ where $m=0, 1, 2, ... $.   Thus, we find 
+%
+\begin{flalign}
+d &= \frac{\pi}{2\beta_2} + \frac{\pi}{\beta_2}m  \nonumber \\
+  &= \frac{\lambda_2}{4} + \frac{\lambda_2}{2}m ~\mbox{, where} ~ m=0, 1, 2,... 
+\end{flalign}
+%
+Summarizing: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Total transmission is achieved through a slab by selecting $\eta_2 = \sqrt{\eta_1\eta_3}$ and making the slab one-quarter wavelength at the frequency of interest, or some integer number of half-wavlengths thicker if needed.   This is known as \emph{quarter-wave matching}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Radome design by quarter-wave matching. 
+\\~\\
+The antenna for a 60 GHz radar is to be protected from weather by a radome panel positioned directly in front of the radar.  In this case, however, the antenna is embedded in a lossless material having $\mu_r\approx 1$ and $\epsilon_r=2$, and the radome panel is to be placed between this material and the outside, which we presume is free space.  The material in which the antenna is embedded, and against which the radome panel is installed, is quite rigid so there is no minimum thickness requirement.  However, the radome panel must be made from a material which is lossless and non-magnetic. Design the radome panel.\\
+~\\
+
+\noindent
+{\bf Solution}.
+The radome panel must be comprised of a material having 
+%
+\begin{equation}
+\eta_2 = \sqrt{\eta_1\eta_3} = \sqrt{ \frac{\eta_0}{\sqrt{2}} \cdot \eta_0 } \cong 317~\Omega
+\end{equation}
+%
+Since the radome panel is required to be non-magnetic, the relative permittivity must be given by
+%
+\begin{equation}
+\eta_2 = \frac{\eta_0}{\sqrt{\epsilon_r}} ~~\Rightarrow~~ \epsilon_r = \left(\frac{\eta_0}{\eta_2}\right)^2 \cong 1.41
+\end{equation}
+%
+
+The phase velocity in the slab will be 
+%
+\begin{equation}
+v_p = \frac{c}{\sqrt{\epsilon_r}} \cong \frac{3 \times 10^8~\mbox{m/s}}{\sqrt{1.41}} \cong 2.53 \times 10^8~\mbox{m/s}
+\end{equation}  
+%
+so the wavelength in the slab is 
+%
+\begin{equation}
+\lambda_2 = \frac{v_p}{f} \cong \frac{2.53 \times 10^8~\mbox{m/s}}{60 \times 10^9~\mbox{Hz}} \cong 4.20~\mbox{mm}
+\end{equation}  
+%
+Thus, the minimum possible thickness of the radome panel is \underline{$d=\lambda_2/4\cong 1.05$~mm}, and the relative permittivity of the radome panel must be \underline{$\epsilon_r \cong 1.41$}.
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{quarter-wave matching (slab)|)}
+
+%{\it relevance to optical coatings}
+%{\it Transmission Line analogy}
+%{\it An Alternative Solution to the 2-Interface Problem Using ``Bouncing Waves''}.  Include anecdote about blowing up transmitted on first bounce.
+%{\it Three or More Interfaces}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Radome}{Radome}'' on Wikipedia.
+\end{itemize}
+
+\index{slab|)}
+
+

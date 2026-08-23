@@ -1,0 +1,134 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Radiation from Surface and Volume Distributions of Current
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191126   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0221_Radiation_from_Surface_and_Volume_Current} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+In Section~\ref{m0196_Solution_of_the_Wave_Equation_for_Magnetic_Vector_Potential}, a solution was developed for radiation from current 
+located at a single point ${\bf r}'$.  This current distribution was expressed mathematically as a \emph{current moment}, 
+\index{current moment}
+as follows:
+%
+\begin{equation}
+\widetilde{\bf J}({\bf r}) = \hat{\bf l}~\widetilde{I}~\Delta l~\delta({\bf r}-{\bf r}')
+\label{m0221_eCM}
+\end{equation}
+%
+where 
+$\hat{\bf l}$ is the direction of current flow,
+$\widetilde{I}$ has units of current (SI base units of A),
+$\Delta l$ has units of length (SI base units of m),
+and $\delta({\bf r})$ is the volumetric sampling function (Dirac ``delta'' function; SI base units of m$^{-3}$).
+\index{Dirac delta function}
+In this formulation, $\widetilde{\bf J}$ has SI base units of A/m$^2$.
+%
+The magnetic vector potential radiated by this current, observed at the field point ${\bf r}$, was found to be
+%
+\begin{equation}
+\widetilde{\bf A}({\bf r}) = \hat{\bf l}~\mu~\widetilde{I}~\Delta l~\frac{e^{-\gamma \left|{\bf r}-{\bf r}'\right|}}{4\pi \left|{\bf r}-{\bf r}'\right|}
+\label{m0221_eA}
+\end{equation}
+%
+This solution was subsequently generalized to obtain the radiation from any distribution of \emph{line} current; i.e., any distribution of current that is constrained to flow along a single path through space, as along an infinitesimally-thin wire.
+
+In this section, we derive an expression for the radiation from current that is constrained to flow along a surface 
+\index{current density!surface}
+and from current which flows through a volume. 
+\index{current density!volume}  
+The solution in both cases can be obtained by ``recycling'' the solution for line current as follows.
+Letting $\Delta l$ shrink to the differential length $dl$, Equation~\ref{m0221_eCM} becomes:
+%
+\begin{equation}
+d\widetilde{\bf J}({\bf r}) = \hat{\bf l}~\widetilde{I}~dl~\delta({\bf r}-{\bf r}')
+\label{m0221_eCMd}
+\end{equation}  
+%
+Subsequently, Equation~\ref{m0221_eA} becomes:
+%
+\begin{equation}
+d\widetilde{\bf A}({\bf r};{\bf r}') = \hat{\bf l}~\mu~\widetilde{I}~dl~\frac{e^{-\gamma \left|{\bf r}-{\bf r}'\right|}}{4\pi \left|{\bf r}-{\bf r}'\right|}
+\label{m0221_eAd}
+\end{equation}
+%
+where the notation $d\widetilde{\bf A}({\bf r};{\bf r}')$ is used to denote the magnetic vector potential at the field point ${\bf r}$ due to the differential-length current moment at the source point ${\bf r}'$.
+Next, consider that any distribution of current can be described as a distribution of current moments.  
+By the principle of superposition, 
+\index{superposition}
+the radiation from this distribution of current moments can be calculated as the sum of the radiation from the individual current moments.
+This is expressed mathematically as follows:
+%
+\begin{equation}
+\widetilde{\bf A}({\bf r}) = \int{ d\widetilde{\bf A}({\bf r};{\bf r}') }
+\label{m0221_eAi}
+\end{equation}
+%
+where the integral is over ${\bf r}'$; i.e., summing over the source current.
+
+If we substitute Equation~\ref{m0221_eAd} into Equation~\ref{m0221_eAi}, we obtain the solution derived in Section~\ref{m0196_Solution_of_the_Wave_Equation_for_Magnetic_Vector_Potential}, which is specific to line distributions of current.
+To obtain the solution for surface and volume distributions of current, we reinterpret the definition of the differential current moment in Equation~\ref{m0221_eCMd}.
+Note that this current is completely specified by its direction ($\hat{\bf l}$) and the quantity $\widetilde{I}~dl$, which has SI base units of A$\cdot$m.  
+We may describe the same current distribution alternatively as follows:
+%
+\begin{equation}
+d\widetilde{\bf J}({\bf r}) = \hat{\bf l}~\widetilde{J}_s~ds~\delta({\bf r}-{\bf r}')
+\label{m0221_eCM2}
+\end{equation}
+%
+where $\widetilde{J}_s$ has units of surface current density (SI base units of A/m) and $ds$ has units of area (SI base units of m$^2$).
+To emphasize that this is precisely the same current moment, note that $\widetilde{J}_s~ds$, like $\widetilde{I}~dl$, has units of A$\cdot$m.
+Similarly, 
+%
+\begin{equation}
+d\widetilde{\bf J}({\bf r}) = \hat{\bf l}~\widetilde{J}~dv~\delta({\bf r}-{\bf r}')
+\label{m0221_eCM3}
+\end{equation}
+%
+where $\widetilde{J}$ has units of volume current density (SI base units of A/m$^2$) and $dv$ has units of volume (SI base units of m$^3$).
+Again, $\widetilde{J}~dv$ has units of A$\cdot$m.
+Summarizing, we have found that
+%
+\begin{equation}
+\widetilde{I}~dl = \widetilde{J}_s~ds = \widetilde{J}~dv
+\label{m0221_eCDE}
+\end{equation}
+%
+all describe the same differential current moment. 
+ 
+Thus, we may obtain solutions for surface and volume distributions of current simply by replacing $\widetilde{I}~dl$ in Equation~\ref{m0221_eAd}, and subsequently in Equation~\ref{m0221_eAi}, with the appropriate quantity from Equation~\ref{m0221_eCDE}.
+For a surface current distribution, we obtain:
+%
+\begin{equation}
+\boxed{
+\widetilde{\bf A}({\bf r}) = \frac{\mu}{4\pi}~\int_{\mathcal{S}}~\widetilde{\bf J}_s({\bf r}') ~\frac{e^{-\gamma \left|{\bf r}-{\bf r}'\right|}}{\left|{\bf r}-{\bf r}'\right|} ~ds
+}
+\label{m0221_eAS}
+\end{equation}
+%
+where $\widetilde{\bf J}_s({\bf r}') \triangleq \hat{\bf l}({\bf r}')\widetilde{J}_s({\bf r}')$ and
+where $\mathcal{S}$ is the surface over which the current flows.
+Similarly for a volume current distribution, we obtain:
+%
+\begin{equation}
+\boxed{
+\widetilde{\bf A}({\bf r}) = \frac{\mu}{4\pi}~\int_{\mathcal{V}} ~\widetilde{\bf J}({\bf r}') ~\frac{e^{-\gamma \left|{\bf r}-{\bf r}'\right|}}{\left|{\bf r}-{\bf r}'\right|} ~dv
+}
+\label{m0221_eAV}
+\end{equation}
+where $\widetilde{\bf J}({\bf r}') \triangleq \hat{\bf l}({\bf r}')\widetilde{J}({\bf r}')$ and
+where $\mathcal{V}$ is the volume in which the current flows.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The magnetic vector potential corresponding to radiation from a surface and volume distribution of current is given by Equations~\ref{m0221_eAS} and \ref{m0221_eAV}, respectively. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Given $\widetilde{\bf A}({\bf r})$, the magnetic and electric fields may be determined using the procedure developed in Section~\ref{m0195_Magnetic_Vector_Potential}.
+

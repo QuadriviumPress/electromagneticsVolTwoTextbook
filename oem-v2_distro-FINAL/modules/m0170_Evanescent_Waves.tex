@@ -1,0 +1,213 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Evanescent Waves
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191120   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0170_Evanescent_Waves} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waves!evanescent|(}
+\index{evanescent waves|see{waves}}
+
+Consider the situation shown in Figure~\ref{m0170_fOblique}: 
+%
+\begin{figure}[b!]
+\begin{center}
+\pdftooltip{{  % note double braces
+\includegraphics[width=0.8\columnwidth]{modules/m0170_fOblique.eps} 
+% https://commons.wikimedia.org/wiki/File:Upw_incident_on_planar_boundary_total_internal_reflection.svg
+}}{For a z-x Cartesian coordinate system, a vertical planar boundary separates region 1 (left) from region 2 (right). Plane wave travels at an oblique angle. It is reflected at an angle of small psi superscript small r is equal to small psi superscript small i. Transmitted wave is vertical.}
+\end{center}
+\centerline{\scriptsize 
+\copyright~\hyperref[m0170_fOblique_Credit]{C.\ Wang} 
+\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} 
+} 
+\caption{
+\label{m0170_fOblique}
+A uniform plane wave obliquely incident on the planar boundary between two semi-infinite material regions.
+Here $\mu_{r1}\epsilon_{r1}>\mu_{r2}\epsilon_{r2}$ and $\psi^i>\psi^i_c$.
+}
+\end{figure}
+%
+A uniform plane wave obliquely incident on the planar boundary between two semi-infinite material regions, and
+total internal reflection
+\index{total internal reflection}
+occurs because the angle of incidence $\psi^i$ is greater than the critical angle
+%
+\begin{equation}
+\psi^i_c = \arcsin\sqrt{\frac{\mu_{r2}\epsilon_{r2}}{\mu_{r1}\epsilon_{r1}}}
+\label{m0170_eCA}
+\end{equation}
+%
+Therefore, the reflection coefficient is complex-valued with magnitude equal to 1 and phase that depends on polarization and the constitutive parameters of the media.
+
+The total reflection of the incident wave seems to contradict the boundary conditions that require the tangential components of the electric and magnetic fields to be continuous across the boundary.
+How can these components of the fields be continuous across the boundary if no power is transmitted across the boundary?
+There must be a field on the opposite side of the boundary, but -- somehow -- it must have zero power.
+To make sense of this, let us attempt to find a solution for the transmitted field.
+
+We begin by postulating a complex-valued angle of transmission $\psi^{tc}$.
+Although the concept of a complex-valued angle may seem counterintuitive, there is mathematical support for this concept.
+For example, consider the well-known trigonometric identities:
+%
+\begin{flalign}
+\sin\theta &= \frac{1}{j2}\left( e^{j\theta} - e^{-j\theta} \right) \label{m0170_eSI} \\
+\cos\theta &= \frac{1}{2}\left( e^{j\theta} + e^{-j\theta} \right) \label{m0170_eSC}
+\end{flalign} 
+%
+These identities allow us to compute values for sine and cosine even when $\theta$ is complex-valued.
+One may conclude that the sine and cosine of a complex-valued angle exist, although the results may also be complex-valued.
+
+Based on the evidence established so far, we presume that $\psi^{tc}$ behaves as follows:
+%
+\begin{flalign}
+\psi^{tc} &\triangleq \psi^t~\mbox{,} ~~~ ~~~ ~~~\psi^i<\psi^i_c \label{m0170_eptc1} \\
+\psi^{tc} &\triangleq \pi/2~\mbox{,}  ~~~ ~~~ \psi^i=\psi^i_c \label{m0170_eptc2} \\
+\psi^{tc} &\triangleq \pi/2+j\psi''~\mbox{,} ~~~ \psi^i>\psi^i_c \label{m0170_eptc3}
+\end{flalign}
+%
+In other words, $\psi^{tc}$ is identical to $\psi^t$ for $\psi^i\le\psi^i_c$, but when total internal reflection occurs, we presume the real part of $\psi^{tc}$ remains fixed (parallel to the boundary) and that an imaginary component $j\psi''$ emerges to satisfy the boundary conditions.
+
+For clarity, let us assign the variable $\psi'$ to represent the real part of $\psi^{tc}$ in Equations~\ref{m0170_eptc1}--\ref{m0170_eptc3}.
+Then we may refer to all three cases using a single expression as follows:
+%
+\begin{equation}
+\psi^{tc} = \psi' + j\psi''
+\end{equation}
+%
+Now we use a well-known trigonometric identity as follows: 
+%
+\begin{flalign}
+\sin{\psi^{tc}} &= \sin{\left(\psi' + j\psi''\right)} \\
+                &= \sin{\psi'}\cos{j\psi''} + \cos{\psi'}\sin{j\psi''} \label{m0170_eSptc}
+\end{flalign}
+%
+Using Equation~\ref{m0170_eSC}, we find:
+%
+\begin{flalign}
+\cos{j\psi''} &= \frac{1}{2}\left( e^{j\left(j\psi''\right)} + e^{-j\left(j\psi''\right)} \right) \\
+              &= \frac{1}{2}\left( e^{-\psi''} + e^{+\psi''} \right) \\
+              &= \cosh{\psi''}
+\end{flalign}
+%
+In other words, the cosine of $j\psi''$ is simply the hyperbolic cosine (``$\cosh$'') of $\psi''$.
+Interestingly, $\cosh$ of a real-valued argument is real-valued, so $\cos{j\psi''}$ is real-valued.
+
+Using Equation~\ref{m0170_eSI}, we find:
+%
+\begin{flalign}
+\sin{j\psi''} &= \frac{1}{j2}\left( e^{j\left(j\psi''\right)} - e^{-j\left(j\psi''\right)} \right) \\
+              &= \frac{1}{j2}\left( e^{-\psi''} - e^{+\psi''} \right) \\
+              &= j\frac{1}{2}\left( e^{+\psi''} - e^{-\psi''} \right) \\
+              &= j\sinh{\psi''}
+\end{flalign}
+%
+In other words, the sine of $j\psi''$ is $j$ times hyperbolic sine (``$\sinh$'') of $\psi''$.
+Now note that $\sinh$ of a real-valued argument is real-valued, so $\sin{j\psi''}$ is imaginary-valued.
+
+Using these results, we find Equation~\ref{m0170_eSptc} may be written as follows:
+%
+\begin{equation}
+\sin{\psi^{tc}} = \sin{\psi'}\cosh{\psi''} + j\cos{\psi'}\sinh{\psi''} 
+\label{m0170_eStc2}
+\end{equation}
+%
+Using precisely the same approach, we find:
+%
+\begin{equation}
+\cos{\psi^{tc}} = \cos{\psi'}\cosh{\psi''} - j\sin{\psi'}\sinh{\psi''} 
+\label{m0170_eCtc2}
+\end{equation}
+
+Before proceeding, let's make sure Equations~\ref{m0170_eStc2} and \ref{m0170_eCtc2} exhibit the expected behavior before the onset of total internal reflection.
+For $\psi^i<\psi^i_c$, $\psi'=\psi^t$ and $\psi''=0$.
+In this case, $\sinh\psi''=0$, $\cosh\psi''=1$, and Equations~\ref{m0170_eStc2} and \ref{m0170_eCtc2} yield
+%
+\begin{flalign}
+\sin{\psi^{tc}} &= \sin{\psi^t} \\
+\cos{\psi^{tc}} &= \cos{\psi^t}
+\end{flalign}
+%
+as expected.
+
+When total internal reflection is in effect, $\psi^i>\psi^i_c$, so $\psi'=\pi/2$.
+In this case, Equations~\ref{m0170_eStc2} and \ref{m0170_eCtc2} yield
+%
+\begin{flalign}
+\sin{\psi^{tc}} &= \cosh{\psi''} \\
+\cos{\psi^{tc}} &= -j\sinh{\psi''}
+\end{flalign}
+%
+Let us now consider what this means for the field in Region~2.
+According to the formalism adopted in previous sections, the propagation of wave components in this region is described by the factor $e^{-j{\bf k}^t\cdot{\bf r}}$ where
+%
+\begin{flalign}
+{\bf k}^t &= \beta_2\hat{\bf k}^t  \nonumber \\
+          &= \beta_2\left( \hat{\bf x}\sin\psi^{tc} + \hat{\bf z}\cos\psi^{tc} \right) 
+\end{flalign}
+%
+and
+%
+\begin{equation}
+{\bf r} = \hat{\bf x}x + \hat{\bf y}y + \hat{\bf z}z
+\end{equation}
+%
+so
+%
+\begin{flalign}
+{\bf k}^t\cdot{\bf r} &= \left(\beta_2\sin\psi^{tc}\right)x + \left(\beta_2\cos\psi^{tc}\right)z \nonumber \\
+                      &= \left(\beta_2\cosh{\psi''}\right)x + \left(-j\beta_2\sinh{\psi''}\right)z 
+\end{flalign}
+%
+Therefore, the wave in Region~2 propagates according to
+%
+\begin{flalign}
+e^{-j{\bf k}^t\cdot{\bf r}} &= e^{-j\left(\beta_2\cosh{\psi''}\right)x}e^{-\left(\beta_2\sinh{\psi''}\right)z}
+\label{m0170_eEv1}
+\end{flalign}
+%
+Note that the constants $\beta_2\cosh{\psi''}$ and $\beta_2\sinh{\psi''}$ are both real-valued and positive.
+Therefore, Equation~\ref{m0170_eEv1} describes a wave which propagates in the $+\hat{\bf x}$ direction, but which is not uniform.
+Specifically, the magnitude of the transmitted field decreases exponentially with increasing $z$; i.e., maximum at the boundary, asymptotically approaching zero with increasing distance from the boundary.
+This wave is unlike the incident or reflected waves (both uniform plane waves), and is unlike the transmitted wave in the $\psi^i<\psi^i_c$ case (also a uniform plane wave).
+The transmitted wave that we have derived in the $\psi^i>\psi^i_c$ case gives the impression of being somehow attached to the boundary, and so may be described as a \emph{surface wave}.
+\index{waves!surface}
+\index{surface wave|see{waves}}
+However, in this case we have a particular kind of surface wave, known as an \emph{evanescent wave}.
+Summarizing:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+When total internal reflection occurs, the transmitted field is an evanescent wave; i.e., a surface wave which conveys no power and whose magnitude decays exponentially with increasing distance into Region~2. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+At this point, we could enforce the ``phase matching'' condition at the boundary, which would lead us to a new version of Snell's law 
+\index{Snell's law}
+that would allow us to solve for $\psi''$ in terms of $\psi^i$ and the constitutive properties of the media comprising Regions~1 and 2.
+We could subsequently determine values for the phase propagation and attenuation constants for the evanescent wave.
+It suffices to say that the magnitude of the evanescent field becomes negligible beyond a few wavelengths of the boundary.
+
+Finally, we return to the strangest characteristic of this field:  It acts like a wave, but conveys no power. 
+This field exists solely to enforce the electromagnetic boundary conditions at the boundary, and does not exist independently of the incident and reflected field.  
+The following thought experiment may provide some additional insight.
+
+In this experiment, a laser illuminates a planar boundary between two material regions, with conditions such that total internal reflection occurs.  Thus, all incident power is reflected, and an evanescent wave exists on the opposite side of the boundary.  
+Next, the laser is turned off.  
+All the light incident on the boundary reflects from the boundary and continues to propagate to infinity, even after light is no longer incident on the boundary.  In contrast, the evanescent wave vanishes at the moment laser light ceases to illuminate the boundary.  In other words, the evanescent field does not continue to propagate along the boundary to infinity.  The reason for this is simply that there is no power -- hence, no energy -- in the evanescent wave. 
+  
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Evanescent_field}{Evanescent field}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Hyperbolic_function}{Hyperbolic function}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Total_internal_reflection}{Total internal reflection}'' on Wikipedia.
+\end{itemize}
+
+\index{waves!evanescent|)}
+

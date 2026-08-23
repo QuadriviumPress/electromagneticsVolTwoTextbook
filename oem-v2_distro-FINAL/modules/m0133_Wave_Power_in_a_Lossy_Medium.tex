@@ -1,0 +1,119 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Wave Power in a Lossy Medium
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT  
+
+\label{m0133_Wave_Power_in_a_Lossy_Medium} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waves!power density|(}
+
+In this section, we consider the power associated with waves propagating in materials which are potentially lossy; i.e., having conductivity $\sigma$ significantly greater than zero.
+This topic has previously been considered in the section ``Wave Power in a Lossless Medium'' for the case in loss is not significant.\footnote{Depending on the version of this book, this section may appear in another volume.}
+A review of that section may be useful before reading this section.
+
+Recall that the Poynting vector
+\index{Poynting vector}
+%
+\begin{equation}
+{\bf S} \triangleq {\bf E} \times {\bf H} 
+\end{equation}
+%
+indicates the power density (i.e., W/m$^2$) of a wave and the direction of power flow.
+This is ``instantaneous'' power, applicable to waves regardless of the way they vary with time.
+Often we are interested specifically in waves which vary sinusoidally, and which subsequently may be represented as phasors.  In this case, the \emph{time-average} Poynting vector is 
+%
+\begin{equation}
+{\bf S}_{ave} \triangleq \frac{1}{2} \mbox{Re} \left\{ \widetilde{\bf E} \times \widetilde{\bf H}^* \right\}
+\label{m0133_ePVP}
+\end{equation}
+%
+Further, we have already used this expression to find that the time-average power density for a sinusoidally-varying uniform plane wave in a lossless medium is simply
+%
+\begin{equation}
+S_{ave} = \frac{\left|E_0\right|^2}{2\eta} ~~~ \mbox{(lossless case)}
+\label{m0133_ePaveL}
+\end{equation}
+%
+where $\left|E_0\right|$ is the peak (as opposed to RMS) magnitude of the electric field intensity phasor, and $\eta$ is the wave impedance.
+
+Let us now use Equation~\ref{m0133_ePVP} to determine the expression corresponding to Equation~\ref{m0133_ePaveL} in the case of possibly-lossy media.
+We may express the electric and magnetic field intensities of a uniform plane wave as
+%
+\begin{equation}
+\widetilde{\bf E} = \hat{\bf x}E_0 e^{-\alpha z} e^{-j\beta z}
+\label{m0133_eE}
+\end{equation}
+%
+and 
+%
+\begin{equation}
+\widetilde{\bf H} = \hat{\bf y}\frac{E_0}{\eta_c} e^{-\alpha z} e^{-j\beta z}
+\end{equation}
+%
+where $\alpha$ and $\beta$ are the attenuation constant and phase propagation constant, respectively, and 
+$\eta_c$ is the complex-valued wave impedance.
+As written, these expressions describe a wave which is $+\hat{\bf x}$-polarized and propagates in the $+\hat{\bf z}$ direction.  
+We make these choices for convenience only -- as long as the medium is homogeneous and isotropic, we expect our findings to apply regardless of polarization and direction of propagation. 
+Applying Equation~\ref{m0133_ePVP}:
+%
+\begin{flalign}
+{\bf S}_{ave} &= \frac{1}{2} \mbox{Re} \left\{ \widetilde{\bf E} \times \widetilde{\bf H}^* \right\} \nonumber \\
+&= \frac{1}{2} ~ \hat{\bf z} ~ \mbox{Re} \left\{ \frac{\left|E_0\right|^2}{\eta_c^*} e^{-2\alpha z} \right\} \nonumber \\
+&= \hat{\bf z} \frac{\left|E_0\right|^2}{2} ~ \mbox{Re} \left\{ \frac{1}{\eta_c^*} \right\} e^{-2\alpha z} 
+\label{m0133_eSave1}
+\end{flalign}
+%
+Because $\eta_c$ is complex-valued when the material is lossy, we must proceed with caution.
+First, let us write $\eta_c$ explicitly in terms of its magnitude $\left|\eta_c\right|$ and phase $\psi_{\eta}$:
+%
+\begin{equation}
+\eta \triangleq \left|\eta\right| e^{j\psi_{\eta}}
+\end{equation}
+%
+Then:
+%
+\begin{flalign}
+\eta_c^* &= \left|\eta_c\right| e^{-j\psi_{\eta}} \\
+\left(\eta_c^*\right)^{-1} &= \left|\eta_c\right|^{-1} e^{+j\psi_{\eta}} \\
+\mbox{Re}\left\{\left(\eta_c^*\right)^{-1}\right\} &= \left|\eta_c\right|^{-1} \cos{\psi_{\eta}} 
+\end{flalign}
+%
+Then Equation~\ref{m0133_eSave1} may be written:
+%
+\begin{equation}
+\boxed{
+{\bf S}_{ave} = \hat{\bf z} \frac{\left|E_0\right|^2}{2\left|\eta_c\right|} ~ e^{-2\alpha z} ~ \cos{\psi_{\eta}} 
+}
+\label{m0133_eSave} 
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The time-average power density of the plane wave described by Equation~\ref{m0133_eE} in a possibly-lossy material is given by Equation~\ref{m0133_eSave}. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As a check, note that this expression gives the expected result for lossless media; i.e., $\alpha=0$, $\left|\eta_c\right|=\eta$, and $\psi_{\eta}=0$.
+We now see that the effect of loss is that power density is now proportional to $\left(e^{-\alpha z}\right)^2$, so, as expected, power density is proportional to the square of either $\left|{\bf E}\right|$ or $\left|{\bf H}\right|$.
+The result further indicates a one-time scaling of the power density by a factor of 
+%
+\begin{equation}
+\frac{\left|\eta\right|}{\left|\eta_c\right|}\cos\psi_{\eta} < 1
+\end{equation}
+%
+relative to a medium without loss.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The reduction in power density due to non-zero conductivity is proportional to a distance-dependent factor $e^{-2\alpha z}$ and an additional factor that depends on the magnitude and phase of $\eta_c$. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{waves!power density|(}
+

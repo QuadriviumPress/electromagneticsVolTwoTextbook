@@ -1,0 +1,239 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Rectangular Waveguide: Propagation Characteristics
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191202   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0224_Rectangular_Waveguide_Prop} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waveguide!rectangular|(}
+
+In this section, we consider the propagation characteristics of TE and TM modes in rectangular waveguides.
+Because these modes exhibit the same phase dependence on $z$, findings of this section apply equally to both sets of modes.
+Recall that the TM modes in a rectangular waveguide are given by:
+ %
+\begin{equation}
+\widetilde{E}_z^{(m,n)} = E_0^{(m,n)} \sin\left(\frac{m\pi}{a} x\right) \sin\left(\frac{n\pi}{b} y\right) e^{-jk_z^{(m,n)} z} \label{m0224_eEz}
+\end{equation}
+%
+where 
+$E_0^{(m,n)}$ is an arbitrary constant (determined in part by sources), 
+and:
+% 
+\begin{equation}
+k_z^{(m,n)} = \sqrt{ \omega^2\mu\epsilon - \left(\frac{m\pi}{a}\right)^2 - \left(\frac{n\pi}{b}\right)^2   } \label{m0224_ekzm}
+\end{equation}
+%
+The TE modes in a rectangular waveguide are:
+ %
+\begin{equation}
+\widetilde{H}_z^{(m,n)} = H_0^{(m,n)} \cos\left(\frac{m\pi}{a} x\right) \cos\left(\frac{n\pi}{b} y\right) e^{-jk_z^{(m,n)} z} \label{m0224_eHz}
+\end{equation}
+%
+where 
+$H_0^{(m,n)}$ is an arbitrary constant (determined in part by sources).
+
+{\bf Cutoff frequency}.
+First, observe that values of $k_z^{(m,n)}$ obtained from Equation~\ref{m0224_ekzm} are not necessarily real-valued.  
+For any given value of $m$, $(k_z^{(m,n)})^2$ will be negative for all values of $n$ greater than some value.
+Similarly, for any given value of $n$, $(k_z^{(m,n)})^2$ will be negative for all values of $m$ greater than some value.
+Should either of these conditions occur, we find:
+% 
+\begin{flalign}
+\left(k_z^{(m,n)}\right)^2 &=        \omega^2\mu\epsilon - \left(\frac{m\pi}{a}\right)^2 - \left(\frac{n\pi}{b}\right)^2  ~~~ < 0 \nonumber \\
+                           &= -\left|\omega^2\mu\epsilon - \left(\frac{m\pi}{a}\right)^2 - \left(\frac{n\pi}{b}\right)^2  \right| \nonumber \\
+                           &= -\alpha^2      
+\end{flalign}
+%
+where $\alpha$ is a positive real-valued constant.
+So:
+% 
+\begin{flalign}
+k_z^{(m,n)} &= \pm j \alpha
+\end{flalign}
+%
+Subsequently:
+%
+\begin{flalign}
+e^{-jk_z^{(m,n)} z} &= e^{-j \left(\pm j \alpha\right) z} \nonumber \\
+                    &= e^{\pm \alpha z} 
+\end{flalign}
+%
+The ``$+$'' sign option corresponds to a wave that grows exponentially in magnitude with increasing $z$, which is non-physical behavior.
+Therefore:
+%
+\begin{equation}
+e^{-jk_z^{(m,n)} z} = e^{-\alpha z}
+\end{equation}
+%
+Summarizing:  When values of $m$ or $n$ are such that $(k_z^{(m,n)})^2<0$, the magnitude of the associated wave is no longer constant with $z$.
+Instead, the magnitude of the wave decreases exponentially with increasing $z$.
+Such a wave does not effectively convey power through the waveguide, and is said to be \emph{cut off}.
+
+Since waveguides are normally intended for the efficient transfer of power, it is important to know the criteria for a mode to be cut off.
+Since cutoff occurs when $(k_z^{(m,n)})^2<0$, cutoff occurs when:
+%
+\begin{equation}
+\omega^2\mu\epsilon > \left(\frac{m\pi}{a}\right)^2 + \left(\frac{n\pi}{b}\right)^2
+\end{equation}
+%
+Since $\omega=2\pi f$:
+%
+\begin{flalign}
+f &> \frac{1}{2\pi\sqrt{\mu\epsilon}} \sqrt{ \left(\frac{m\pi}{a}\right)^2 + \left(\frac{n\pi}{b}\right)^2 } \\
+  &= \frac{1}{2\sqrt{\mu\epsilon}} \sqrt{ \left(\frac{m}{a}\right)^2 + \left(\frac{n}{b}\right)^2 }
+\end{flalign}
+%
+Note that $1/\sqrt{\mu\epsilon}$ is the phase velocity $v_p$ for the medium used in the waveguide.  With this in mind, let us define:
+%
+\begin{equation}
+v_{pu} \triangleq \frac{1}{\sqrt{\mu\epsilon}}
+\end{equation}
+%
+This is the phase velocity in an unbounded medium having the same permeability and permittivity as the interior of the waveguide.
+Thus:
+%
+\begin{equation}
+f > \frac{v_{pu}}{2} \sqrt{ \left(\frac{m}{a}\right)^2 + \left(\frac{n}{b}\right)^2 }
+\end{equation}
+%
+In other words, the mode $(m,n)$ avoids being cut off if the frequency is high enough to meet this criterion.
+Thus, it is useful to make the following definition:
+%
+\begin{equation}
+f_{mn} \triangleq \frac{v_{pu}}{2} \sqrt{ \left(\frac{m}{a}\right)^2 + \left(\frac{n}{b}\right)^2 } \label{m0224_efmn}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The \emph{cutoff frequency}
+\index{cutoff frequency}
+$f_{mn}$ (Equation~\ref{m0224_efmn}) is the lowest frequency for which the mode $(m,n)$ is able to propagate (i.e., not cut off). 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\label{m0224_exWR90}
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Cutoff frequencies for WR-90. 
+\\~\\
+WR-90 is a popular implementation of rectangular waveguide.
+WR-90 is air-filled with dimensions $a=22.86$~mm and $b=10.16$~mm.
+Determine cutoff frequencies and, in particular, the lowest frequency at which WR-90 can be used.
+
+{\bf Solution}. 
+Since WR-90 is air-filled, $\mu\approx\mu_0$, $\epsilon\approx\epsilon_0$, and $v_{pu} \approx {1}{\sqrt{\mu_0 \epsilon_0}} \cong 3.00 \times 10^8$~m/s.
+Cutoff frequencies are given by Equation~\ref{m0224_efmn}.
+Recall that there are no non-zero TE or TM modes with $m=0$ and $n=0$.
+Since $a>b$, the lowest non-zero cutoff frequency is achieved when $m=1$ and $n=0$.
+In this case, Equation~\ref{m0224_efmn} yields $f_{10} = \underline{6.557~\mbox{GHz}}$; this is the lowest frequency that is able to propagate efficiently in the waveguide.
+The next lowest cutoff frequency is $f_{20} = 13.114~\mbox{GHz}$.
+The third lowest cutoff frequency is $f_{01} = 14.754~\mbox{GHz}$.
+The lowest-order TM mode that is non-zero and not cut off is TM$_{11}$ ($f_{11}=16.145$~\mbox{GHz}).
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Phase velocity}.
+\index{phase velocity}
+The phase velocity for a wave propagating within a rectangular waveguide is greater than that of electromagnetic radiation in unbounded space.
+For example, the phase velocity of any propagating mode in a vacuum-filled waveguide is greater than $c$, the speed of light in free space.
+This is a surprising result.
+Let us first derive this result and then attempt to make sense of it.
+
+Phase velocity $v_p$ in the rectangular waveguide is given by
+%
+\begin{flalign}
+v_p &\triangleq \frac{\omega}{k_z^{(m,n)}} \\
+    & = \frac{\omega}{\sqrt{ \omega^2\mu\epsilon - \left(m\pi/a\right)^2 - \left(n\pi/b\right)^2   }}
+\end{flalign}
+%
+Immediately we observe that phase velocity seems to be different for different modes.
+Dividing the numerator and denominator by $\beta=\omega\sqrt{\mu\epsilon}$, we obtain:
+%
+\begin{flalign}
+v_p &= \frac{1}{\sqrt{\mu\epsilon}}\frac{1}{\sqrt{ 1 - \left(\omega^2\mu\epsilon\right)^{-1}\left[\left(m\pi/a\right)^2 + \left(n\pi/b\right)^2 \right]  }}
+\label{m0224_evp2}
+\end{flalign}
+%
+Note that $1/\sqrt{\mu\epsilon}$ is $v_{pu}$, as defined earlier.
+Employing Equation~\ref{m0224_efmn} and also noting that $\omega=2\pi f$, Equation~\ref{m0224_evp2} may be rewritten in the following form:
+%
+\begin{flalign}
+v_p &= \frac{v_{pu}}{\sqrt{ 1 - \left(f_{mn}/f\right)^2  }}
+\end{flalign}
+%
+For any propagating mode, $f>f_{mn}$; subsequently, $v_p > v_{pu}$.
+In particular, $v_p > c$ for a vacuum-filled waveguide.
+
+How can this not be a violation of fundamental physics?
+As noted in Section~\ref{m0176_Phase_and_Group_Velocity}, phase velocity is \emph{not} necessarily the speed at which information travels, but is merely the speed at which a point of constant phase travels.  To send information, we must create a disturbance in the otherwise sinusoidal excitation presumed in the analysis so far.
+The complex field structure creates points of constant phase that travel faster than the disturbance is able to convey information, so there is no violation of physical principles.
+
+{\bf Group velocity}.
+\index{group velocity}
+As noted in Section~\ref{m0176_Phase_and_Group_Velocity}, the speed at which information travels is given by the group velocity $v_g$.
+In unbounded space, $v_g=v_p$, so the speed of information is equal to the phase velocity in that case.
+In a rectangular waveguide, the situation is different.
+We find:
+%
+\begin{flalign}
+v_g &= \left( \frac{\partial k_z^{(m,n)} }{\partial\omega} \right)^{-1} \\
+    & = v_{pu}\sqrt{ 1 - \left(f_{mn}/f\right)^2  } \label{m0224_eGV}
+\end{flalign} 
+%
+which is always \emph{less} than $v_{pu}$ for a propagating mode.
+
+Note that group velocity in the waveguide depends on frequency in two ways.
+First, because $f_{mn}$ takes on different values for different modes, group velocity is different for different modes.
+Specifically, higher-order modes propagate more slowly than lower-order modes having the same frequency.
+This is known as \emph{modal dispersion}.
+\index{dispersion}
+%\index{mode (modal) dispersion}
+Secondly, note that the group velocity of any given mode depends on frequency.
+This is known as \emph{chromatic dispersion}.
+%\index{chromatic dispersion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The speed of a signal within a rectangular waveguide is given by the group velocity of the associated mode (Equation~\ref{m0224_eGV}).
+This speed is less than the speed of propagation in unbounded media having the same permittivity and permeability.
+Speed depends on the ratio $f_{mn}/f$, and generally decreases with increasing frequency for any given mode.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Speed of propagating in WR-90. 
+\\~\\
+Revisiting WR-90 waveguide from Example~\ref{m0224_exWR90}:
+What is the speed of propagation for a narrowband signal at 10~GHz?
+
+{\bf Solution}. 
+Let us assume that ``narrowband'' here means that the bandwidth is negligible relative to the center frequency, so that we need only consider the center frequency.
+As previously determined, the lowest-order propagating mode is TE$_{10}$, for which $f_{10} = 6.557~\mbox{GHz}$.
+The next-lowest cutoff frequency is $f_{20} = 13.114~\mbox{GHz}$.
+Therefore, only the TE$_{10}$ mode is available for this signal.
+The group velocity for this mode at the frequency of interest is given by Equation~\ref{m0224_eGV}.
+Using this equation, the speed of propagation is found to be \underline{$\cong 2.26 \times 10^8$~m/s}, which is about 75.5\% of $c$.
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{waveguide!rectangular|)}
+
+

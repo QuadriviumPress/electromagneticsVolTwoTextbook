@@ -1,0 +1,275 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Wave Equations for Lossy Regions
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT  
+
+\label{m0128_Wave_Equations_Lossy_Regions} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{wave equation!source-free lossy region|(}
+
+The wave equations for electromagnetic propagation in lossless and source-free media, in differential phasor form, are:
+%
+\begin{flalign}
+\nabla^2\widetilde{\bf E} +\omega^2\mu\epsilon \widetilde{\bf E} &= 0 \label{m0128_eEL} \\
+\nabla^2\widetilde{\bf H} +\omega^2\mu\epsilon \widetilde{\bf H} &= 0 \label{m0128_eHL}
+\end{flalign} 
+%
+The constant $\omega^2\mu\epsilon$ is labeled $\beta^2$, and $\beta$ turns out to be the phase propagation constant.
+\index{propagation constant!phase}
+
+Now, we wish to upgrade these equations to account for the possibility of loss.  First, let's be clear on what we mean by ``loss.''  Specifically, we mean the possibility of conversion of energy from the propagating wave into current, and subsequently to heat.  This mechanism is described by Ohm's law:
+\index{Ohm's law}
+%\footnote{See the section entitled ``Conductivity'' for a refresher.  This section may appear in a different volume depending on the version of this book.}
+%
+\begin{equation}
+\widetilde{\bf J} = \sigma\widetilde{\bf E} %~~~ \mbox{(phasor form)}
+\end{equation}
+%
+where $\sigma$ is conductivity and $\widetilde{\bf J}$ is conduction current density (SI base units of A/m$^2$).
+In the lossless case, $\sigma$ is presumed to be zero (or at least negligible), so ${\bf J}$ is presumed to be zero.  To obtain wave equations for media exhibiting significant loss, we cannot assume ${\bf J}=0$.
+
+To obtain equations that account for the possibility of significant conduction current, hence loss, we return to the phasor forms of Maxwell's equations:
+\index{Maxwell's equations!differential phasor form}
+%
+\begin{flalign}
+\nabla \cdot \widetilde{\bf E}   &= \frac{\widetilde{\rho}_v}{\epsilon} \label{m0128_eMFE} \\
+\nabla \times  \widetilde{\bf E} &= -j\omega\mu\widetilde{\bf H} \label{m0128_eGL} \\
+\nabla \cdot \widetilde{\bf H}   &= 0 \label{m0128_eGM} \\
+\nabla \times \widetilde{\bf H}  &= \widetilde{\bf J} + j\omega\epsilon\widetilde{\bf E} \label{m0128_eACL}
+\end{flalign}
+%
+where $\widetilde{\rho}_v$ is the charge density.
+If the region of interest is source-free, then $\widetilde{\rho}_v=0$.
+However, we may not similarly suppress $\widetilde{\bf J}$ since $\sigma$ may be non-zero.
+To make progress, let us identify the possible contributions to $\widetilde{\bf J}$ as follows:
+%
+\begin{equation}
+\widetilde{\bf J} = \widetilde{\bf J}_{imp} + \widetilde{\bf J}_{ind}
+\label{m0128_eJimpJind}
+\end{equation}
+%
+where $\widetilde{\bf J}_{imp}$ represents \emph{impressed} sources of current and $\widetilde{\bf J}_{ind}$ represents current which is \emph{induced} by loss.  
+An impressed current is one whose behavior is independent of other features, analogous to an independent current source in elementary circuit theory.
+In the absence of such sources, Equation~\ref{m0128_eJimpJind} becomes:
+%
+\begin{flalign}
+\widetilde{\bf J} &= 0 + \sigma\widetilde{\bf E} 
+\end{flalign}
+%
+Equation~\ref{m0128_eACL} may now be rewritten as:
+%
+\begin{flalign}
+\nabla \times \widetilde{\bf H}  &= \sigma\widetilde{\bf E} + j\omega\epsilon\widetilde{\bf E} \\
+                                 &= \left(\sigma+j\omega\epsilon\right)\widetilde{\bf E} \\
+                                 &= j\omega\epsilon_c\widetilde{\bf E} 
+\end{flalign}
+%
+where we defined the new constant $\epsilon_c$ as follows:
+%
+\begin{equation}
+\epsilon_c \triangleq \epsilon - j\frac{\sigma}{\omega}
+\end{equation}
+%
+This constant is known as \emph{complex permittivity}.
+\index{permittivity!complex-valued}
+\index{complex permittivity|see{permittivity!complex-valued}}
+In the lossless case, $\epsilon_c = \epsilon$; i.e., the imaginary part of $\epsilon_c\rightarrow 0$ so there is no difference between the physical permittivity $\epsilon$ and $\epsilon_c$.
+The effect of the material's loss is represented as a non-zero imaginary component of the permittivity. 
+
+It is also common to express $\epsilon_c$ as follows:
+%
+\begin{equation}
+\epsilon_c = \epsilon' - j\epsilon'' \label{m0128_eecdef}
+\end{equation}
+%
+where the real-valued constants $\epsilon'$ and $\epsilon''$ are in this case: 
+%
+\begin{flalign}
+\epsilon'  &= \epsilon \label{m0128_eepdef} \\
+\epsilon'' &= \frac{\sigma}{\omega} \label{m0128_eeppdef}
+\end{flalign}
+
+This alternative notation is useful for three reasons.
+First, some authors use the symbol $\epsilon$ to refer to \emph{both} physical permittivity \emph{and} complex permittivity. In this case, the ``$\epsilon'-j\epsilon''$'' notation is helpful in mitigating confusion. 
+Second, it is often more convenient to specify $\epsilon''$ at a frequency than it is to specify $\sigma$, which may also be a function of frequency.  In fact, in some applications the loss of a material is most conveniently specified using the ratio $\epsilon''/\epsilon'$ (known as \emph{loss tangent}, 
+\index{loss tangent}
+for reasons explained elsewhere).
+Finally, it turns out that \emph{nonlinearity} of permittivity can \emph{also} be accommodated as an imaginary component of the permittivity. 
+The ``$\epsilon''$'' notation allows us to accommodate both effects -- nonlinearity and conductivity -- using common notation.  
+In this section, however, we remain focused exclusively on conductivity.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Complex permittivity $\epsilon_c$ (SI base units of F/m) describes the combined effects of permittivity and conductivity.
+Conductivity is represented as an imaginary-valued component of the permittivity.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Returning to Equations~\ref{m0128_eMFE}--\ref{m0128_eACL}, we obtain:
+%
+\begin{flalign}
+\nabla \cdot \widetilde{\bf E}   &= 0  \\
+\nabla \times  \widetilde{\bf E} &= -j\omega\mu\widetilde{\bf H}  \\
+\nabla \cdot \widetilde{\bf H}   &= 0 \\
+\nabla \times \widetilde{\bf H}  &= j\omega\epsilon_c\widetilde{\bf E} 
+\end{flalign}
+%
+These equations are \emph{identical} to the corresponding equations for the lossless case, with the exception that $\epsilon$ has been replaced by $\epsilon_c$.
+Similarly, we may replace the factor $\omega^2 \mu\epsilon$ in Equations~\ref{m0128_eEL} and \ref{m0128_eHL}, yielding:
+%
+\begin{flalign}
+\nabla^2\widetilde{\bf E} +\omega^2\mu\epsilon_c \widetilde{\bf E} &= 0 \label{m0128_eE} \\
+\nabla^2\widetilde{\bf H} +\omega^2\mu\epsilon_c \widetilde{\bf H} &= 0 \label{m0128_eH}
+\end{flalign} 
+%
+In the lossless case, $\omega^2\mu\epsilon_c \rightarrow \omega^2\mu\epsilon$, which is $\beta^2$ as expected.
+For the general (i.e., possibly lossy) case, we shall make an analogous definition
+%
+\begin{equation}
+\gamma^2 \triangleq -\omega^2\mu\epsilon_c 
+\label{m0128_egammadef}
+\end{equation}
+%
+such that the wave equations may now be written as follows:
+%
+\begin{equation}
+\boxed{
+\nabla^2\widetilde{\bf E} -\gamma^2 \widetilde{\bf E} = 0 
+}
+\label{m0128_eEg}
+\end{equation} 
+%
+\begin{equation}
+\boxed{
+\nabla^2\widetilde{\bf H} -\gamma^2 \widetilde{\bf H} = 0 
+}
+\label{m0128_eHg}
+\end{equation} 
+%
+Note the minus sign in Equation~\ref{m0128_egammadef}, and the associated changes of signs in Equations~\ref{m0128_eEg} and \ref{m0128_eHg}.
+For the moment, this choice of sign may be viewed as arbitrary -- we would have been equally justified in choosing the opposite sign for the definition of $\gamma^2$.  However, the choice we have made is customary, and yields some notational convenience that will become apparent later.
+
+In the lossless case, $\beta$ is the phase propagation constant, which determines the rate at which the phase of a wave progresses with increasing distance along the direction of propagation.
+Given the similarity of Equations~\ref{m0128_eEg} and \ref{m0128_eHg} to Equations~\ref{m0128_eEL} and \ref{m0128_eHL}, respectively, the constant $\gamma$ must play a similar role.
+So, we are motivated to find an expression for $\gamma$.
+At first glance, this is simple: $\gamma=\sqrt{\gamma^2}$.
+However, recall that every number has two square roots.
+When one declares $\beta=\sqrt{\beta^2}=\omega\sqrt{\mu\epsilon}$, there is no concern since $\beta$ is, by definition, positive; therefore, one knows to take the positive-valued square root.
+In contrast, $\gamma^2$ is complex-valued, and so the two possible values of $\sqrt{\gamma^2}$ are both potentially complex-valued.
+We are left without clear guidance on which of these values is appropriate and physically-relevant.
+So we proceed with caution.
+
+First, consider the special case that $\gamma$ is purely imaginary; e.g., $\gamma = j\gamma''$ where $\gamma''$ is a real-valued constant. In this case, $\gamma^2 = -\left(\gamma''\right)^2$ and the wave equations become
+%
+\begin{flalign}
+\nabla^2\widetilde{\bf E} +\left(\gamma''\right)^2 \widetilde{\bf E} &= 0 \\
+\nabla^2\widetilde{\bf H} +\left(\gamma''\right)^2 \widetilde{\bf H} &= 0
+\end{flalign} 
+%
+Comparing to Equations~\ref{m0128_eEL} and \ref{m0128_eHL}, we see $\gamma''$ plays the exact same role as $\beta$; i.e., $\gamma''$ is the phase propagation constant 
+\index{propagation constant!phase}
+for whatever wave we obtain as the solution to the above equations.
+Therefore, let us make that definition formally:
+%
+\begin{equation}
+\beta \triangleq \mbox{Im}\left\{\gamma\right\}
+\end{equation}
+%
+Be careful:  Note that we are \emph{not} claiming that $\gamma''$ in the possibly-lossy case is equal to $\omega^2\mu\epsilon$.
+Instead, we are asserting exactly the opposite; i.e., that there is a phase propagation constant in the general (possibly lossy) case, and we should find that this constant simplifies to $\omega^2\mu\epsilon$ in the lossless case.
+
+Now we make the following definition for the real component of $\gamma$:
+%
+\begin{equation}
+\alpha \triangleq \mbox{Re}\left\{\gamma\right\}
+\end{equation}
+%
+Such that
+%
+\begin{equation}
+\gamma = \alpha + j\beta
+\end{equation}
+%
+where $\alpha$ and $\beta$ are real-valued constants.
+
+Now, it is possible to determine $\gamma$ explicitly in terms of $\omega$ and the constitutive properties of the material.
+First, note:
+%
+\begin{flalign}
+\gamma^2 &= \left(\alpha + j\beta\right)^2 \nonumber \\
+         &= \alpha^2-\beta^2 + j2\alpha\beta \label{m0128_eg2a}
+\end{flalign}
+%
+Expanding Equation~\ref{m0128_egammadef} using Equations~\ref{m0128_eecdef}--\ref{m0128_eeppdef}, we obtain:
+%
+\begin{flalign}
+\gamma^2 &= -\omega^2\mu\left(\epsilon-j\frac{\sigma}{\omega}\right) \nonumber \\ 
+         &= -\omega^2\mu\epsilon +j\omega\mu\sigma \label{m0128_eg2b}
+\end{flalign}
+% 
+The real and imaginary parts of Equations~\ref{m0128_eg2a} and \ref{m0128_eg2b} must be equal.  
+Enforcing this equality yields the following equations:
+%
+\begin{equation}
+\alpha^2-\beta^2 = -\omega^2\mu\epsilon \label{m0128_ese1}
+\end{equation}
+%
+\begin{equation}
+2\alpha\beta = \omega\mu\sigma \label{m0128_ese2}
+\end{equation}
+%
+Equations~\ref{m0128_ese1} and \ref{m0128_ese2} are independent simultaneous equations that may be solved for $\alpha$ and $\beta$.  
+Sparing the reader the remaining steps, which are purely mathematical, we find:
+%
+\begin{equation}
+\boxed{
+\alpha = \omega \left\{ \frac{\mu\epsilon'}{2} \left[ \sqrt{1+\left(\frac{\epsilon''}{\epsilon'}\right)^2}-1 \right] \right\}^{1/2}
+}
+\label{m0128_ealpha}
+\end{equation} 
+%
+\begin{equation}
+\boxed{
+\beta = \omega \left\{ \frac{\mu\epsilon'}{2} \left[ \sqrt{1+\left(\frac{\epsilon''}{\epsilon'}\right)^2}+1 \right] \right\}^{1/2}
+}
+\label{m0128_ebeta}
+\end{equation} 
+
+Equations~\ref{m0128_ealpha} and \ref{m0128_ebeta} can be verified by confirming that Equations~\ref{m0128_ese1} and \ref{m0128_ese2} are satisfied.  It is also useful to confirm that the expected results are obtained in the lossless case.  In the lossless case, $\sigma=0$, so $\epsilon''=0$.  Subsequently, 
+Equation~\ref{m0128_ealpha} yields $\alpha=0$ and
+Equation~\ref{m0128_ebeta} yields $\beta=\omega\sqrt{\mu\epsilon}$, as expected. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electromagnetic wave equations accounting for the possibility of lossy media are Equations~\ref{m0128_eEg} and \ref{m0128_eHg}
+with $\gamma=\alpha+j\beta$, where $\alpha$ and $\beta$ are the positive real-valued constants determined by Equations~\ref{m0128_ealpha} and \ref{m0128_ebeta}, respectively. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We conclude this section by pointing out a very useful analogy to transmission line theory.
+In the section ``Wave Propagation on a TEM Transmission Line,''\footnote{This section may appear in a different volume, depending on the version of this book.} we found that the potential and current along a transverse electromagnetic (TEM) transmission line 
+\index{transmission line!transverse electromagnetic (TEM)}
+satisfy the same wave equations that we have developed in this section, having a complex-valued propagation constant $\gamma=\alpha+j\beta$, and the same physical interpretation of $\beta$ as the phase propagation constant.
+As is explained in another section, $\alpha$ too has the same interpretation in both applications -- that is, as the \emph{attenuation constant}.
+\index{propagation constant!attenuation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Electromagnetic_wave_equation}{Electromagnetic Wave Equation}'' on Wikipedia.
+\end{itemize}
+
+\index{wave equation!source-free lossy region|)}
+
+
+
+
+
+

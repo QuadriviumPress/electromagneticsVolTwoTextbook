@@ -1,0 +1,79 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Why 50 Ohms?
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191202   # yyyymmdd
+%ORB ABSTRACT  
+
+\label{m0191_Why_50_Ohms} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The quantity $50~\Omega$ appears in a broad range of applications across the field of electrical engineering.
+In particular, it is a very popular value for the characteristic impedance of transmission line, and is commonly specified as the port impedance for signal sources, amplifiers, filters, antennas, and other RF components. 
+So, what's special about $50~\Omega$?
+The short answer is ``nothing.''
+In fact, other standard impedances are in common use -- prominent among these is $75~\Omega$.
+It is shown in this section that a broad range of impedances -- on the order of 10s of ohms -- emerge as useful values based on technical considerations such as minimizing attenuation, maximizing power handling, and compatibility with common types of antennas.
+Characteristic impedances up to $300~\Omega$ and beyond are useful in particular applications.
+However, it is not practical or efficient to manufacture and sell products for every possible impedance in this range.
+Instead, engineers have settled on $50~\Omega$ as a round number that lies near the middle of this range, and have chosen a few other values to accommodate the smaller number of applications where there may be specific compelling considerations.
+ 
+So, the question becomes ``what makes characteristic impedances in the range of 10s of ohms particularly useful?''
+One consideration is attenuation 
+\index{attenuation}
+in coaxial cable.  
+\index{transmission line!coaxial}
+Coaxial cable is by far the most popular type of transmission line for connecting devices on separate printed circuit boards or in separate enclosures.
+The attenuation of coaxial cable is addressed in Section~\ref{m0189_Attenuation_Coaxial_Cable}.
+In that section, it is shown that attenuation is minimized for characteristic impedances in the range $\left(60~\Omega\right)/\sqrt{\epsilon_r}$ to 
+$\left(77~\Omega\right)/\sqrt{\epsilon_r}$, where $\epsilon_r$ is the relative permittivity of the spacer material.
+So, we find that $Z_0$ in the range $60~\Omega$ to $77~\Omega$ is optimum for air-filled cable, but more like $40~\Omega$ to $50~\Omega$ for cables using a plastic spacer material having typical $\epsilon_r\approx 2.25$.
+Thus, $50~\Omega$ is clearly a reasonable choice if a single standard value is to be established for all such cable.
+   
+Coaxial cables are often required to carry high power signals.  In such applications, power handling
+\index{transmission line!power handling}
+capability is also important, and is addressed in Section~\ref{m0190_Power_Handling_Coaxial_Cable}.
+In that section, we find the power handling capability of coaxial cable is optimized when the ratio of radii of the outer to inner conductors $b/a$ is about 1.65.  
+For the air-filled cables typically used in high-power applications, this corresponds to a characteristic impedance of about $30~\Omega$.
+This is significantly less than the $60~\Omega$ to $77~\Omega$ that minimizes attenuation in air-filled cables.
+So, $50~\Omega$ can be viewed as a compromise between minimizing attenuation and maximizing power handling in air-filled coaxial cables. 
+
+Although the preceding arguments justify $50~\Omega$ as a standard value, one can also see how one might make a case for $75~\Omega$ as a secondary standard value, especially for applications where attenuation is the primary consideration.  
+
+Values of $50~\Omega$ and $75~\Omega$ also offer some convenience when connecting RF devices to antennas.  
+For example, $75~\Omega$ is very close to the impedance of the commonly-encountered half-wave dipole antenna 
+\index{antenna!half-wave dipole}
+(about $73+j42~\Omega$), which may make impedance matching to that antenna easier. 
+Another commonly-encountered antenna is the quarter-wave monopole, 
+\index{antenna!quarter-wave monopole}
+which exhibits an impedance of about $36+j21~\Omega$, which is close to $50~\Omega$.
+In fact, we see that if we desire a single characteristic impedance that is equally convenient for applications involving either type of antenna, then $50~\Omega$ is a reasonable choice.
+
+A third commonly-encountered antenna is the \emph{folded} half-wave dipole.  
+\index{antenna!folded half-wave dipole}
+This type of antenna is similar to a half-wave dipole but has better bandwidth, and is commonly used in FM and TV systems and land mobile radio (LMR) base stations.
+A folded half-wave dipole has an impedance of about $300~\Omega$ and is balanced (not single-ended); 
+\index{transmission line!single-ended}
+thus, there is a market for balanced transmission line having $Z_0=300~\Omega$.  
+However, it is very easy and inexpensive to implement a balun 
+\index{balun}
+(a device which converts the dipole output from balanced to unbalanced) while simultaneously stepping down impedance by a factor of 4; i.e., to $75~\Omega$.
+Thus, we have an additional application for $75~\Omega$ coaxial line.
+
+Finally, note that it is quite simple to implement microstrip 
+\index{microstrip}
+transmission line having characteristic impedance in the range $30~\Omega$ to $75~\Omega$.  For example, $50~\Omega$ on commonly-used 1.575~mm FR4 
+\index{FR4}
+requires a width-to-height ratio of about 2, so the trace is about 3~mm wide.  This is a very manageable size and easily implemented in printed circuit board designs.
+
+%------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Dipole_antenna}{Dipole antenna}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Monopole_antenna}{Monopole antenna}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Balun}{Balun}'' on Wikipedia.
+\end{itemize}
+

@@ -1,0 +1,460 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Electromagnetic Field Theory: A Review 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191128   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0179_Electromagnetic_Field_Theory_Review} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+This book is the second in a series of textbooks on electromagnetics.
+This section presents a summary of electromagnetic field theory concepts presented in the previous volume.
+
+{\bf Electric charge and current.} 
+Charge is the ultimate source of the electric field and has SI base units of coulomb (C). 
+An important source of charge is the electron, whose charge is defined to be negative.
+However, the term ``charge'' generally refers to a large number of charge carriers of various types, and whose relative net charge may be either positive or negative.
+Distributions of charge may alternatively be expressed in terms of 
+line charge density $\rho_l$ (C/m),           \index{charge density!line}
+surface charge density $\rho_s$ (C/m$^2$), or \index{charge density!surface}
+volume charge density $\rho_v$ (C/m$^3$).     \index{charge density!volume}
+Electric current 
+\index{current}
+describes the net motion of charge.
+Current is expressed in SI base units of amperes (A) and may alternatively be quantified in terms of
+surface current density ${\bf J}_s$ (A/m) or \index{current density!surface}
+volume current density ${\bf J}$ (A/m$^2$).  \index{current density!volume}
+
+{\bf Electrostatics.}  
+\index{electrostatics (description)}
+Electrostatics is the theory of the electric field subject to the constraint that charge does not accelerate.
+That is, charges may be motionless (``static'') or move without acceleration (``steady current'').
+
+The electric field may be interpreted in terms of energy or flux.
+The energy interpretation of the electric field is referred to as \emph{electric field intensity} 
+\index{electric field intensity}
+${\bf E}$ (SI base units of N/C or V/m), and is related to the energy associated with charge and forces between charges.
+One finds that the electric potential (SI base units of V) over a path $\mathcal{C}$ is given by
+%
+\begin{equation}
+V = -\int_{\mathcal{C}} {\bf E}\cdot d{\bf l}
+\label{m0179_eV}
+\end{equation}
+%
+The principle of \emph{independence of path} 
+\index{independence of path}
+means that only the endpoints of $\mathcal{C}$ in Equation~\ref{m0179_eV}, and no other details of $\mathcal{C}$, matter. 
+This leads to the finding that the electrostatic field is \emph{conservative}; i.e., 
+%
+\begin{equation}
+\oint_{\mathcal{C}} {\bf E}\cdot d{\bf l} = 0
+\label{m0179_mes1}
+\end{equation}
+%
+This is referred to as \emph{Kirchoff's voltage law for electrostatics}.
+\index{Kirchoff's voltage law!electrostatics}
+%
+The inverse of Equation~\ref{m0179_eV} is
+%
+\begin{equation}
+{\bf E} = -\nabla V
+\end{equation}
+%
+That is, the electric field intensity points in the direction in which the potential is most rapidly decreasing, and the magnitude is equal to the rate of change in that direction.
+
+The flux interpretation of the electric field is referred to as \emph{electric flux density} 
+\index{electric flux density}
+${\bf D}$ (SI base units of C/m$^2$), and quantifies the effect of charge as a flow emanating from the charge.  
+\emph{Gauss' law for electric fields} 
+\index{Gauss' law!electric field}
+states that the electric flux through a closed surface is equal to the enclosed charge $Q_{encl}$; i.e., 
+%
+\begin{equation}
+\oint_{\mathcal{S}} {\bf D}\cdot d{\bf s} = Q_{encl}
+\label{m0179_mes2}
+\end{equation}
+
+Within a material region, we find
+%
+\begin{equation}
+{\bf D} = \epsilon {\bf E}
+\label{m0179_eED}
+\end{equation}
+%
+where $\epsilon$ is the \emph{permittivity} 
+\index{permittivity}
+(SI base units of F/m) of the material.
+In free space, $\epsilon$ is equal to
+%
+\begin{equation}
+\epsilon_0\triangleq 8.854 \times 10^{-12}~\mbox{F/m}
+\end{equation}
+%
+It is often convenient to quantify the permittivity of material in terms of the unitless \emph{relative permittivity} 
+\index{permittivity!relative}
+$\epsilon_r\triangleq \epsilon/\epsilon_0$.
+
+%Combining the principles identified so far leads to \emph{Poisson's equation}
+%\index{Poisson's equation}
+%%
+%\begin{equation}
+%\nabla^2 V = -\frac{\rho_v}{\epsilon}
+%\end{equation}
+%%
+%which provides a direct relationship between charge and potential.
+
+Both ${\bf E}$ and ${\bf D}$ are useful as they lead to distinct and independent boundary conditions 
+\index{boundary conditions}
+at the boundary between dissimilar material regions.
+Let us refer to these regions as Regions~1 and 2, having fields $({\bf E}_1,{\bf D}_1)$ and $({\bf E}_2,{\bf D}_2)$, respectively.  
+Given a vector $\hat{\bf n}$ perpendicular to the boundary and pointing into Region~1, we find 
+%
+\begin{equation}
+\hat{\bf n}\times\left[{\bf E}_1-{\bf E}_2\right] = 0
+\end{equation}
+%
+i.e., the tangential component of the electric field is continuous across a boundary, and
+%
+\begin{equation}
+\hat{\bf n}\cdot\left[{\bf D}_1-{\bf D}_2\right] = \rho_s
+\end{equation}
+%
+i.e., any discontinuity in the normal component of the electric field must be supported by a surface charge distribution on the boundary. 
+
+{\bf Magnetostatics.}  
+\index{magnetostatics (description)}
+Magnetostatics is the theory of the magnetic field in response to steady current or the intrinsic magnetization of materials.
+Intrinsic magnetization is a property of some materials, including permanent magnets and magnetizable materials. \index{materials, magnetic}
+
+Like the electric field, the magnetic field may be quantified in terms of energy or flux.
+The flux interpretation of the magnetic field is referred to as \emph{magnetic flux density} 
+\index{magnetic flux density}
+${\bf B}$ (SI base units of Wb/m$^2$), and quantifies the field as a flow associated with, but not emanating from, the source of the field.  
+The magnetic flux 
+\index{flux!magnetic}
+$\Phi$ (SI base units of Wb) is this flow measured through a specified surface. 
+\emph{Gauss' law for magnetic fields} 
+\index{Gauss' law!magnetic field}
+states that 
+%
+\begin{equation}
+\oint_{\mathcal{S}} {\bf B}\cdot d{\bf s} = 0
+\label{m0179_mes3}
+\end{equation}
+% 
+i.e., the magnetic flux through a closed surface is zero.
+Comparison to Equation~\ref{m0179_mes2} leads to the conclusion that the source of the magnetic field cannot be localized; i.e., there is no ``magnetic charge'' analogous to electric charge.  
+Equation~\ref{m0179_mes3} also leads to the conclusion that magnetic field lines form closed loops.
+
+The energy interpretation of the magnetic field is referred to as \emph{magnetic field intensity} 
+\index{magnetic field intensity}
+${\bf H}$ (SI base units of A/m), and is related to the energy associated with sources of the magnetic field.
+\emph{Ampere's law for magnetostatics} 
+\index{Ampere's law!magnetostatics}
+states that
+%
+\begin{equation}
+\oint_{\mathcal{C}} {\bf H}\cdot d{\bf l} = I_{encl}
+\label{m0179_mes4}
+\end{equation}
+%
+where $I_{encl}$ is the current flowing past any open surface bounded by $\mathcal{C}$.
+
+Within a homogeneous material region, we find
+%
+\begin{equation}
+{\bf B} = \mu {\bf H}
+\label{m0179_eBH}
+\end{equation}
+%
+where $\mu$ is the \emph{permeability} 
+\index{permeability}
+(SI base units of H/m) of the material.
+In free space, $\mu$ is equal to 
+%
+\begin{equation}
+\mu_0\triangleq 4\pi \times 10^{-7}~\mbox{H/m}.
+\end{equation}
+%
+It is often convenient to quantify the permeability of material in terms of the unitless \emph{relative permeability} 
+\index{permeability!relative}
+$\mu_r\triangleq \mu/\mu_0$.
+
+Both ${\bf B}$ and ${\bf H}$ are useful as they lead to distinct and independent boundary conditions 
+\index{boundary conditions}
+at the boundaries between dissimilar material regions. 
+Let us refer to these regions as Regions~1 and 2, having fields $({\bf B}_1,{\bf H}_1)$ and $({\bf B}_2,{\bf H}_2)$, respectively.  
+Given a vector $\hat{\bf n}$ perpendicular to the boundary and pointing into Region~1, we find 
+%
+%
+\begin{equation}
+\hat{\bf n}\cdot\left[{\bf B}_1-{\bf B}_2\right] = 0
+\end{equation}
+%
+i.e., the normal component of the magnetic field is continuous across a boundary, and
+%
+\begin{equation}
+\hat{\bf n}\times\left[{\bf H}_1-{\bf H}_2\right] = {\bf J}_s
+\end{equation}
+%
+i.e., any discontinuity in the tangential component of the magnetic field must be supported by current on the boundary. 
+
+{\bf Maxwell's equations.}
+Equations~\ref{m0179_mes1}, \ref{m0179_mes2}, \ref{m0179_mes3}, and \ref{m0179_mes4} are \emph{Maxwell's equations} 
+\index{Maxwell's equations!static integral form}
+for static fields in integral form.
+As indicated in Table~\ref{m0179_tComparison}, these equations may alternatively be expressed in differential form.
+\index{Maxwell's equations!static differential form}
+The principal advantage of the differential forms is that they apply at each point in space (as opposed to regions defined by $\mathcal{C}$ or $\mathcal{S}$), and subsequently can be combined with the boundary conditions to solve complex problems using standard methods from the theory of differential equations.
+%
+%\onecolumn
+\begin{table*}[t]
+\begin{center}
+\begin{tabular}{lll}
+~ & {\bf Electrostatics /} & {\bf Time-Varying} \\
+~ & {\bf Magnetostatics}   & {\bf (Dynamic)} \\
+\hline\hline
+Electric \& magnetic & independent  & {\color{blue}possibly coupled} \\
+fields are...       & ~  & ~ \\
+\hline
+Maxwell's eqns. & $\oint_{\mathcal S}{{\bf D}\cdot d{\bf s}} = Q_{encl}$  & $\oint_{\mathcal S}{{\bf D}\cdot d{\bf s}} = Q_{encl}$ \\
+~~(integral)   & $\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = 0$         & $\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = {\color{blue}-\frac{\partial}{\partial t}\int_{\mathcal S}{\bf B}\cdot d{\bf s}}$ \\
+               & $\oint_{\mathcal S}{{\bf B}\cdot d{\bf s}} = 0$         & $\oint_{\mathcal S}{{\bf B}\cdot d{\bf s}} = 0$ \\
+               & $\oint_{\mathcal C}{{\bf H}\cdot d{\bf l}} = I_{encl}$  & $\oint_{\mathcal C}{{\bf H}\cdot d{\bf l}} = I_{encl} {\color{blue} + \int_{\mathcal S}\frac{\partial}{\partial t}{\bf D}\cdot d{\bf s}}$ \\
+\hline
+Maxwell's eqns.     & $\nabla\cdot{\bf D}=\rho_v$   & $\nabla\cdot{\bf D}=\rho_v$ \\
+~~(differential)   & $\nabla\times{\bf E}=0$       & $\nabla\times{\bf E}={\color{blue}-\frac{\partial}{\partial t}{\bf B}}$ \\
+                   & $\nabla\cdot{\bf B}=0$        & $\nabla\cdot{\bf B}=0$ \\
+                   & $\nabla\times{\bf H}={\bf J}$ & $\nabla\times{\bf H}={\bf J} {\color{blue}+ \frac{\partial}{\partial t}{\bf D}}$ \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\label{m0179_tComparison}Comparison of Maxwell's equations for static and time-varying electromagnetic fields.  Differences in the time-varying case relative to the static case are highlighted in {\color{blue}blue}.
+\index{Maxwell's equations} 
+}
+\end{table*}
+%\twocolumn
+
+{\bf Conductivity.}
+Some materials consist of an abundance of electrons which are loosely-bound to the atoms and molecules comprising the material.
+The force exerted on these electrons by an electric field may be sufficient to overcome the binding force, resulting in motion of the associated charges and subsequently current.
+This effect is quantified by \emph{Ohm's law for electromagnetics}:
+\index{Ohm's law}
+%
+\begin{equation}
+{\bf J} = \sigma{\bf E}
+\label{m0179_eJE}
+\end{equation}
+%
+where ${\bf J}$ in this case is the \emph{conduction current} determined by the conductivity $\sigma$ (SI base units of S/m).
+Conductivity is a property of a material that ranges from negligible (i.e., for ``insulators'') to very large for good conductors, which includes most metals. 
+  
+A \emph{perfect conductor} 
+\index{conductor!perfect}
+is a material within which ${\bf E}$ is essentially zero regardless of ${\bf J}$.  
+For such material, $\sigma\to\infty$.  
+Perfect conductors are said to be \emph{equipotential regions}; that is, the potential difference between any two points within a perfect conductor is zero, as can be readily verified using Equation~\ref{m0179_eV}.
+
+{\bf Time-varying fields.}
+\emph{Faraday's law} 
+\index{Faraday's law}
+states that a time-varying magnetic flux 
+\index{flux!magnetic}
+induces an electric potential in a closed loop as follows: 
+%
+\begin{equation}
+V = -\frac{\partial}{\partial t}\Phi
+\end{equation}
+%
+Setting this equal to the left side of Equation~\ref{m0179_mes1} leads to the \emph{Maxwell-Faraday equation} 
+\index{Maxwell-Faraday equation}
+in integral form:
+%
+\begin{equation}
+\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = -\frac{\partial}{\partial t}\int_{\mathcal S}{\bf B}\cdot d{\bf s}
+\end{equation}
+%
+where $\mathcal{C}$ is the closed path defined by the edge of the open surface $\mathcal{S}$.
+Thus, we see that a time-varying magnetic flux is able to generate an electric field.
+We also observe that electric and magnetic fields become coupled when the magnetic flux is time-varying.
+
+An analogous finding leads to the general form of Ampere's law:
+\index{Ampere's law!general form}
+%
+\begin{equation}
+\oint_{\mathcal C}{{\bf H}\cdot d{\bf l}} = I_{encl} + \int_{\mathcal S}\frac{\partial}{\partial t}{\bf D}\cdot d{\bf s}
+\end{equation}
+%
+where the new term is referred to as \emph{displacement current}.
+\index{displacement current}
+Through the displacement current, a time-varying electric flux 
+\index{flux!electric}
+may be a source of the magnetic field.
+In other words, we see that the electric and magnetic fields are coupled when the electric flux is time-varying.
+
+Gauss' law for electric and magnetic fields, boundary conditions, and constitutive relationships 
+\index{constitutive relationships}
+(Equations~\ref{m0179_eED}, \ref{m0179_eBH}, and \ref{m0179_eJE}) are the same in the time-varying case. 
+
+As indicated in Table~\ref{m0179_tComparison}, the time-varying version of Maxwell's equations 
+may also be expressed in differential form.
+The differential forms make clear that variations in the electric field with respect to position are associated with variations in the magnetic field with respect to time (the Maxwell-Faraday equation), and vice-versa (Ampere's law).
+
+{\bf Time-harmonic waves in source-free and lossless media.}
+The coupling between electric and magnetic fields in the time-varying case leads to wave phenomena.
+This is most easily analyzed for fields which vary sinusoidally, and may thereby be expressed as phasors.\footnote{Sinusoidally-varying fields are sometimes also said to be \emph{time-harmonic}.}
+\index{phasor}
+\index{time-harmonic}
+Phasors, indicated in this book by the tilde (``$\widetilde{~~~}$''), are complex-valued quantities representing the magnitude and phase of the associated sinusoidal waveform.
+Maxwell's equations 
+\index{Maxwell's equations!differential phasor form}
+in differential phasor form are:
+%
+\begin{flalign} 
+\nabla \cdot \widetilde{\bf D}   &= \widetilde{\rho}_v   \\
+\nabla \times  \widetilde{\bf E} &= -j\omega\widetilde{\bf B} \\  
+\nabla \cdot \widetilde{\bf B}   &= 0 \\
+\nabla \times \widetilde{\bf H}  &= \widetilde{\bf J} + j\omega\widetilde{\bf D} 
+\end{flalign}
+%
+where $\omega\triangleq 2\pi f$, and where $f$ is frequency (SI base units of Hz).
+In regions which are free of sources (i.e., charges and currents) and consisting of loss-free media (i.e., $\sigma=0$), these equations reduce to the following: 
+\index{Maxwell's equations!source-free lossless region}
+\begin{flalign}
+\nabla \cdot \widetilde{\bf E}   &= 0 \label{m0179_eMDP1} \\
+\nabla \times  \widetilde{\bf E} &= -j\omega\mu\widetilde{\bf H} \label{m0179_eMDP2} \\
+\nabla \cdot \widetilde{\bf H}   &= 0 \label{m0179_eMDP3} \\
+\nabla \times \widetilde{\bf H}  &= +j\omega\epsilon\widetilde{\bf E} \label{m0179_eMDP4}  
+\end{flalign}
+%
+where we have used the relationships ${\bf D}=\epsilon{\bf E}$ and ${\bf B}=\mu{\bf H}$ to eliminate the flux densities ${\bf D}$ and ${\bf B}$, which are now redundant.
+Solving Equations \ref{m0179_eMDP1}--\ref{m0179_eMDP4} for ${\bf E}$ and ${\bf H}$, we obtain the vector wave equations:
+\index{wave equation!source-free lossless region}
+%
+\begin{flalign}
+\nabla^2\widetilde{\bf E} +\beta^2 \widetilde{\bf E} &= 0 \\
+\nabla^2\widetilde{\bf H} +\beta^2 \widetilde{\bf H} &= 0
+\end{flalign}
+%
+where
+%
+\begin{equation}
+\beta \triangleq \omega\sqrt{\mu\epsilon} 
+\end{equation} 
+%
+Waves in source-free and lossless media are solutions to the vector wave equations.
+
+{\bf Uniform plane waves in source-free and lossless media.}
+An important subset of solutions to the vector wave equations are uniform plane waves.
+\index{waves!plane}
+Uniform plane waves result when solutions are constrained to exhibit constant magnitude and phase in a plane.
+For example, if this plane is specified to be perpendicular to $z$ (i.e., $\partial/\partial x = \partial/\partial y =0$) then solutions for $\widetilde{\bf E}$ have the form: 
+%
+\begin{equation}
+\widetilde{\bf E} = \hat{\bf x}\widetilde{E}_x + \hat{\bf y}\widetilde{E}_y 
+\end{equation}
+%
+where
+%
+\begin{flalign}
+\widetilde{E}_x &= E_{x0}^+ e^{-j\beta z} + E_{x0}^- e^{+j\beta z} \label{m0179_ePWLM-Ex} \\
+\widetilde{E}_y &= E_{y0}^+ e^{-j\beta z} + E_{y0}^- e^{+j\beta z} \label{m0179_ePWLM-Ey} 
+\end{flalign}
+%
+and where $E_{x0}^+$, $E_{x0}^-$, $E_{y0}^+$, and $E_{y0}^-$ are constant complex-valued coefficients which depend on sources and boundary conditions.
+\index{boundary conditions}
+The first term and second terms of Equations~\ref{m0179_ePWLM-Ex} and \ref{m0179_ePWLM-Ey} correspond to waves traveling in the $+\hat{\bf z}$ and $-\hat{\bf z}$ directions, respectively.
+Because $\widetilde{\bf H}$ is a solution to the same vector wave equation, the solution for ${\bf H}$ is identical except with different coefficients.
+
+The scalar components of the plane waves described in Equations~\ref{m0179_ePWLM-Ex} and \ref{m0179_ePWLM-Ey} exhibit the same characteristics as other types of waves, including sound waves and voltage and current waves in transmission lines.  In particular, the phase velocity of waves propagating in the $+\hat{\bf z}$ and $-\hat{\bf z}$ direction is
+%
+\begin{equation}
+v_p = \frac{\omega}{\beta} = \frac{1}{\sqrt{\mu\epsilon}}
+\end{equation}
+%
+and the wavelength is
+%
+\begin{equation}
+\lambda = \frac{2\pi}{\beta}
+\end{equation}
+
+By requiring solutions for $\widetilde{\bf E}$ and $\widetilde{\bf H}$ to satisfy the Maxwell curl equations (i.e., the Maxwell-Faraday equation 
+\index{Maxwell-Faraday equation}
+and Ampere's law),
+\index{Ampere's law!general form}
+we find that $\widetilde{\bf E}$, $\widetilde{\bf H}$, and the direction of propagation $\hat{\bf k}$ are mutually perpendicular. 
+In particular, we obtain the \emph{plane wave relationships}:
+%
+\begin{flalign}
+\widetilde{\bf E} &= -\eta \hat{\bf k} \times \widetilde{\bf H} \label{m0179_ePWRE} \\
+\widetilde{\bf H} &= \frac{1}{\eta} \hat{\bf k} \times \widetilde{\bf E} \label{m0179_ePWRH}
+\end{flalign}
+%
+where 
+%
+\begin{equation}
+\eta \triangleq \sqrt{\frac{\mu}{\epsilon}}
+\end{equation}
+%
+is the \emph{wave impedance}, 
+\index{wave impedance}
+also known as the \emph{intrinsic impedance of the medium}, and
+$\hat{\bf k}$ is in the same direction as $\widetilde{\bf E}\times\widetilde{\bf H}$.
+
+The power density associated with a plane wave is
+\index{waves!power density}
+%
+\begin{equation}
+S = \frac{\left|\widetilde{\bf E}\right|^2}{2\eta}
+\end{equation}
+%
+where $S$ has SI base units of W/m$^2$, and here it is assumed that $\widetilde{\bf E}$ is in peak (as opposed to rms) units.
+
+{\bf Commonly-assumed properties of materials.}
+Finally, a reminder about commonly-assumed properties of the material constitutive parameters $\epsilon$, $\mu$, and $\sigma$.
+\index{materials (properties)}
+We often assume these parameters exhibit the following properties: 
+%
+\begin{itemize}
+\item \emph{Homogeneity}. 
+\index{homogeneity}
+A material that is {\it homogeneous} 
+\index{homogeneous (media)}
+is uniform over the space it occupies; that is, the values of its constitutive parameters are constant at all locations within the material. 
+%A counter-example would be a material that is composed of multiple chemically-distinct compounds that are not thoroughly mixed, such as soil.  
+\item \emph{Isotropy}.  
+\index{isotropy}
+A material that is {\it isotropic} 
+\index{isotropic (media)}
+behaves in precisely the same way regardless of how it is oriented with respect to sources, fields, and other materials.  
+%A counter-example is quartz, whose atoms are arranged in a uniformly-spaced crystalline lattice. As a result, the electromagnetic properties of quartz can be changed simply by rotating the material with respect to the applied sources and fields.  
+\item \emph{Linearity}.
+\index{linearity}  
+\index{linear (media)}
+A material is said to be {\it linear} if its properties do not depend on the sources and fields applied to the material.  
+Linear media exhibit \emph{superposition};
+\index{superposition}
+that is, the response to multiple sources is equal to the sum of the responses to the sources individually.
+%For example, capacitors have capacitance, which is determined in part by the permittivity of the material separating the terminals (Section~\ref{m0070_Parallel_Plate_Capacitor_Capacitance_from_Charge}).
+%This material is approximately linear when the applied voltage $V$ is below the rated working voltage; i.e., $\epsilon$ is constant and so capacitance does not vary significantly with respect to $V$.
+%When $V$ is greater than the working voltage, the dependence of $\epsilon$ on $V$ becomes more pronounced, and then capacitance becomes a function of $V$.
+%In another practical example, it turns out that $\mu$ for ferromagnetic materials is nonlinear such that the precise value of $\mu$ depends on the magnitude of the magnetic field.
+\item \emph{Time-invariance}. 
+\index{time-invariance (media)}
+A material is said to be \emph{time-invariant} if its properties do not vary as a function of time.  
+%This is an important consideration particularly when sources and fields are potentially time-varying.
+%An example of a class of materials that is not necessarily time-invariant is piezoelectric materials, for which electromagnetic properties vary significantly depending on the mechanical forces applied to them -- a property which can be exploited to make sensors and transducers.
+\end{itemize}
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Maxwell's_equations}{Maxwell's Equations}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Wave_equation}{Wave Equation}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Electromagnetic_wave_equation}{Electromagnetic Wave Equation}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Electromagnetic_radiation}{Electromagnetic radiation}'' on Wikipedia.
+\end{itemize}

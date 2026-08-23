@@ -1,0 +1,97 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Skin Depth
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191116   # yyyymmdd
+%ORB ABSTRACT
+
+\label{m0158_Skin_Depth} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{skin depth|(}
+
+The electric and magnetic fields of a wave are diminished as the wave propagates through lossy media.
+The magnitude of these fields is proportional to
+%
+\begin{equation}
+e^{-\alpha l} \nonumber
+\end{equation}
+%
+where $\alpha\triangleq\mbox{Re}\left\{\gamma\right\}$ is the attenuation constant
+\index{propagation constant!attenuation}
+(SI base units of m$^{-1}$), $\gamma$ is the propagation constant, and $l$ is the distance traveled.
+Although the rate at which magnitude is reduced is completely described by $\alpha$, particular values of $\alpha$ typically do not necessarily provide an intuitive sense of this rate.
+
+An alternative way to characterize attenuation is in terms of \emph{skin depth}
+\index{skin depth}
+$\delta_s$, which is defined as the distance at which the magnitude of the electric and magnetic fields is reduced by a factor of $1/e$.  
+In other words:
+%
+\begin{equation}
+e^{-\alpha\delta_s} = e^{-1} \cong 0.368
+\label{m0158_esddef}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Skin depth $\delta_s$ is the distance over which the magnitude of the electric or magnetic field is reduced by a factor of $1/e \cong 0.368$.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Since power is proportional to the square of the field magnitude, $\delta_s$ may also be interpreted as the distance at which the power in the wave is reduced by a factor of $(1/e)^2\cong 0.135$.  
+In yet other words: $\delta_s$ is the distance at which $\cong 86.5$\% of the power in the wave is lost.
+
+This definition for skin depth makes $\delta_s$ easy to compute:  From Equation~\ref{m0158_esddef}, it is simply
+%
+\begin{equation}
+\boxed{
+\delta_s = \frac{1}{\alpha}
+}
+\end{equation}
+
+The concept of skin depth is most commonly applied to good conductors.
+For a good conductor, $\alpha\approx \sqrt{\pi f\mu\sigma}$ (Section~\ref{m0157_Good_Conductors}), so 
+%
+\begin{equation}
+\delta_s \approx \frac{1}{\sqrt{\pi f\mu\sigma}} ~~~\mbox{(good conductors)}
+\label{m0158_eSDGC}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Skin depth of aluminum. 
+\index{aluminum}
+\\~\\
+Aluminum, a good conductor, exhibits $\sigma\approx 3.7 \times 10^7$~S/m and $\mu\approx\mu_0$ over a broad range of radio frequencies.
+Using Equation~\ref{m0158_eSDGC}, we find $\delta_s \sim 26~\mu$m at 10~MHz.
+Aluminum sheet which is 1/16-in ($\cong 1.59$~mm) thick can also be said to have a thickness of $\sim 61\delta_s$ at 10~MHz.
+The reduction in the power density of an electromagnetic wave after traveling through this sheet will be
+$$ \sim\left(e^{-\alpha\left(61\delta_s\right)}\right)^2 = \left(e^{-\alpha\left(61/\alpha\right)}\right)^2 = e^{-122} $$
+which is effectively zero from a practical engineering perspective.  Therefore, 1/16-in aluminum sheet provides excellent shielding from electromagnetic waves at 10~MHz.
+
+\noindent
+At 1~kHz, the situation is significantly different.
+At this frequency, $\delta_s\sim 2.6$~mm, so 1/16-in aluminum is only $\sim 0.6\delta_s$ thick.
+In this case the power density is reduced by only 
+$$ \sim\left(e^{-\alpha\left(0.6\delta_s\right)}\right)^2 = \left(e^{-\alpha\left(0.6/\alpha\right)}\right)^2 = e^{-1.2} \approx 0.3 $$
+This is a reduction of only $\sim70$\% in power density.
+Therefore, 1/16-in aluminum sheet provides very little shielding at 1~kHz.
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%
+
+%{\bf Additional Reading:}
+%\begin{itemize}
+%\item ``\href{https://en.wikipedia.org/wiki/Skin_effect}{Skin effect}'' on Wikipedia.
+%\end{itemize}
+
+\index{skin depth|)}
+
+

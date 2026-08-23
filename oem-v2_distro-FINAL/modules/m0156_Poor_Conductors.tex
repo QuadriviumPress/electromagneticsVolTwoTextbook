@@ -1,0 +1,193 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Poor Conductors
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT
+
+\label{m0156_Poor_Conductors} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{conductor!poor|(}
+
+A \emph{poor conductor} is a material for which conductivity is low, yet sufficient to exhibit significant loss.
+To be clear, the loss we refer to here is the conversion of the electric field to current through Ohm's law.
+
+The threshold of significance depends on the application. 
+For example, the dielectric spacer separating the conductors in a coaxial cable might be treated as lossless ($\sigma=0$) for short lengths at low frequencies; whereas the loss of the cable for long lengths and higher frequencies is typically significant, and must be taken into account.
+In the latter case, the material is said to be a poor conductor because the loss is significant yet the material can still be treated in most other respects as an ideal dielectric.
+
+A quantitative but approximate criterion for identification of a poor conductor can be obtained from the concept of complex permittivity $\epsilon_c$, which has the form:
+%
+\begin{equation}
+\epsilon_c = \epsilon' - j\epsilon''
+\end{equation}
+%
+Recall that $\epsilon''$ quantifies loss, whereas $\epsilon'$ exists independently of loss.
+In fact, $\epsilon_c=\epsilon'=\epsilon$ for a perfectly lossless material.
+Therefore, we may quantify the lossiness of a material using the ratio $\epsilon''/\epsilon'$, which is sometimes referred to as \emph{loss tangent}
+\index{loss tangent}
+(see Section~\ref{m0132_Loss_Tangent}).
+Using this quantity, we define a poor conductor as a material for which $\epsilon''$ is very small relative to $\epsilon'$.
+Thus,
+%
+\begin{equation}
+\frac{\epsilon''}{\epsilon'} \ll 1 ~~~ \mbox{(poor conductor)}
+\label{m0156_eDef}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+A poor conductor is a material having loss tangent much less than 1, such that it behaves in most respects as an ideal dielectric except that ohmic loss may not be negligible. 
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+An example of a poor conductor commonly encountered in electrical engineering includes the popular printed circuit board substrate material FR4
+\index{FR4}
+(fiberglass epoxy), which has $\epsilon''/\epsilon' \sim 0.008$ over the frequency range it is most commonly used.
+Another example, already mentioned, is the dielectric spacer material (for example, polyethylene) 
+\index{polyethylene}
+typically used in coaxial cables.
+The loss of these materials may or may not be significant, depending on the particulars of the application.
+
+The imprecise definition of Equation~\ref{m0156_eDef} is sufficient to derive some characteristics exhibited by all poor conductors.
+To do so, first recall that the propagation constant $\gamma$ is given in general as follows:
+%
+\begin{equation}
+\gamma^2 = -\omega^2\mu\epsilon_c
+\end{equation}
+%
+Therefore:
+%
+\begin{equation}
+\gamma = \sqrt{-\omega^2\mu\epsilon_c}
+\end{equation}
+%
+In general a number has two square roots, so some caution is required here. 
+In this case, we may proceed as follows:
+%\footnote{A recommended exercise for the student is to repeat this derivation with the other root, and observe that an absurd result is obtained.}
+%
+\begin{flalign}
+\gamma &= j\omega\sqrt{\mu}\sqrt{\epsilon'-j\epsilon''} \nonumber \\
+       &= j\omega\sqrt{\mu\epsilon'}\sqrt{1-j\frac{\epsilon''}{\epsilon'}} \label{m0156_eGE}
+\end{flalign}
+%
+The requirement that $\epsilon''/\epsilon' \ll 1$ for a poor conductor allows this expression to be ``linearized.''
+For this, we invoke the \emph{binomial series} 
+\index{binomial series}
+representation:
+%
+\begin{equation}
+\left(1+x\right)^n = 1 + nx + \frac{n(n-1)}{2!} x^2 + ...
+\end{equation}
+%
+where $x$ and $n$ are, for our purposes, any constants; and ``...'' indicates the remaining terms in this infinite series, with each term containing the factor $x^n$ with $n>2$.
+If $x\ll 1$, then all terms containing $x^n$ with $n\ge 2$ will be very small relative to the first two terms of the series.
+Thus,
+%
+\begin{equation}
+\left(1+x\right)^n \approx 1 + nx ~~~\mbox{for $x\ll 1$}
+\end{equation}
+%
+Applying this to the present problem:
+%
+\begin{equation}
+\left(1-j\frac{\epsilon''}{\epsilon'}\right)^{1/2} \approx 1 - j\frac{\epsilon''}{2\epsilon'} 
+\end{equation}
+%
+where we have used $n=1/2$ and $x=-j\epsilon''/\epsilon'$.
+Applying this approximation to Equation~\ref{m0156_eGE}, we obtain:
+%
+\begin{flalign}
+\gamma &\approx j\omega\sqrt{\mu\epsilon'}\left(1 - j\frac{\epsilon''}{2\epsilon'}\right) \nonumber \\
+       &\approx j\omega\sqrt{\mu\epsilon'} + \omega\sqrt{\mu\epsilon'}\frac{\epsilon''}{2\epsilon'} 
+\end{flalign}
+%
+At this point, we are able to identify an expression for the phase propagation constant:
+%
+\begin{equation}
+\boxed{
+\beta \triangleq \mbox{Im}\left\{\gamma\right\} \approx \omega\sqrt{\mu\epsilon'} ~~~\mbox{(poor conductor)}
+}
+\end{equation}
+%
+Remarkably, we find that $\beta$ for a poor conductor is approximately equal to $\beta$ for an ideal dielectric.
+
+For the attenuation constant, we find
+%
+\begin{equation}
+\boxed{
+\alpha \triangleq \mbox{Re}\left\{\gamma\right\} \approx \omega\sqrt{\mu\epsilon'}\frac{\epsilon''}{2\epsilon'} ~~~\mbox{(poor conductor)}
+}
+\label{m0156_ealpha1}
+\end{equation}
+%
+Alternatively, this expression may be written in the following form:
+%
+\begin{equation}
+\alpha \approx \frac{1}{2}\beta\frac{\epsilon''}{\epsilon'} ~~~\mbox{(poor conductor)}
+\end{equation}
+%
+Presuming that $\epsilon_c$ is determined entirely by ohmic loss,
+%and is not accounting for delayed polarization response (as described in Section~\ref{m0134_Complex_Permittivity}), 
+then
+%
+\begin{equation}
+\frac{\epsilon''}{\epsilon'} = \frac{\sigma}{\omega\epsilon}
+\end{equation}
+%
+Under this condition, Equation~\ref{m0156_ealpha1} may be rewritten:
+%
+\begin{equation}
+\alpha \approx \omega\sqrt{\mu\epsilon'}\frac{\sigma}{2\omega\epsilon} ~~~\mbox{(poor conductor)}
+\end{equation}
+%
+Since $\epsilon'=\epsilon$ under these assumptions, the expression simplifies to 
+%
+\begin{equation}
+\alpha \approx \frac{\sigma}{2}\sqrt{\frac{\mu}{\epsilon}} = \frac{1}{2}\sigma\eta  ~~~\mbox{(poor conductor)}
+\end{equation}
+%
+where $\eta\triangleq\sqrt{\mu/\epsilon'}$ is the wave impedance 
+\index{wave impedance}
+presuming lossless material.
+This result is remarkable for two reasons:  
+First, factors of $\omega$ have been eliminated, so there is no dependence on frequency separate from the frequency dependence of the constitutive parameters $\sigma$, $\mu$, and $\epsilon$.  These parameters vary slowly with frequency, so the value of $\alpha$ for a poor conductor also varies slowly with frequency.
+Second, we see $\alpha$ is proportional to $\sigma$ and $\eta$.  This makes it quite easy to anticipate how the attenuation constant is affected by changes in conductivity and wave impedance in poor conductors.
+
+Finally, what is the wave impedance 
+\index{wave impedance}
+in a poor conductor?  In contrast to $\eta$, $\eta_c$ is potentially complex-valued and may depend on $\sigma$.
+First, recall:
+%
+\begin{equation}
+\eta_c = \sqrt{\frac{\mu}{\epsilon'}} \cdot \left[ 1-j\frac{\epsilon''}{\epsilon'} \right]^{-1/2}
+\end{equation}
+%
+Applying the same approximation applied to $\gamma$ earlier, this may be written
+%
+\begin{equation}
+\eta_c \approx \sqrt{\frac{\mu}{\epsilon'}} \cdot \left[ 1-j\frac{\epsilon''}{2\epsilon'} \right]~~~\mbox{(poor conductor)}
+\end{equation}
+%
+We see that for a poor conductor, Re$\left\{\eta_c\right\}\approx\eta$ and that Im$\left\{\eta_c\right\}\ll\mbox{Re}\left\{\eta_c\right\}$.
+The usual approximation in this case is simply
+%
+\begin{equation}
+\boxed{
+\eta_c \approx \eta ~~~\mbox{(poor conductor)}
+}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Binomial_series}{Binomial series}'' on Wikipedia.
+\end{itemize}
+
+\index{conductor!poor|)}
+
+

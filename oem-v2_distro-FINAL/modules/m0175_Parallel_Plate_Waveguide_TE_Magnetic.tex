@@ -1,0 +1,138 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Parallel Plate Waveguide: TE Case, Magnetic Field
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191121   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0175_Parallel_Plate_Waveguide_TE_Magnetic} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waveguide!parallel plate|(}
+\index{parallel-plate waveguide|see{waveguide}}
+
+In Section~\ref{m0173_Parallel_Plate_Waveguide_Introduction}, the parallel plate waveguide was introduced.
+In Section~\ref{m0174_Parallel_Plate_Waveguide_TE_Electric}, we determined the TE component of the electric field.
+In this section, we determine the TE component of the magnetic field.
+The reader should be familiar with Section~\ref{m0174_Parallel_Plate_Waveguide_TE_Electric} before attempting this section.
+
+In Section~\ref{m0174_Parallel_Plate_Waveguide_TE_Electric}, the TE component of the electric field was determined to be:
+%
+\begin{equation}
+\hat{\bf y}\widetilde{E}_y = \hat{\bf y}\sum_{m=1}^{\infty} \widetilde{E}_y^{(m)}
+\label{m0175_eEysum}
+\end{equation}
+%
+The TE component of the magnetic field may be obtained from the Maxwell-Faraday equation:
+\index{Maxwell-Faraday equation}
+%
+\begin{equation}
+\nabla \times \widetilde{\bf E} = -j\omega\mu \widetilde{\bf H}
+\end{equation}
+%
+Thus:
+%
+\begin{flalign}
+\widetilde{\bf H} &= \frac{j}{\omega\mu}~\nabla \times \widetilde{\bf E} \nonumber \\
+                  &= \frac{j}{\omega\mu}~\nabla \times \left(\hat{\bf y}\widetilde{E}_y\right) 
+\end{flalign}
+%
+The relevant form of the curl operator is Equation~\ref{m0139_eCurlCart} (Appendix~\ref{m0139_Vector_Operators}).
+Although the complete expression consists of 6 terms, all but 2 of these terms are zero because the $\hat{\bf x}$ and $\hat{\bf z}$ components of $\widetilde{\bf E}$ are zero.
+The two remaining terms are 
+$-\hat{\bf x}\partial \widetilde{E}_y/\partial z$ and
+$+\hat{\bf z}\partial \widetilde{E}_y/\partial x$.
+Thus:
+%
+\begin{equation}
+\widetilde{\bf H} = \frac{j}{\omega\mu}~\left( -\hat{\bf x}\frac{\partial\widetilde{E}_y}{\partial z} +\hat{\bf z}\frac{\partial\widetilde{E}_y}{\partial x} \right) 
+\label{m0175_eH}
+\end{equation}
+%
+Recall that $\widetilde{E}_y$ is the sum of modes, as indicated in Equation~\ref{m0175_eEysum}.
+Since differentiation (i.e., $\partial/\partial z$ and $\partial/\partial x$) is a linear operator, we may evaluate Equation~\ref{m0175_eH} for modes one at a time, and then sum the results.
+Using this approach, we find:
+%
+\begin{flalign}
+\frac{\partial\widetilde{E}_y^{(m)}}{\partial z} &= \frac{\partial}{\partial z} ~ E_{y0}^{(m)} e^{-jk_z^{(m)} z} \sin k_x^{(m)} x \nonumber \\
+                                         &= \left( E_{y0}^{(m)} e^{-jk_z^{(m)} z} \sin k_x^{(m)} x \right) \left(-jk_z^{(m)}\right) 
+\end{flalign}
+%
+and
+%
+\begin{flalign}
+\frac{\partial\widetilde{E}_y^{(m)}}{\partial x} &= \frac{\partial}{\partial x} ~ E_{y0}^{(m)} e^{-jk_z^{(m)} z} \sin k_x^{(m)} x \nonumber \\
+                                         &= \left( E_{y0}^{(m)} e^{-jk_z^{(m)} z} \cos k_x^{(m)} x \right) \left(+k_x^{(m)}\right) 
+\end{flalign}
+%
+We may now assemble a solution for the magnetic field as follows:
+%
+\begin{flalign}
+\hat{\bf x}\widetilde{H}_x+\hat{\bf z}\widetilde{H}_z =&~~~\hat{\bf x}\sum_{m=1}^{\infty} \widetilde{H}_x^{(m)} \nonumber \\
+                                                       &+\hat{\bf z}\sum_{m=1}^{\infty} \widetilde{H}_z^{(m)} \label{m0175_eHsum}
+\end{flalign}
+%
+where
+%
+\begin{equation}
+\widetilde{H}_x^{(m)} = -\frac{k_z^{(m)}}{\omega\mu} E_{y0}^{(m)} e^{-jk_z^{(m)} z} \sin k_x^{(m)} x 
+\label{m0175_eHx}
+\end{equation}
+%
+\begin{equation}
+\widetilde{H}_z^{(m)} = +j\frac{k_x^{(m)}}{\omega\mu} E_{y0}^{(m)} e^{-jk_z^{(m)} z} \cos k_x^{(m)} x
+\label{m0175_eHz} 
+\end{equation}
+%
+and modes may only exist at frequencies greater than the associated cutoff frequencies.  Summarizing:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The magnetic field component of the TE solution is given by Equation~\ref{m0175_eHsum} with modal components as indicated by Equations~\ref{m0175_eHx} and \ref{m0175_eHz}.  Caveats pertaining to the cutoff frequencies and the locations of sources and structures continue to apply.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This result is quite complex, yet some additional insight is possible.
+At the perfectly-conducting (PEC) surface at $x=0$, we see 
+%
+\begin{flalign}
+\widetilde{H}_x^{(m)}(x=0) &= 0 \nonumber \\
+\widetilde{H}_z^{(m)}(x=0) &= +j\frac{k_x^{(m)}}{\omega\mu} E_{y0}^{(m)} e^{-jk_z^{(m)} z} 
+\end{flalign}
+%
+Similarly, on the PEC surface at $x=a$, we see 
+%
+\begin{flalign}
+\widetilde{H}_x^{(m)}(x=a) &= 0 \nonumber \\
+\widetilde{H}_z^{(m)}(x=a) &= -j\frac{k_x^{(m)}}{\omega\mu} E_{y0}^{(m)} e^{-jk_z^{(m)} z} 
+\end{flalign}
+%
+Thus, we see the magnetic field vector at the PEC surfaces is non-zero and parallel to the PEC surfaces.
+Recall that the magnetic field is identically zero \emph{inside} a PEC material.
+Also recall that boundary conditions require that discontinuity in the component of ${\bf H}$ tangent to a surface must be supported by a surface current.
+We conclude that
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Current flows on the PEC surfaces of the waveguide.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+If this seems surprising, note that essentially the same thing happens in a coaxial transmission line.
+\index{transmission line!coaxial}
+That is, signals in a coaxial transmission line can be described equally well in terms of either potentials and currents on the inner and outer conductors, or the electromagnetic fields between the conductors.
+The parallel plate waveguide is only slightly more complicated because the field in a properly-designed coaxial cable is a single transverse electromagnetic (TEM) 
+\index{transverse electromagnetic (TEM)}
+mode, whereas the fields in a parallel plate waveguide are combinations of TE and TM modes.
+
+Interestingly, we also find that the magnetic field vector points in different directions depending on position relative to the conducting surfaces. 
+We just determined that the magnetic field is parallel to the conducting surfaces at those surfaces. 
+However, the magnetic field is \emph{perpendicular} to those surfaces at $m$ locations between $x=0$ and $x=a$.
+These locations correspond to maxima in the electric field.
+
+\index{waveguide!parallel plate|)}
+
+

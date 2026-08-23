@@ -1,0 +1,173 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Decibel Scale for Power Ratio
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT About the Author (Ellingson)
+
+\label{m0154_Decibel_Scale_for_Power_Ratio} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{decibel|(}
+\index{dB|see{decibel}}
+
+In many disciplines within electrical engineering, it is common to evaluate the ratios of powers and power densities that differ by many orders of magnitude.
+These ratios could be expressed in scientific notation, but it is more common to use the logarithmic \emph{decibel} (dB) scale in such applications.
+
+In the conventional (linear) scale, the ratio of power $P_1$ to power $P_0$ is simply
+%
+\begin{equation} 
+G = \frac{P_1}{P_0} ~~~\mbox{(linear units)} 
+\end{equation}
+%
+Here, ``$G$'' might be interpreted as ``power gain.''
+\index{gain!power}
+Note that $G<1$ if $P_1<P_0$ and $G>1$ if $P_1>P_0$.
+
+In the decibel scale, the ratio of power $P_1$ to power $P_0$ is
+%
+\begin{equation}
+\boxed{
+G \triangleq 10\log_{10}\frac{P_1}{P_0} ~~~\mbox{(dB)}
+}
+\label{m0154_eGdef}
+\end{equation} 
+%
+where ``dB'' denotes a unitless quantity which is expressed in the decibel scale.
+Note that $G<0$~dB (i.e., is ``negative in dB'') if $P_1<P_0$ and $G>0$~dB if $P_1>P_0$.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power gain $P_1/P_0$ in dB is given by Equation~\ref{m0154_eGdef}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Alternatively, one might choose to interpret a power ratio as a loss $L$ with $L\triangleq 1/G$ in linear units, which is $L=-G$ when expressed in dB.
+Most often, but not always, engineers interpret a power ratio as ``gain'' if the output power is expected to be greater than input power (e.g., as expected for an amplifier) and 
+as ``loss'' 
+if output power is expected to be less than input power (e.g., as expected for a lossy transmission line). 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Power loss $L$ is the reciprocal of power gain $G$.  Therefore, $L=-G$ when these quantities are expressed in dB.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Power loss from a long cable.
+\\~\\
+A 2~W signal is injected into a long cable.  
+The power arriving at the other end of the cable is 10~$\mu$W.  
+What is the power loss in dB? 
+
+In linear units:
+%
+\begin{equation}
+G = \frac{10~\mbox{$\mu$W}}{2~\mbox{W}} = 5 \times 10^{-6} ~~~\mbox{(linear units)} \nonumber
+\end{equation}
+%
+In dB:
+%
+\begin{flalign}
+G &= 10\log_{10}\left(5 \times 10^{-6}\right) \cong -53.0~\mbox{dB} \nonumber \\
+L &= -G \cong \underline{+53.0~\mbox{dB}} \nonumber
+\end{flalign}
+%
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The decibel scale is used in precisely the same way to relate ratios of spatial power densities for waves.  
+For example, the loss incurred when the spatial power density is reduced from $S_0$ (SI base units of W/m$^2$) to $S_1$ is
+%
+\begin{equation}
+L = 10\log_{10}\frac{S_0}{S_1} ~~~\mbox{(dB)}
+\end{equation}
+%
+This works because the common units of m$^{-2}$ in the numerator and denominator cancel, leaving a power ratio.
+
+A common point of confusion is the proper use of the decibel scale to represent voltage or current ratios.  
+To avoid confusion, simply refer to the definition expressed in Equation~\ref{m0154_eGdef}.
+For example, let's say 
+$P_1 = V_1^2/R_1$ where $V_1$ is potential and $R_1$ is the impedance across which $V_1$ is defined.
+Similarly, let us define 
+$P_0 = V_0^2/R_0$ where $V_0$ is potential and $R_0$ is the impedance across which $V_0$ is defined.
+Applying Equation~\ref{m0154_eGdef}:
+%
+\begin{flalign}
+G &\triangleq 10\log_{10}\frac{P_1}{P_0} ~~~\mbox{(dB)} \nonumber \\
+  &= 10\log_{10}\frac{V_1^2/R_1}{V_0^2/R_0} ~~~\mbox{(dB)}
+\end{flalign}
+%
+Now, if $R_1=R_0$, then
+%
+\begin{flalign}
+G &= 10\log_{10}\frac{V_1^2}{V_0^2} ~~~\mbox{(dB)} \nonumber \\
+  &= 10\log_{10}\left(\frac{V_1}{V_0}\right)^2 ~~~\mbox{(dB)} \nonumber \\
+  &= 20\log_{10}\frac{V_1}{V_0} ~~~\mbox{(dB)}
+\end{flalign}
+%
+However, note that this is \emph{not} true if $R_1\neq R_0$.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+A power ratio in dB is equal to $20\log_{10}$ of the voltage ratio only if the associated impedances are equal.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Adding to the potential for confusion on this point is the concept of \emph{voltage gain} $G_v$:
+\index{gain!voltage}
+%
+\begin{equation}
+G_v \triangleq 20\log_{10}\frac{V_1}{V_0} ~~~\mbox{(dB)}
+\end{equation}
+%
+which applies regardless of the associated impedances. 
+Note that $G_v=G$ only if the associated impedances are equal, and that these ratios are different otherwise. 
+Be careful!
+
+The decibel scale simplifies common calculations.
+Here's an example.
+Let's say a signal having power $P_0$ is injected into a transmission line having loss $L$.
+Then the output power $P_1=P_0/L$ in linear units.  However, in dB, we find:
+%
+\begin{flalign}
+10\log_{10}{P_1} &= 10\log_{10}{\frac{P_0}{L}} \nonumber \\
+               &= 10\log_{10}{P_0} - 10\log_{10}{L} \nonumber 
+\end{flalign}
+%
+Division has been transformed into subtraction; i.e., 
+%
+\begin{equation}
+P_1 = P_0 - L ~~~\mbox{(dB)}
+\label{m0154_edbd}
+\end{equation}
+%
+This form facilitates easier calculation and visualization, and so is typically preferred.
+
+Finally, note that the units of $P_1$ and $P_0$ in Equation~\ref{m0154_edbd} are not dB \emph{per se}, but rather dB with respect to the original power units.
+For example, if $P_1$ is in mW, then taking $10\log_{10}$ of this quantity results in a quantity having units of dB relative to 1 mW.
+A power expressed in dB relative to 1~mW is said to have units of ``dBm.''
+\index{dBm}
+For example, ``0~dBm'' means 0~dB relative to 1~mW, which is simply 1~mW.
+Similarly $+10$~dBm is 10~mW, $-10$~dBm is 0.1~mW, and so on.
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Decibel}{Decibel}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Scientific_notation}{Scientific notation}'' on Wikipedia.
+\end{itemize}
+
+\index{decibel|)}
+
+

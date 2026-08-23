@@ -1,0 +1,93 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Lorentz Force
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191113   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0015_Lorentz_Force} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Lorentz force|(}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The \emph{Lorentz force} is the force experienced by charge in the presence of electric and magnetic fields.  
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Consider a particle having charge $q$.
+The force ${\bf F}_e$ experienced by the particle in the presence of electric field intensity 
+\index{electric field intensity}
+${\bf E}$ is 
+$$ {\bf F}_e = q{\bf E} $$
+The force ${\bf F}_m$ experienced by the particle in the presence of magnetic flux density 
+\index{magnetic flux density}
+${\bf B}$ is
+$$ {\bf F}_m = q{\bf v} \times {\bf B} $$  
+where ${\bf v}$ is the velocity of the particle.
+The Lorentz force experienced by the particle is simply the sum of these forces; i.e.,
+%
+\begin{flalign}   
+{\bf F} &= {\bf F}_e + {\bf F}_m \nonumber \\
+        &= q\left( {\bf E} + {\bf v} \times {\bf B} \right) \label{m0015_eLF}
+\end{flalign}
+%
+The term ``Lorentz force'' is simply a concise way to refer to the \emph{combined} contributions of the electric and magnetic fields.
+
+A common application of the Lorentz force concept is in analysis of the motions of charged particles in electromagnetic fields.
+The Lorentz force causes charged particles to exhibit distinct rotational (``cyclotron'') 
+\index{cyclotron motion}
+and translational (``drift'') motions.
+This is illustrated in Figures~\ref{m0015_Charged-particle-drifts} and \ref{m0015_Cyclotron_motion}.
+%
+\begin{figure}[b!] % <--- "[b]" for first figure in section *only*; delete for 2nd and subsequent figures
+\begin{center}
+\pdftooltip{{  % note double braces
+\includegraphics[width=2in]{modules/m0015_Charged-particle-drifts.eps} 
+% https://en.wikipedia.org/wiki/File:Charged-particle-drifts.svg
+}}{Top: With magnetic field away from surface and no electric field, positive particles on left shown travelling in a clockwise loop. Negative particles on right shown as travelling in counter-clockwise loop.  Bottom: Electrical field capital E pointing down. Positive particles shown as an oblong spiral moving clockwise and drifting left. Negative particles shown as an oblong spiral moving counter-clockwise and drifting left.}
+\end{center}
+\centerline{\scriptsize 
+\copyright~\hyperref[m0015_Charged-particle-drifts_Credit]{Stannered} 
+\href{https://creativecommons.org/licenses/by/2.5/deed.en}{CC BY 2.5}. 
+} % \centerline 
+\caption{
+\label{m0015_Charged-particle-drifts}
+Motion of a particle bearing (\emph{left}) positive charge and (\emph{right}) negative charge.
+\emph{Top}: Magnetic field directed toward the viewer; no electric field.
+\emph{Bottom}: Magnetic field directed toward the viewer; electric field oriented as shown.
+}
+\end{figure}
+
+%
+\begin{figure} % <--- "[b]" for first figure in section *only*; delete for 2nd and subsequent figures
+\begin{center}
+\pdftooltip{{  % note double braces
+\includegraphics[width=2in]{modules/m0015_Cyclotron_motion} 
+% https://en.wikipedia.org/wiki/File:Cyclotron_motion.jpg
+}}{Magnetic field appears as a gaseous ring.}
+\end{center}
+\centerline{\scriptsize 
+\copyright~\hyperref[m0015_Cyclotron_motion_Credit]{M.~Białek} 
+\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}. 
+} % \centerline 
+\caption{
+\label{m0015_Cyclotron_motion}
+Electrons moving in a circle in a magnetic field (\emph{cyclotron motion}). 
+The electrons are produced by an electron gun at bottom, consisting of a hot cathode, a metal plate heated by a filament so it emits electrons, and a metal anode at a high voltage with a hole which accelerates the electrons into a beam. The electrons are normally invisible, but enough air has been left in the tube so that the air molecules glow pink when struck by the fast-moving electrons.
+}
+\end{figure}
+%
+~\\
+~\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://wikipedia.org/wiki/Lorentz_force}{Lorentz force}'' on Wikipedia.
+\end{itemize}
+
+\index{Lorentz force|(}

@@ -1,0 +1,143 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE About This Book
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191212   # yyyymmdd
+%ORB ABSTRACT Traditional preface information (i.e., what it covers, who this book is for, etc)
+
+\label{m0213_Preface-About_This_Book_v2} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+{\bf Goals for this book.}
+This book is intended to serve as a primary textbook for the second semester of a two-semester course in undergraduate engineering electromagnetics.
+The presumed textbook for the first semester is \emph{Electromagnetics Vol.~1},\footnote{S.W.~Ellingson, 
+\emph{Electromagnetics~Vol.~1}, 
+VT~Publishing, 2018. CC BY-SA 4.0. ISBN 9780997920185.\\ 
+\url{https://doi.org/10.21061/electromagnetics-vol-1}} 
+which addresses the following topics: 
+electric and magnetic fields; 
+electromagnetic properties of materials;
+electromagnetic waves;
+and devices that operate according to associated electromagnetic principles including 
+resistors, 
+capacitors, 
+inductors, 
+transformers, 
+generators,
+and
+transmission lines.
+The book you are now reading -- \emph{Electromagnetics Vol.~2} -- addresses the following topics:
+%
+\begin{itemize}
+\item Chapter~1 (``Preliminary Concepts'') provides a brief summary of conventions for units, notation, and coordinate systems, and a synopsis of electromagnetic field theory from \emph{Vol.~1}.
+\item Chapter~2 (``Magnetostatics Redux'') extends the coverage of magnetostatics in \emph{Vol.~1} to include magnetic forces, rudimentary motors, and the Biot-Savart law.
+\item Chapter~3 (``Wave Propagation in General Media'') addresses Poynting's theorem, theory of wave propagation in lossy media, and properties of imperfect conductors.
+\item Chapter~4 (``Current Flow in Imperfect Conductors'') addresses the frequency-dependent distribution of current in wire conductors and subsequently the AC impedance of wires.  
+\item Chapter~5 (``Wave Reflection and Transmission'') addresses scattering of plane waves from planar interfaces.
+\item Chapter~6 (``Waveguides'') provides an introduction to waveguide theory via the parallel plate and rectangular waveguides.
+\item Chapter~7 (``Transmission Lines Redux'') extends the coverage of transmission lines in \emph{Vol.~1} to include parallel wire lines, the theory of microstrip lines, attenuation, and power-handling capabilities.  The inevitable but hard-to-answer question ``What's so special about $50~\Omega$?'' is addressed at the end of this chapter.
+\item Chapter~8 (``Optical Fiber'') provides an introduction to multimode fiber optics, including the concepts of acceptance angle and modal dispersion.
+\item Chapter~9 (``Radiation'') provides a derivation of the electromagnetic fields radiated by a current distribution, emphasizing the analysis of line distributions using the Hertzian dipole as a differential element.
+\item Chapter~10 (``Antennas'') provides an introduction to antennas, emphasizing equivalent circuit models for transmission and reception and characterization in terms of directivity and pattern.  This chapter concludes with the Friis transmission equation. 
+\end{itemize}
+%
+Appendices covering material properties, mathematical formulas, and physical constants are repeated from \emph{Vol.~1}, with a few additional items.
+ 
+%{\bf What's new:}
+%This version of the book is the \emph{second} public release of this book.
+%The first release, known as ``Volume~1 (Beta),'' was released in January 2018.
+%Improvements from the beta version include the following:
+ 
+{\bf Target audience.}
+This book is intended for electrical engineering students in the third year of a bachelor of science degree program.
+It is assumed that students have successfully completed one semester of engineering electromagnetics, nominally using \emph{Vol.~1}.
+However, the particular topics and sequence of topics in \emph{Vol.~1} are not an essential prerequisite, and in any event this book may be useful as a supplementary reference when a different textbook is used.
+It is assumed that readers are familiar with the fundamentals of electric circuits and linear systems, which are normally taught in the second year of the degree program.  
+It is also assumed that readers are proficient in basic engineering mathematics, including 
+complex numbers,
+trigonometry,
+vectors,
+partial differential equations,
+and multivariate calculus.
+
+{\bf Notation, examples, and highlights.}
+Section~\ref{m0005_Notation} summarizes the mathematical notation used in this book.
+Examples are set apart from the main text as follows:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+This is an example.
+%\\~\\
+%Main body of example...
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+``Highlight boxes'' are used to identify key ideas as follows:
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+This is a key idea.
+\end{mdframed}
+
+{\bf What are those little numbers in square brackets?}
+This book is a product of the 
+\hyperref[m0148_Preface-About_OpenEM]{\emph{Open Electromagnetics Project}}. %({\color{red}\url{URL-TBD}}).
+This project provides a large number of sections (``modules'') which are assembled (``remixed'') to create new and different versions of the book.
+The text ``{\color{blue}\tiny[m0213]}'' that you see at the beginning of this section uniquely identifies the module within the larger set of modules provided by the project.
+This identification is provided because different remixes of this book may exist, each consisting of a different subset and arrangement of these modules. 
+%Readers can use module identifiers to find additional resources available at the \href{URL-TBD}{Open Electromagnetics website}, which is common to all remixes. 
+Prospective authors can use this identification as an aid in creating their own remixes.
+
+{\bf Why do some sections of this book seem to repeat material presented in previous sections?}
+In some remixes of this book, authors might choose to eliminate or reorder modules.  
+For this reason, the modules are written to ``stand alone'' as much as possible.
+As a result, there may be some redundancy between sections that would not be present in a traditional (non-remixable) textbook.
+While this may seem awkward to some at first, there are clear benefits: In particular, it never hurts to review relevant past material before tackling a new concept.
+And, since the electronic version of this book is being offered at no cost, there is not much gained by eliminating this useful redundancy.
+
+{\bf Why cite Wikipedia pages as additional reading?}
+Many modules cite Wikipedia entries as sources of additional information.
+Wikipedia represents both the best and worst that the Internet has to offer.
+Most educators would agree that citing Wikipedia pages as primary sources is a bad idea, since quality is variable and
+content is subject to change over time.
+On the other hand, many Wikipedia pages are excellent, and serve as useful sources of relevant information that is not strictly within the scope of the curriculum.  
+Furthermore, students benefit from seeing the same material presented differently, in a broader context, and with the additional references available as links from Wikipedia pages. 
+We trust instructors and students to realize the potential pitfalls of this type of resource and to be alert for problems.
+
+{\bf Acknowledgments.}
+Here's a list of talented and helpful people who contributed to this book:\\
+~\\
+\emph{The staff of Virginia Tech Publishing, University Libraries, Virginia Tech:}\\
+Acquisitions/Developmental Editor \& Project Manager: Anita Walz\\
+Advisors: Peter Potter, Corinne Guimont\\
+Cover, Print Production: Robert Browder\\
+~\\
+\emph{Other Virginia Tech contributors:}\\
+Accessibility: Christa Miller, Corinne Guimont, Sarah Mease\\
+Assessment: Anita Walz\\
+~\\
+\emph{Virginia Tech Students:}\\
+Alt text writer: Michel Comer\\
+Figure designers: Kruthika Kikkeri, Sam Lally, Chenhao Wang\\
+%Figure designer: Michaela Goldammer\\
+%Figure designer: Youmin Qin\\
+~\\
+\emph{Copyediting:}\\
+%Melissa Ashman, Kwantlen Polytechnic University \\
+Longleaf Press\\
+~\\
+\emph{External reviewers:}\\
+%Samir El-Ghazaly, University of Arkansas\\
+%Stephen Gedney, University of Colorado Denver\\
+Randy Haupt, Colorado School of Mines\\
+Karl Warnick, Brigham Young University\\
+Anonymous faculty member, research university\\
+~\\
+Also, thanks are due to the students of the Fall 2019 section of ECE3106 at Virginia Tech who used the beta version of this book and provided useful feedback. 
+
+Finally, we acknowledge all those who have contributed their art to Wikimedia Commons (\url{https://commons.wikimedia.org/}) under open licenses, allowing their work to appear as figures in this book.  These contributors are acknowledged in figures and in the ``Image Credits'' section at the end of each chapter. Thanks to each of you for your selfless effort. 

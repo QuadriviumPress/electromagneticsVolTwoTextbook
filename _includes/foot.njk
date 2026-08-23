@@ -1,0 +1,20 @@
+<hr />
+<footer>
+  <em>Electromagnetics Vol. 2</em>. &copy; 2020
+  <a href="{{ site.doi }}" target="_blank" rel="noopener">S.W. Ellingson</a>, licensed under
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank"
+    >Creative Commons Attribution-ShareAlike 4.0 International</a
+  >
+  (<a href="{{ site.doi }}" target="_blank" rel="noopener">https://doi.org/10.21061/electromagnetics-vol-2</a>).
+</footer>
+
+<script>
+  // Offline support (sw.njk). Book.baseHref carries the deployment's path
+  // prefix without a trailing slash, so this resolves for both GitHub Pages
+  // and root hosting.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(window.Book.baseHref + '/sw.js');
+    });
+  }
+</script>

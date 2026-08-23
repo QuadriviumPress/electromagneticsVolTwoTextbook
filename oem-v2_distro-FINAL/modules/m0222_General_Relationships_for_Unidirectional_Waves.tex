@@ -1,0 +1,132 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE General Relationships for Unidirectional Waves
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191121   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0222_General_Relationships_Unidirectional_Waves} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waves!unidirectional|(}
+
+Analysis of electromagnetic waves in enclosed spaces -- and in waveguides in particular -- is quite difficult.
+The task is dramatically simplified if it can be assumed that the wave propagates in a single direction; i.e., is unidirectional.
+This does not necessarily entail loss of generality.
+For example: Within a straight waveguide, waves can travel either ``forward'' or ``backward.''
+The principle of superposition 
+\index{superposition}
+allows one to consider these two unidirectional cases separately, and then to simply sum the results. 
+ 
+In this section, the equations that relate the various components of a unidirectional wave are derived.
+The equations will be derived in Cartesian coordinates, anticipating application to rectangular waveguides.
+However, the underlying strategy is generally applicable.
+
+We begin with Maxwell's curl equations:
+\index{Maxwell's equations!differential phasor form}
+%
+\begin{flalign}
+\nabla\times\widetilde{\bf E} &= -j\omega\mu\widetilde{\bf H} \label{m0222_eMCE1} \\
+\nabla\times\widetilde{\bf H} &= +j\omega\epsilon\widetilde{\bf E} \label{m0222_eMCH1}
+\end{flalign}
+%
+Let us consider Equation~\ref{m0222_eMCH1} first.  Solving for $\widetilde{\bf E}$, we have:
+%
+\begin{equation}
+\widetilde{\bf E} = \frac{1}{j\omega\epsilon}\nabla\times\widetilde{\bf H} \label{m0222_eMCE2}
+\end{equation}
+%
+This is actually three equations; that is, one each for the $\hat{\bf x}$, $\hat{\bf y}$, and $\hat{\bf z}$ components of $\widetilde{\bf E}$, respectively.  
+To extract these equations, let us define the components as follows:
+%
+\begin{flalign}
+\widetilde{\bf E} &= \hat{\bf x}\widetilde{E}_x + \hat{\bf y}\widetilde{E}_y + \hat{\bf z}\widetilde{E}_z \\
+\widetilde{\bf H} &= \hat{\bf x}\widetilde{H}_x + \hat{\bf y}\widetilde{H}_y + \hat{\bf z}\widetilde{H}_z 
+\end{flalign}
+%
+Now applying the equation for curl in Cartesian coordinates (Equation~\ref{m0139_eCurlCart} in Appendix~\ref{m0139_Vector_Operators}), we find:
+%
+\begin{flalign}
+\widetilde{E}_x &= \frac{1}{j\omega\epsilon}\left( \frac{\partial \widetilde{H}_z}{\partial y} - \frac{\partial \widetilde{H}_y}{\partial z} \right) \label{m0222_eEx} \\
+\widetilde{E}_y &= \frac{1}{j\omega\epsilon}\left( \frac{\partial \widetilde{H}_x}{\partial z} - \frac{\partial \widetilde{H}_z}{\partial x} \right) \label{m0222_eEy} \\
+\widetilde{E}_z &= \frac{1}{j\omega\epsilon}\left( \frac{\partial \widetilde{H}_y}{\partial x} - \frac{\partial \widetilde{H}_x}{\partial y} \right) \label{m0222_eEz}
+\end{flalign}
+
+Without loss of generality, we may assume that the single direction in which the wave is traveling is in the $+\hat{\bf z}$ direction.
+If this is the case, then $\widetilde{\bf H}$, and subsequently each component of $\widetilde{\bf H}$, contains a factor of $e^{-jk_z z}$ where $k_z$ is the phase propagation constant in the direction of travel.  The remaining factors are independent of $z$; i.e., depend only on $x$ and $y$.  With this in mind, we further decompose components of $\widetilde{\bf H}$ as follows:
+%
+\begin{flalign}
+\widetilde{H}_x &= \widetilde{h}_x(x,y) e^{-jk_z z} \label{m0222_eHx} \\
+\widetilde{H}_y &= \widetilde{h}_y(x,y) e^{-jk_z z} \label{m0222_eHy} \\
+\widetilde{H}_z &= \widetilde{h}_z(x,y) e^{-jk_z z} \label{m0222_eHz}
+\end{flalign}
+%
+where $\widetilde{h}_x(x,y)$, $\widetilde{h}_y(x,y)$, and $\widetilde{h}_z(x,y)$ represent the remaining factors.  One advantage of this decomposition is that partial derivatives with respect to $z$ reduce to algebraic operations; i.e.:
+%
+\begin{flalign}
+\frac{\partial \widetilde{H}_x}{\partial z} &= -jk_z \widetilde{h}_x(x,y) e^{-jk_z z} = -jk_z \widetilde{H}_x \label{m0222_edzHx} \\
+\frac{\partial \widetilde{H}_y}{\partial z} &= -jk_z \widetilde{h}_y(x,y) e^{-jk_z z} = -jk_z \widetilde{H}_y \label{m0222_edzHy} \\
+\frac{\partial \widetilde{H}_z}{\partial z} &= -jk_z \widetilde{h}_z(x,y) e^{-jk_z z} = -jk_z \widetilde{H}_z \label{m0222_edzHz}
+\end{flalign}
+%
+We now substitute Equations~\ref{m0222_eHx}--\ref{m0222_eHz} into Equations~\ref{m0222_eEx}--\ref{m0222_eEz} and then use Equations~\ref{m0222_edzHx}--\ref{m0222_edzHz} to eliminate partial derivatives with respect to $z$.
+This yields:
+%
+\begin{flalign}
+\widetilde{E}_x &= \frac{1}{j\omega\epsilon}\left( \frac{\partial \widetilde{H}_z}{\partial y}           + jk_z \widetilde{H}_y              \right) \label{m0222_eEx2} \\
+\widetilde{E}_y &= \frac{1}{j\omega\epsilon}\left(         - jk_z \widetilde{H}_x              - \frac{\partial \widetilde{H}_z}{\partial x} \right)                    \\
+\widetilde{E}_z &= \frac{1}{j\omega\epsilon}\left( \frac{\partial \widetilde{H}_y}{\partial x} - \frac{\partial \widetilde{H}_x}{\partial y} \right) \label{m0222_eEz2}
+\end{flalign}
+
+Applying the same procedure 
+to the curl equation for $\widetilde{\bf H}$ (Equation~\ref{m0222_eMCE1}), one obtains:
+%
+\begin{flalign}
+\widetilde{H}_x &= \frac{1}{-j\omega\mu}\left( \frac{\partial \widetilde{E}_z}{\partial y}           + jk_z \widetilde{E}_y              \right) \label{m0222_eHx2} \\
+\widetilde{H}_y &= \frac{1}{-j\omega\mu}\left(         - jk_z \widetilde{E}_x              - \frac{\partial \widetilde{E}_z}{\partial x} \right) \label{m0222_eHy2} \\
+\widetilde{H}_z &= \frac{1}{-j\omega\mu}\left( \frac{\partial \widetilde{E}_y}{\partial x} - \frac{\partial \widetilde{E}_x}{\partial y} \right) \label{m0222_eHz2}
+\end{flalign}
+%
+Equations~\ref{m0222_eEx2}--\ref{m0222_eHz2} constitute a set of simultaneous equations that represent Maxwell's curl equations in the special case of a unidirectional (specifically, a $+\hat{\bf z}$-traveling) wave.  
+With just a little bit of algebraic manipulation of these equations, it is possible to obtain expressions for the $\hat{\bf x}$ and $\hat{\bf y}$ components of $\widetilde{\bf E}$ and $\widetilde{\bf H}$ which depend only on the $\hat{\bf z}$ components of $\widetilde{\bf E}$ and $\widetilde{\bf H}$.  Here they are:\footnote{Students are encouraged to derive these for themselves -- only algebra is required.  Tip to get started:  To get $\widetilde{E}_x$, begin with Equation~\ref{m0222_eEx2}, eliminate $\widetilde{H}_y$ using Equation~\ref{m0222_eHy2}, and then solve for $\widetilde{E}_x$.}
+%
+\begin{flalign}
+\widetilde{E}_x &= \frac{-j}{k_{\rho}^2}\left( +k_z      \frac{\partial \widetilde{E}_z}{\partial x} + \omega\mu \frac{\partial \widetilde{H}_z}{\partial y} \right) \label{m0222_eExu} \\
+\widetilde{E}_y &= \frac{+j}{k_{\rho}^2}\left( -k_z      \frac{\partial \widetilde{E}_z}{\partial y} + \omega\mu \frac{\partial \widetilde{H}_z}{\partial x} \right) \label{m0222_eEyu} \\
+\widetilde{H}_x &= \frac{+j}{k_{\rho}^2}\left( \omega\epsilon \frac{\partial \widetilde{E}_z}{\partial y} - k_z  \frac{\partial \widetilde{H}_z}{\partial x} \right) \label{m0222_eHxu} \\
+\widetilde{H}_y &= \frac{-j}{k_{\rho}^2}\left( \omega\epsilon \frac{\partial \widetilde{E}_z}{\partial x} + k_z  \frac{\partial \widetilde{H}_z}{\partial y} \right) \label{m0222_eHyu} 
+\end{flalign}
+%
+where 
+%
+\begin{equation}
+k_{\rho}^2 \triangleq \beta^2 - k_z^2
+\end{equation}
+%
+Why define a parameter called ``$k_{\rho}$''?  
+Note from the definition that $\beta^2 = k_{\rho}^2 + k_z^2$.  
+Further, note that this equation is an expression of the Pythagorean theorem, which relates the lengths of the sides of a right triangle.
+Since $\beta$ is the ``overall'' phase propagation constant, and $k_z$ is the phase propagation constant for propagation in the $\hat{\bf z}$ direction in the waveguide, $k_{\rho}$ must be associated with variation in fields in directions perpendicular to $\hat{\bf z}$.  In the cylindrical coordinate system, this is the $\hat{\bf \rho}$ direction, hence the subscript ``$\rho$.''
+We shall see later that $k_{\rho}$ plays a special role in determining the structure of fields within the waveguide, and this provides additional motivation to identify this quantity explicitly in the field equations.
+
+Summarizing: If you know the wave is unidirectional, then knowledge of the components of $\widetilde{\bf E}$ and $\widetilde{\bf H}$ in the direction of propagation is sufficient to determine each of the remaining components of $\widetilde{\bf E}$ and $\widetilde{\bf H}$.  There is one catch, however:  For this to yield sensible results, $k_{\rho}$ may not be zero. So, ironically, these expressions don't work in the case of a uniform plane wave, since such a wave would have $\widetilde{E}_z=\widetilde{H}_z=0$ and $k_z=\beta$ (so $k_{\rho}=0$), yielding values of zero divided by zero for each remaining field component.  The same issue arises for any other transverse electromagnetic (TEM) 
+\index{transverse electromagnetic (TEM)}
+wave.  
+For non-TEM waves -- and, in particular, unidirectional waves in waveguides -- 
+either $\widetilde{E}_z$ or $\widetilde{H}_z$ must be non-zero and $k_{\rho}$ will be non-zero.  In this case, Equations~\ref{m0222_eExu}--\ref{m0222_eHyu} are both usable and useful since they allow determination of all field components given just the ${\bf z}$ components.  
+
+In fact, we may further exploit this simplicity by taking one additional step: 
+Decomposition of the unidirectional wave into transverse electric (TE) 
+\index{transverse electric}
+and transverse magnetic (TM) 
+\index{transverse magnetic}
+components. %\footnote{See Section~\ref{xxx} (``xxx'') for a review of this concept.}  
+In this case, 
+TE means simply that $\widetilde{E}_z=0$, and
+TM means simply that $\widetilde{H}_z=0$.
+For a wave which is either TE or TM, Equations~\ref{m0222_eExu}--\ref{m0222_eHyu} reduce to one term each.
+
+\index{waves!unidirectional|)}
+
+

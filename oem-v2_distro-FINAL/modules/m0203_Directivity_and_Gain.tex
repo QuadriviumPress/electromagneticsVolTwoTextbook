@@ -1,0 +1,163 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Directivity and Gain
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191212   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0203_Directivity_and_Gain} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{directivity|(}
+
+A transmitting antenna does not radiate power uniformly in all directions.
+Inevitably more power is radiated in some directions than others.
+\emph{Directivity} quantifies this behavior.
+In this section, we introduce the concept of directivity and the related concepts of \emph{maximum directivity} and \emph{antenna gain}.
+
+Consider an antenna located at the origin.
+The power radiated in a single direction $(\theta,\phi)$ is formally zero.
+This is because a single direction corresponds to a solid angle of zero, which intercepts an area of zero at any given distance from the antenna.
+Since the power flowing through any surface having zero area is zero, the power flowing in a single direction is formally zero.
+Clearly we need a different metric of power in order to develop a sensible description of the spatial distribution of power flow.
+
+The appropriate metric is \emph{spatial power density}; that is, power per unit area, having SI base units of W/m$^2$.
+Therefore, directivity is defined in terms of spatial power density in a particular direction, as opposed to power in a particular direction.
+Specifically, directivity in the direction $(\theta,\phi)$ is:
+%
+\begin{equation}
+D(\theta,\phi) \triangleq \frac{S({\bf r})}{S_{ave}(r)}
+\label{m0203_eDirDef}
+\end{equation}
+%
+In this expression, $S({\bf r})$ is the power density at $(r,\theta,\phi)$; i.e., at a distance $r$ in the direction $(\theta,\phi)$. 
+$S_{ave}(r)$ is the \emph{average} power density at that distance; that is, $S({\bf r})$ averaged over all possible directions at distance $r$.
+Since directivity is a ratio of power densities, it is unitless.
+Summarizing:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Directivity is ratio of power density in a specified direction to the power density averaged over all directions at the same distance from the antenna.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Despite Equation~\ref{m0203_eDirDef}, directivity does not depend on the distance from the antenna.  
+To be specific, directivity is the same at every distance $r$. 
+Even though the numerator and denominator of Equation~\ref{m0203_eDirDef} both vary with $r$, one finds that the distance dependence always cancels because power density and average power density are both proportional to $r^{-2}$.  
+This is a key point: Directivity is a convenient way to characterize an antenna because it does not change with distance from the antenna.
+
+In general, directivity is a function of direction.  However,
+one is often not concerned about all directions, but rather only the directivity in the direction in which it is maximum.
+In fact it is quite common to use the term ``directivity'' informally to refer to the maximum directivity of an antenna.
+This is usually what is meant when the directivity is indicated to be a single number;
+in any event, the intended meaning of the term is usually clear from context.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Directivity of the electrically-short dipole.
+\index{electrically-short dipole (ESD)}
+\\~\\
+An electrically-short dipole (ESD) consists of a straight wire having length $L\ll\lambda/2$.
+What is the directivity of the ESD?
+
+{\bf Solution.}
+The field radiated by an ESD is derived in Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}.
+In that section, we find that the electric field intensity in the far field of a $\hat{\bf z}$-oriented ESD located at the origin is:
+%
+\begin{equation}
+\widetilde{\bf E}({\bf r}) \approx  \hat{\bf \theta} j \eta \frac{I_0\cdot\beta L}{8\pi} ~\left(\sin\theta\right) ~\frac{e^{-j\beta r}}{r}
+\label{m0203_eE}
+\end{equation}
+%
+where $I_0$ represents the magnitude and phase of the current applied to the terminals, $\eta$ is the wave impedance of the medium, and $\beta=2\pi/\lambda$.
+In Section~\ref{m0207_Total_Power_Radiated_by_an_Electrically-Short_Dipole}, we find that the power density of this field is:
+%
+\begin{equation}
+S({\bf r}) \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{128\pi^2} ~\left(\sin\theta\right)^2 ~\frac{1}{r^2}
+\label{m0203_eE2}
+\end{equation}
+%
+and we subsequently find that the total power radiated is:
+%
+\begin{equation}
+P_{rad} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{48\pi}
+\label{m0203_ePT}
+\end{equation}
+%
+The average power density $S_{ave}$ is simply the total power divided by the area of a sphere centered on the ESD. Let us place this sphere at distance $r$, with $r\gg L$ and $r\gg \lambda$ as required for the validity of Equations~\ref{m0203_eE} and \ref{m0203_eE2}.  Then:
+%
+\begin{equation}
+S_{ave} = \frac{P_{rad}}{4\pi r^2} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{192\pi^2 r^2}
+\end{equation}
+%
+Finally the directivity is determined by applying the definition:
+%
+\begin{flalign}
+D(\theta,\phi) &\triangleq \frac{S({\bf r})}{S_{ave}(r)} \\
+               &\approx \underline{1.5 \left(\sin\theta\right)^2}
+\end{flalign}
+
+The maximum directivity occurs in the $\theta=\pi/2$ plane.
+Therefore, the maximum directivity is \underline{1.5}, meaning the maximum power density is 1.5 times greater than the power density averaged over all directions.
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Since directivity is a unitless ratio, it is common to express it in decibels.  
+For example, the maximum directivity of the ESD in the preceding example is $10\log_{10} 1.5 \cong 1.76$~dB.
+(Note ``$10\log_{10}$'' here since directivity is the ratio of power-like quantities.)
+
+{\bf Gain.}
+The gain $G(\theta,\phi)$ of an antenna is its directivity modified to account for loss within the antenna.
+Specifically:
+%
+\begin{equation}
+G(\theta,\phi) \triangleq \frac{S({\bf r})~\mbox{for actual antenna}}{S_{ave}(r)~\mbox{for identical but lossless antenna}}
+\end{equation}
+%
+In this equation, the numerator is the actual power density radiated by the antenna, which is less than the nominal power density due to losses within the antenna. 
+The denominator is the average power density for an antenna which is identical, but lossless.
+Since the actual antenna radiates less power than an identical but lossless version of the same antenna, gain in any particular direction is always less than directivity in that direction.
+Therefore, an equivalent definition of antenna gain is
+%
+\begin{equation}
+G(\theta,\phi) \triangleq e_{rad}D(\theta,\phi)
+\end{equation}
+%
+where $e_{rad}$ is the radiation efficiency 
+\index{radiation efficiency}
+of the antenna (Section~\ref{m0202_Equivalent_Circuit_Model_for_Transmission}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Gain is directivity times radiation efficiency; that is, directivity modified to account for loss within the antenna.  
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf The receive case.}
+To conclude this section, we make one additional point about directivity, which applies equally to gain.
+The preceding discussion has presumed an antenna which is radiating; i.e., transmitting.  
+Directivity can also be defined for the receive case, in which it quantifies the effectiveness of the antenna in converting power in an incident wave to power in a load attached to the antenna.
+Receive directivity is formally introduced in Section~\ref{m0218_Effective_Aperture} (``Effective Aperture'').
+When receive directivity is defined as specified in Section~\ref{m0218_Effective_Aperture}, it is equal to transmit directivity as defined in this section. 
+Thus, it is commonly said that the directivity of an antenna is the same for receive and transmit.  
+
+% Suggestion: Perhaps add that the power received by an antenna from a plane waves from one direction and summed over two polarizations divided by the integrated power received for many plane waves arriving from a full sphere and two polarizations is equal to the directivity, which is defined in transmit mode.
+
+%%%%%%%%%%%%%%%%%%%%%
+ 
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Directivity}{Directivity}'' on Wikipedia.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\index{directivity|)}
+

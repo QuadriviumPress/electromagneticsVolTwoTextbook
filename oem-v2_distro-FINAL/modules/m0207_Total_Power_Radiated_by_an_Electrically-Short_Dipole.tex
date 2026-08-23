@@ -1,0 +1,129 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Power Radiated by an Electrically-Short Dipole
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191126   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0207_Total_Power_Radiated_by_an_Electrically-Short_Dipole} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{antenna!electrically-short dipole (ESD)|(}
+
+In this section, we determine the total power radiated by an electrically-short dipole (ESD) antenna in response to a sinusoidally-varying current applied to the antenna terminals.  This result is both useful on its own and necessary as an intermediate result in determining the impedance of the ESD.
+The ESD is introduced in Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}, and a review of that section is suggested before attempting this section.
+
+In Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}, it is shown that the electric field intensity in the far field of a $\hat{\bf z}$-oriented ESD located at the origin is 
+%
+\begin{equation}
+\widetilde{\bf E}({\bf r}) \approx  \hat{\bf \theta} j \eta \frac{I_0\cdot\beta L}{8\pi} ~\left(\sin\theta\right) ~\frac{e^{-j\beta r}}{r}
+\label{m0207_eE}
+\end{equation}
+%
+where 
+${\bf r}$ is the field point,
+$I_0$ is a complex number representing the peak magnitude and phase of the sinusoidally-varying terminal current,
+$L$ is the length of the ESD,
+and $\beta$ is the phase propagation constant $2\pi/\lambda$ where $\lambda$ is wavelength.
+Note that $L\ll\lambda$ since this is an ESD. 
+Also note that Equation~\ref{m0207_eE} is valid only for the far-field conditions $r\gg L$ and $r\gg \lambda$, and presumes propagation in simple (linear, homogeneous, time-invariant, isotropic) media with negligible loss.
+
+Given that we have already limited scope to the far field, it is reasonable to approximate the electromagnetic field at each field point ${\bf r}$ as a plane wave propagating radially away from the antenna; i.e., in the $\hat{\bf r}$ direction.  Under this assumption, the time-average power density is 
+%
+\begin{equation}
+{\bf S}({\bf r}) = \hat{\bf r}\frac{\left|\widetilde{\bf E}({\bf r})\right|^2}{2\eta} 
+\end{equation}
+%
+where $\eta$ is the wave impedance of the medium.
+The total power $P_{rad}$ radiated by the antenna is simply ${\bf S}({\bf r})$ integrated over any closed surface $\mathcal{S}$ that encloses the antenna.
+Thus:
+%
+\begin{equation}
+P_{rad} = \oint_{\mathcal{S}} { {\bf S}({\bf r}) \cdot d{\bf s} }
+\end{equation}
+%
+where $d{\bf s}$ is the outward-facing differential element of surface area.
+In other words, power density (W/m$^2$) integrated over an area (m$^2$) gives power (W).
+Anticipating that this problem will be addressed in spherical coordinates, we note that
+%
+\begin{equation}
+d{\bf s} = \hat{\bf r} r^2~\sin\theta~d\theta~d\phi
+\end{equation}
+% 
+and subsequently:
+%
+\begin{flalign}
+P_{rad} &= \int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} { \left(\hat{\bf r}\frac{\left|\widetilde{\bf E}({\bf r})\right|^2}{2\eta} \right) \cdot \left(\hat{\bf r} r^2~\sin\theta~d\theta~d\phi\right) } \nonumber \\
+        &= \frac{1}{2\eta}\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} { \left|\widetilde{\bf E}({\bf r})\right|^2 r^2 \sin\theta~d\theta~d\phi } \label{m0207_ePrad} 
+\end{flalign}
+%
+Returning to Equation~\ref{m0207_eE}, we note:
+%
+\begin{equation}
+\left|\widetilde{\bf E}({\bf r})\right|^2 \approx \eta^2 \frac{\left|I_0\right|^2\left(\beta L\right)^2}{64\pi^2} ~\left(\sin\theta\right)^2 ~\frac{1}{r^2}
+\label{m0207_eE2}
+\end{equation}
+%
+Substitution into Equation~\ref{m0207_ePrad} yields:
+%
+\begin{equation}
+P_{rad} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{128\pi^2}\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} { \sin^3 \theta~d\theta~d\phi } 
+\end{equation}
+%
+Note that this may be factored into separate integrals over $\theta$ and $\phi$.  The integral over $\phi$ is simply $2\pi$, leaving:
+%
+\begin{equation}
+P_{rad} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{64\pi}\int_{\theta=0}^{\pi} { \sin^3 \theta~d\theta } 
+\end{equation}
+%
+The remaining integral is equal to $4/3$, leaving:
+%
+\begin{equation}
+\boxed{
+P_{rad} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{48\pi}
+}
+\label{m0207_ePT}
+\end{equation}
+%
+This completes the derivation, but it is useful to check units.  
+Recall that $\beta$ has SI base units of rad/m, so $\beta L$ has units of radians.
+This leaves $\eta\left|I_0\right|^2$, which has SI base units of $\Omega$ $\cdot$ A$^2$ $=$ W, as expected.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power radiated by an ESD in response to the current $I_0$ applied at the terminals is given by Equation~\ref{m0207_ePT}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Finally, it is useful to consider how various parameters affect the radiated power.
+First, note that the radiated power is proportional to the square of the terminal current.
+Second, note that the product $\beta L=2\pi L/\lambda$ is the electrical length
+\index{electrical length}
+of the antenna; that is,  the length of the antenna expressed in radians, where $2\pi$ radians is one wavelength.
+Thus, we see that the power radiated by the antenna increases as the square of electrical length.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Power radiated by an ESD. 
+\\~\\
+A dipole is 10~cm in length and is surrounded by free space.
+A sinusoidal current having frequency 30~MHz and peak magnitude 100~mA is applied to the antenna terminals.
+What is the power radiated by the antenna?
+
+{\bf Solution.}
+If no power is dissipated within the antenna, then all power is radiated.
+The wavelength $\lambda=c/f \cong 10$~m, so $L \cong 0.01\lambda$.
+This certainly qualifies as electrically-short, so we may use Equation~\ref{m0207_ePT}.
+In the present problem, $\eta\cong 376.7~\Omega$ (the free space wave impedance), $I_0=100$~mA, and $\beta=2\pi/\lambda\cong 0.628$~rad/m.
+Thus, we find that the radiated power is $\approx$ \underline{98.6~$\mu$W}.
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{antenna!electrically-short dipole (ESD)|)}
+

@@ -1,0 +1,33 @@
+---
+permalink: /SUMMARY.html
+layout: page
+title: Electromagnetics Vol. 2
+eleventyExcludeFromCollections: true
+---
+
+{# The book-viewer fetches this page, takes the first <ul>, and uses its first
+   nested <ul> as the sidebar TOC (li children become the sidebar entries).
+   Numbers are embedded in the link text (not CSS counters) because preface,
+   end-matter, and appendix entries interleave with numbered chapters. #}
+<ul>
+  <li>{{ site.title }}
+    <ul class="toc-root">
+      {% for ch in book.chapters %}
+        <li class="{% if ch.number === null %}preface{% elif ch.mode == 'appendix' %}appendix{% else %}chapter{% endif %}">
+          <a href="{{ ch.url }}">{{ ch.displayTitle }}</a>
+          {% if ch.sections.length or ch.endMatterUrl %}
+            <ul>
+              {% for s in ch.sections %}
+                <li class="section"><a href="{{ s.url }}">{{ s.displayTitle }}</a></li>
+              {% endfor %}
+              {% if ch.endMatterUrl %}
+                <li class="end-matter"><a href="{{ ch.endMatterUrl }}">End Matter</a></li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+      <li class="book-index"><a href="/book-index.html">Index</a></li>
+    </ul>
+  </li>
+</ul>

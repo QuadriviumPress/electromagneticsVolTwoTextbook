@@ -1,0 +1,242 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Equivalent Circuit Model for Reception
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191212   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0206_Equivalent_Circuit_Model_for_Reception} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+In this section, we begin to address antennas as devices that convert incident electromagnetic waves into potentials and currents in a circuit.
+It is convenient to represent this process in the form of a Th\'{e}venin equivalent circuit.
+The particular circuit addressed in this section is shown in Figure~\ref{m0206_AntennaEquivCircuitReception}.
+%
+\begin{figure}[b!] % <--- "[b!]" for first figure in section *only*; delete for 2nd and subsequent figures
+\begin{center}
+\pdftooltip{{  % note double braces
+\includegraphics[width=1.3in]{modules/m0206_AntennaEquivCircuitReception.eps} 
+% https://commons.wikimedia.org/wiki/File:Antenna_Equivalent_Circuit.svg
+}}{An open circuit with series components capital v tilde sub quantity capital o capital c and capital Z sub capital A.}
+\end{center}
+\centerline{\scriptsize 
+\copyright~\hyperref[m0206_AntennaEquivCircuitReception_Credit]{S.\ Lally}, 
+\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} (modified) 
+} % \centerline 
+\caption{
+\label{m0206_AntennaEquivCircuitReception}
+Th\'{e}venin equivalent circuit for an antenna in the presence of an incident electromagnetic wave.
+}
+\end{figure}
+%
+The circuit consists of a voltage source $\widetilde{V}_{OC}$ and a series impedance $Z_A$.
+The source potential $\widetilde{V}_{OC}$ is the potential at the terminals of the antenna when there is no termination; i.e., when the antenna is open-circuited.
+The series impedance $Z_A$ is the output impedance of the circuit, and so determines the magnitude and phase of the current at the terminals once a load is connected.
+Given $\widetilde{V}_{OC}$ and the current through the equivalent circuit, it is possible to determine the power delivered to the load.
+Thus, this model is quite useful, but only if we are able to determine $\widetilde{V}_{OC}$ and $Z_A$.
+This section provides an informal derivation of these quantities that is sufficient to productively address the subsequent important topics of effective aperture and impedance matching of receive antennas.\footnote{Formal derivations of these quantities are provided in subsequent sections.  The starting point is the section on reciprocity.}
+
+{\bf Vector effective length.} 
+With no derivation required, we can deduce the following about $\widetilde{V}_{OC}$:
+%
+\begin{itemize}
+\item $\widetilde{V}_{OC}$ must depend on the incident electric field intensity $\widetilde{\bf E}^i$.  Presumably the relationship is linear, so $\widetilde{V}_{OC}$ is proportional to the magnitude of $\widetilde{\bf E}^i$.
+\item Since $\widetilde{\bf E}^i$ is a vector whereas $\widetilde{V}_{OC}$ is a scalar, there must be some vector ${\bf l}_e$ for which
+%
+\begin{equation}
+\widetilde{V}_{OC}=\widetilde{\bf E}^i\cdot{\bf l}_e
+\label{m0206_Voc}
+\end{equation}
+\item Since $\widetilde{\bf E}^i$ has SI base units of V/m and $\widetilde{V}_{OC}$ has SI base units of V, ${\bf l}_e$ must have SI base units of m; i.e., length.
+\item We expect that $\widetilde{V}_{OC}$ increases as the size of the antenna increases, so the magnitude of ${\bf l}_e$ likely increases with the size of the antenna.
+\item The direction of ${\bf l}_e$ must be related to the orientation of the incident electric field relative to that of the antenna, since this is clearly important yet we have not already accounted for this.
+\end{itemize}
+%
+It may seem at this point that ${\bf l}_e$ is unambiguously determined, and we need merely to derive its value.
+However, this is not the case. 
+There are in fact multiple unique definitions of ${\bf l}_e$ that will reduce the vector $\widetilde{\bf E}^i$ to the observed scalar $\widetilde{V}_{OC}$ via Equation~\ref{m0206_Voc}.
+In this section, we shall employ the most commonly-used definition, in which ${\bf l}_e$ is referred to as \emph{vector effective length}. 
+\index{vector effective length}
+Following this definition, the scalar part $l_e$ of ${\bf l}_e=\hat{\bf l} l_e$ is commonly referred to as any of the following:
+\emph{effective length} (the term used in this book), 
+\index{effective length}
+\emph{effective height},
+\index{effective height}
+or \emph{antenna factor}.
+\index{antenna factor}
+
+In this section, we shall merely define vector effective length, and defer a formal derivation to Section~\ref{m0215_Voltage_Induced_in_a_Dipole}.
+In this definition, we arbitrarily set $\hat{\bf l}$, the real-valued unit vector indicating the direction of ${\bf l}_e$, equal to the direction in which the electric field transmitted from this antenna would be polarized in the far field.
+For example, consider a $\hat{\bf z}$-oriented electrically-short dipole (ESD) located at the origin.  
+The electric field transmitted from this antenna would have only a $\hat{\bf \theta}$ component, and no $\hat{\bf \phi}$ component (and certainly no $\hat{\bf r}$ component).
+Thus, $\hat{\bf l}=\hat{\bf \theta}$ in this case.
+
+Applying this definition, $\widetilde{\bf E}^i \cdot \hat{\bf l}$ yields the scalar component of $\widetilde{\bf E}^i$ that is co-polarized with electric field radiated by the antenna when transmitting. 
+Now $l_e$ is uniquely defined to be the factor that converts this component into $\widetilde{V}_{OC}$.
+Summarizing:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The \emph{vector effective length} ${\bf l}_e = \hat{\bf l} l_e$ is defined as follows:
+$\hat{\bf l}$ is the real-valued unit vector corresponding to the polarization of the electric field that would be transmitted from the antenna in the far field.
+Subsequently, the \emph{effective length} $l_e$ is 
+%
+\begin{equation}
+l_e \triangleq \frac{\widetilde{V}_{OC}}{\widetilde{\bf E}^i \cdot \hat{\bf l}} 
+\end{equation}
+%
+where $\widetilde{V}_{OC}$ is the open-circuit potential induced at the antenna terminals in response to the incident electric field intensity $\widetilde{\bf E}^i$.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+While this definition yields an unambiguous value for $l_e$, it is not yet clear what that value is.
+For most antennas, effective length is quite difficult to determine directly, and one must instead determine effective length indirectly from the transmit characteristics via reciprocity.
+This approach is relatively easy (although still quite a bit of effort) for thin dipoles, and is presented in Section~\ref{m0215_Voltage_Induced_in_a_Dipole}.
+
+To provide an example of how effective length works right away, consider the $\hat{\bf z}$-oriented ESD described earlier in this section.
+Let the length of this ESD be $L$.
+Let $\widetilde{\bf E}^i$ be a $\hat{\bf \theta}$-polarized plane wave arriving at the ESD.
+The ESD is open-circuited, so the potential induced in its terminals is $\widetilde{V}_{OC}$.
+One observes the following:
+%
+\begin{itemize}
+\item  When $\widetilde{\bf E}^i$ arrives from anywhere in the $\theta=\pi/2$ plane (i.e., broadside to the ESD), $\widetilde{\bf E}^i$ points in the $-\hat{\bf z}$ direction, and we find that $l_e\approx L/2$.  It should not be surprising that $l_e$ is proportional to $L$; this expectation was noted earlier in this section.
+\item  When $\widetilde{\bf E}^i$ arrives from the directions $\theta=0$ or $\theta=\pi$ -- i.e., along the axis of the ESD -- $\widetilde{\bf E}^i$ is perpendicular to the axis of the ESD. In this case, we find that $l_e$ equals zero. 
+\end{itemize}
+%
+Taken together, these findings suggest that $l_e$ should contain a factor of $\sin\theta$.
+We conclude that the vector effective length for a $\hat{\bf z}$-directed ESD of length $L$ is
+%
+\begin{equation}
+{\bf l}_e \approx \hat{\bf \theta}\frac{L}{2}\sin\theta ~~~~~ \mbox{(ESD)}
+\label{m0206_eVEL-ESD}
+\end{equation}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\label{m0206_exIPESD}
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Potential induced in an ESD.
+\\~\\
+A thin straight dipole of length 10~cm is located at the origin and aligned with the $z$-axis. 
+A plane wave is incident on the dipole from the direction $(\theta=\pi/4,\phi=\pi/2)$.
+The frequency of the wave is 30~MHz.
+The magnitude of the incident electric field is $10~\mu$V/m (rms).
+What is the magnitude of the induced open-circuit potential when the electric field is (a) $\hat{\bf \theta}$-polarized and (b) $\hat{\bf \phi}$-polarized?
+
+{\bf Solution.}
+The wavelength in this example is $c/f\cong 10$~m, so this dipole is electrically-short.
+Using Equation~\ref{m0206_eVEL-ESD}:
+%
+\begin{flalign}
+{\bf l}_e & \approx \hat{\bf \theta}\frac{10~\mbox{cm}}{2}\sin\frac{\pi}{4} \nonumber \\
+          & \approx \hat{\bf \theta}\left(3.54~\mbox{cm}\right)  \nonumber
+\end{flalign}
+%
+Thus, the effective length $l_e=3.54$~cm. 
+When the electric field is $\hat{\bf \theta}$-polarized, the magnitude of the induced open-circuit voltage is
+%
+\begin{flalign}
+\left|\widetilde{V}_{OC}\right| &=\left| \widetilde{\bf E}^i \cdot {\bf l}_e \right| \nonumber \\
+                                &\approx \left(10~\mu\mbox{V/m}\right)\hat{\bf \theta} \cdot \hat{\bf \theta}\left(3.54~\mbox{cm}\right) \nonumber \\
+                                &\approx \underline{354~\mbox{nV}~~\mbox{rms}}~~~ \mbox{(a)} \nonumber
+\end{flalign}
+When the electric field is $\hat{\bf \phi}$-polarized:
+%
+\begin{flalign}
+\left|\widetilde{V}_{OC}\right| &\approx \left(10~\mu\mbox{V/m}\right)\hat{\bf \phi} \cdot \hat{\bf \theta}\left(3.54~\mbox{cm}\right) \nonumber \\
+                                &\approx \underline{0} ~~~ \mbox{(b)} \nonumber
+\end{flalign}
+%
+This is because the polarization of the incident electric field is orthogonal to that of the ESD.  In fact, the answer to part~(b) is zero for \emph{any} angle of incidence $(\theta,\phi)$.
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Output impedance.}  The output impedance $Z_A$ is somewhat more difficult to determine without a formal derivation, which is presented in Section~\ref{m0216_Equivalent_Circuit_Model_for_Reception_Redux}.
+For the purposes of this section, it suffices to jump directly to the result:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The output impedance $Z_A$ of the equivalent circuit for an antenna in the receive case is equal to the input impedance of the same antenna in the \emph{transmit} case.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%
+This remarkable fact is a consequence of the reciprocity property of antenna systems, and greatly simplifies the analysis of receive antennas.
+
+Now a demonstration of how the antenna equivalent circuit can be used to determine the power delivered by an antenna to an attached electrical circuit:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Power captured by an ESD.
+\\~\\
+Continuing with part~(a) of Example~\ref{m0206_exIPESD}:
+If this antenna is terminated into a conjugate-matched load, then what is the power delivered to that load?
+Assume the antenna is lossless.
+
+{\bf Solution.}
+First, we determine the impedance $Z_A$ of the equivalent circuit of the antenna.  
+This is equal to the input impedance of the antenna in transmission.
+Let $R_A$ and $X_A$ be the real and imaginary parts of this impedance; i.e., $Z_A=R_A+jX_A$.
+Further, $R_A$ is the sum of the radiation resistance $R_{rad}$ and the loss resistance.
+The loss resistance is zero because the antenna is lossless.
+Since this is an ESD:
+%
+\begin{equation}
+R_{rad} \approx 20\pi^2 \left(\frac{L}{\lambda}\right)^2
+\end{equation}
+%
+Therefore, $R_A = R_{rad}\approx 4.93$~m$\Omega$.
+We do not need to calculate $X_A$, as will become apparent in the next step.
+
+A conjugate-matched load has impedance $Z_A^*$, so the potential $\widetilde{V}_L$ across the load is 
+%
+\begin{equation}
+\widetilde{V}_L = \widetilde{V}_{OC}\frac{Z_A^*}{Z_A+Z_A^*} = \widetilde{V}_{OC}\frac{Z_A^*}{2R_A}
+\end{equation}
+%
+The current $\widetilde{I}_L$ through the load is 
+%
+\begin{equation}
+\widetilde{I}_L = \frac{\widetilde{V}_{OC}}{Z_A+Z_A^*} = \frac{\widetilde{V}_{OC}}{2R_A}
+\end{equation}
+%
+Taking $\widetilde{V}_{OC}$ as an RMS quantity, the power $P_L$ delivered to the load is
+%
+\begin{equation}
+P_L = \mbox{Re}\left\{V_L I_L^*\right\} 
+    = \frac{\left|\widetilde{V}_{OC}\right|^2}{4R_A} 
+\end{equation}
+%
+In part~(a) of Example~\ref{m0206_exIPESD}, $\left|\widetilde{V}_{OC}\right|$ is found to be $\approx 354$~nV rms, so 
+$P_L \approx$ \underline{6.33~pW}.
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Th%C3%A9venin%27s_theorem}{Th\'{e}venin's Theorem}'' on Wikipedia.
+\item W.L.~Stutzman \& G.A.~Thiele, \emph{Antenna Theory and Design}, 3rd Ed., Wiley, 2012.  Sec.~4.2 (``Receiving Properties of Antennas'').
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%{\bf \emph{Addendum}: A common alternative definition of vector effective length.}
+%As noted previously, there are multiple ways that Equation~\ref{m0206_Voc} can be manipulated to obtain a definition for ${\bf l}_e$, and the results are different.  A common difference concerns polarization: ${\bf l}_e$ is often defined to have direction equal to the direction of $\widetilde{\bf E}^i$ (or $-{\bf E}^i$), so that the purpose of the dot product is merely to extract the scalar part of $\widetilde{\bf E}^i$.  This is particularly convenient in the transmit case, since the polarization of radiated electric field is fixed to the antenna.
+%In the receive case, however, the polarization of the electric field is independent of the orientation of the antenna, so the magnitude of ${\bf l}_e$ defined in this manner must also account for the orientation of the antenna relative to the polarization of $\widetilde{\bf E}^i$. This in contrast to the definition used in this book (and derived in Section~\ref{m0215_Voltage_Induced_in_a_Dipole}) in which the direction of ${\bf l}_e$ is fixed to the antenna, so the dot product accounts for the polarization of $\widetilde{\bf E}^i$ relative to the orientation of the antenna.  The latter definition tends to be more convenient for the receive case. 
+
+%In the special case that the antenna receives an electric field which is perfectly co-polarized with the field that the antenna would transmit, there is no difference in these definitions.  Since this is the case of primary interest in many applications, the fact that these definitions are not the same can easily go unnoticed.  As always -- and especially in the field of antenna engineering -- you should be careful to note the specific definitions presumed in any particular analysis.

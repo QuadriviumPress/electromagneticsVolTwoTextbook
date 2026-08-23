@@ -1,0 +1,402 @@
+\documentclass[10pt,letterpaper,twocolumn,openany]{book}
+\usepackage[paperwidth=8in, paperheight=10in]{geometry} % trim
+%\special{papersize=210mm,297mm}                         % trim
+%\usepackage{showframe}                                 % trim 
+\usepackage{layout}                                     % trim 
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{amsmath}
+%\usepackage{amsfonts}   % if you want the fonts
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr} %%%% https://www.sharelatex.com/learn/Headers_and_footers
+\usepackage{pdfcomment}
+\usepackage{times}   % to facilitate change of font
+\usepackage{tocloft} % to adjust sep between numbers and titles in TOC
+\usepackage{makeidx} % index
+\makeindex
+
+\theoremstyle{definition} % make text of examples appear in plan (not italic) font
+\newtheorem{example}{Example}[chapter] % example begins "Example <chapter>.<example-within-chapter>
+\definecolor{oemgray}{rgb}{1.00, 1.00, 1.00}
+
+\parindent0pt  \parskip10pt             % make block paragraphs
+\raggedright                            % do not right justify
+\setlength{\topmargin}{-41pt}      % trim
+\setlength{\headheight}{10pt}      % trim
+\setlength{\headsep}{22pt}         % trim
+\setlength{\textheight}{596pt}     % trim
+\setlength{\footskip}{41pt}        % trim
+\setlength{\marginparwidth}{0pt}   % trim
+\setlength{\marginparsep}{0pt}     % trim
+\setlength{\oddsidemargin}{0pt}    % trim
+\setlength{\evensidemargin}{-18pt} % trim
+\setlength{\textwidth}{443pt}      % trim
+\setlength{\cftsecnumwidth}{3em}   % sep between numbers and titles in TOC (package tocloft)
+
+\renewcommand{\headrulewidth}{0pt} % eliminate header line                                    
+\urlstyle{same}                    % show URL in main font (not in the default monospace font)
+
+% This defines command needed to make table of contents appear on even-numbered page
+\makeatletter
+\newcommand*{\clearevenpage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page
+      \hbox{}%
+      \newpage
+      \if@twocolumn
+        \hbox{}%
+        \newpage
+      \fi
+    \fi
+  \fi
+}
+\makeatother
+
+\title{Electromagnetics \\ Vol.~2}
+\author{Steven W. Ellingson}
+\date{\today}
+
+\begin{document}                        % End of preamble, start of text.
+\fontfamily{ptm}\selectfont            % Change font to Times
+\frontmatter                            % only in book class (roman page #s)
+%\maketitle                              % Print title page.
+\setcounter{page}{6} % Table of contents should be on pg vi (6)
+\begingroup          % solution to force TOC to begin on an even-numbered page
+  \let\cleardoublepage\clearevenpage
+  \tableofcontents
+\endgroup
+  \chapter{Preface}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section*{About This Book}
+{\color{blue}\tiny[m0213]}      \input{modules/m0213_Preface-About_This_Book_v2}
+      \vfill\break
+    \section*{About the Open Electromagnetics Project}
+{\color{blue}\tiny[m0148]}      \input{modules/m0148_Preface-About_OpenEM}
+      \vfill\break
+    \section*{About the Author}
+{\color{blue}\tiny[m0153]}      \input{modules/m0153_Preface-About_Author}
+      \vfill\break
+\mainmatter                             % only in book class (arabic page #s)
+  \chapter{Preliminary Concepts}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Units}
+{\color{blue}\tiny[m0072]}      \input{modules/m0072_Units}
+      \vfill\break
+    \section{Notation}
+{\color{blue}\tiny[m0005]}      \input{modules/m0005_Notation}
+      \vfill\break
+    \section{Coordinate Systems}
+{\color{blue}\tiny[m0180]}      \input{modules/m0180_Coordinate_Systems}
+      \vfill\break
+    \section{Electromagnetic Field Theory: A Review}
+{\color{blue}\tiny[m0179]}      \input{modules/m0179_Electromagnetic_Field_Theory_Review}
+      \vfill\break
+{\color{blue}\tiny[m0181]}    \input{modules/m0181_Ch_End_Matter_Preliminary_Concepts_v2}
+  \chapter{Magnetostatics Redux}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Lorentz Force}
+{\color{blue}\tiny[m0015]}      \input{modules/m0015_Lorentz_Force}
+      \vfill\break
+    \section{Magnetic Force on a Current-Carrying Wire}
+{\color{blue}\tiny[m0017]}      \input{modules/m0017_Magnetic_Force_Current-Carrying_Wire}
+      \vfill\break
+    \section{Torque Induced by a Magnetic Field}
+{\color{blue}\tiny[m0024]}      \input{modules/m0024_Torque_Induced_by_a_Magnetic_Field}
+      \vfill\break
+    \section{The Biot-Savart Law}
+{\color{blue}\tiny[m0066]}      \input{modules/m0066_Biot-Savart}
+      \vfill\break
+    \section{Force, Energy, and Potential Difference in a Magnetic Field}
+{\color{blue}\tiny[m0059]}      \input{modules/m0059_Moving_Conductor_in_a_Static_Magnetic_Field}
+      \vfill\break
+{\color{blue}\tiny[m0182]}    \input{modules/m0182_Ch_End_Matter_Magnetostatics_Redux}
+  \chapter{Wave Propagation in General Media}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Poynting's Theorem}
+{\color{blue}\tiny[m0073]}      \input{modules/m0073_Poyntings_Theorem}
+      \vfill\break
+    \section{Poynting Vector}
+{\color{blue}\tiny[m0122]}      \input{modules/m0122_Poynting_Vector}
+      \vfill\break
+    \section{Wave Equations for Lossy Regions}
+{\color{blue}\tiny[m0128]}      \input{modules/m0128_Wave_Equations_Lossy_Regions}
+      \vfill\break
+    \section{Complex Permittivity}
+{\color{blue}\tiny[m0134]}      \input{modules/m0134_Complex_Permittivity}
+      \vfill\break
+    \section{Loss Tangent}
+{\color{blue}\tiny[m0132]}      \input{modules/m0132_Loss_Tangent}
+      \vfill\break
+    \section{Plane Waves in Lossy Regions}
+{\color{blue}\tiny[m0130]}      \input{modules/m0130_Plane_Waves_Lossy_Regions}
+      \vfill\break
+    \section{Wave Power in a Lossy Medium}
+{\color{blue}\tiny[m0133]}      \input{modules/m0133_Wave_Power_in_a_Lossy_Medium}
+      \vfill\break
+    \section{Decibel Scale for Power Ratio}
+{\color{blue}\tiny[m0154]}      \input{modules/m0154_Decibel_Scale_for_Power_Ratio}
+      \vfill\break
+    \section{Attenuation Rate}
+{\color{blue}\tiny[m0155]}      \input{modules/m0155_Attenuation_Rate}
+      \vfill\break
+    \section{Poor Conductors}
+{\color{blue}\tiny[m0156]}      \input{modules/m0156_Poor_Conductors}
+      \vfill\break
+    \section{Good Conductors}
+{\color{blue}\tiny[m0157]}      \input{modules/m0157_Good_Conductors}
+      \vfill\break
+    \section{Skin Depth}
+{\color{blue}\tiny[m0158]}      \input{modules/m0158_Skin_Depth}
+      %\vfill\break
+{\color{blue}\tiny[m0183]}    \input{modules/m0183_Ch_End_Matter_Plane_Wave_Prop_Complex_Media}
+  \chapter{Current Flow in Imperfect Conductors}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{AC Current Flow in a Good Conductor}
+{\color{blue}\tiny[m0069]}      \input{modules/m0069_Current_Flow_in_a_Good_Conductor}
+      \vfill\break
+    \section{Impedance of a Wire}
+{\color{blue}\tiny[m0159]}      \input{modules/m0159_Impedance_of_a_Wire}
+      \vfill\break
+    \section{Surface Impedance}
+{\color{blue}\tiny[m0160]}      \input{modules/m0160_Surface_Impedance}
+      %\vfill\break
+{\color{blue}\tiny[m0184]}    \input{modules/m0184_Ch_End_Matter_Current_Flow_Imperfect_Conductor}
+  \chapter{Wave Reflection and Transmission}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Plane Waves at Normal Incidence on a Planar Boundary}
+{\color{blue}\tiny[m0161]}      \input{modules/m0161_Waves_at_Planar_Boundary}
+      \vfill\break
+    \section{Plane Waves at Normal Incidence on a Material Slab}
+{\color{blue}\tiny[m0162]}      \input{modules/m0162_Waves_at_Double_Planar_Boundary}
+      \vfill\break
+    \section{Total Transmission Through a Slab}
+{\color{blue}\tiny[m0163]}      \input{modules/m0163_Total_Transmission_Slab}
+      \vfill\break
+    \section{Propagation of a Uniform Plane Wave in an Arbitrary Direction}
+{\color{blue}\tiny[m0165]}      \input{modules/m0165_Plane_Wave_Arbitrary_Direction}
+      \vfill\break
+    \section{Decomposition of a Wave into TE and TM Components}
+{\color{blue}\tiny[m0166]}      \input{modules/m0166_Decomposition_into_TE_and_TM}
+      \vfill\break
+    \section{Plane Waves at Oblique Incidence on a Planar Boundary: TE Case}
+{\color{blue}\tiny[m0167]}      \input{modules/m0167_Oblique_Incidence_TE}
+      \vfill\break
+    \section{Plane Waves at Oblique Incidence on a Planar Boundary: TM Case}
+{\color{blue}\tiny[m0164]}      \input{modules/m0164_Oblique_Incidence_TM}
+      \vfill\break
+    \section{Angles of Reflection and Refraction}
+{\color{blue}\tiny[m0168]}      \input{modules/m0168_Angles_of_Reflection_and_Refraction}
+      \vfill\break
+    \section{TE Reflection in Non-magnetic Media}
+{\color{blue}\tiny[m0171]}      \input{modules/m0171_TE_Reflection_Nonmagnetic_Media}
+      \vfill\break
+    \section{TM Reflection in Non-magnetic Media}
+{\color{blue}\tiny[m0172]}      \input{modules/m0172_TM_Reflection_Nonmagnetic_Media}
+      \vfill\break
+    \section{Total Internal Reflection}
+{\color{blue}\tiny[m0169]}      \input{modules/m0169_Total_Internal_Reflection}
+      \vfill\break
+    \section{Evanescent Waves}
+{\color{blue}\tiny[m0170]}      \input{modules/m0170_Evanescent_Waves}
+      %\vfill\break
+{\color{blue}\tiny[m0185]}    \input{modules/m0185_Ch_End_Matter_Wave_Reflection_and_Transmission}
+  \chapter{Waveguides}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Phase and Group Velocity}
+{\color{blue}\tiny[m0176]}      \input{modules/m0176_Phase_and_Group_Velocity}
+      \vfill\break
+    \section{Parallel Plate Waveguide: Introduction}
+{\color{blue}\tiny[m0173]}      \input{modules/m0173_Parallel_Plate_Waveguide_Introduction}
+      \vfill\break
+    \section{Parallel Plate Waveguide: TE Case, Electric Field}
+{\color{blue}\tiny[m0174]}      \input{modules/m0174_Parallel_Plate_Waveguide_TE_Electric}
+      \vfill\break
+    \section{Parallel Plate Waveguide: TE Case, Magnetic Field}
+{\color{blue}\tiny[m0175]}      \input{modules/m0175_Parallel_Plate_Waveguide_TE_Magnetic}
+      \vfill\break
+    \section{Parallel Plate Waveguide: TM Case, Electric Field}
+{\color{blue}\tiny[m0177]}      \input{modules/m0177_Parallel_Plate_Waveguide_TM_Electric}
+      \vfill\break
+    \section{Parallel Plate Waveguide: The TM$_0$ Mode}
+{\color{blue}\tiny[m0220]}      \input{modules/m0220_Parallel_Plate_Waveguide_TM0_Mode}
+      \vfill\break
+    \section{General Relationships for Unidirectional Waves}
+{\color{blue}\tiny[m0222]}      \input{modules/m0222_General_Relationships_for_Unidirectional_Waves}
+      \vfill\break
+    \section{Rectangular Waveguide: TM Modes}
+{\color{blue}\tiny[m0223]}      \input{modules/m0223_Rectangular_Waveguide_TM}
+      \vfill\break
+    \section{Rectangular Waveguide: TE Modes}
+{\color{blue}\tiny[m0225]}      \input{modules/m0225_Rectangular_Waveguide_TE}
+      \vfill\break
+    \section{Rectangular Waveguide: Propagation Characteristics}
+{\color{blue}\tiny[m0224]}      \input{modules/m0224_Rectangular_Waveguide_Prop}
+      \vfill\break
+{\color{blue}\tiny[m0212]}    \input{modules/m0212_Ch_End_Matter_Waveguides}
+  \chapter{Transmission Lines Redux}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Parallel Wire Transmission Line}
+{\color{blue}\tiny[m0188]}      \input{modules/m0188_Parallel_Wire_Transmission_Line}
+      \vfill\break
+    \section{Microstrip Line Redux}
+{\color{blue}\tiny[m0186]}      \input{modules/m0186_Microstrip_Line_Redux}
+      \vfill\break
+    \section{Attenuation in Coaxial Cable}
+{\color{blue}\tiny[m0189]}      \input{modules/m0189_Attenuation_Coaxial_Cable}
+      \vfill\break
+    \section{Power Handling Capability of Coaxial Cable}
+{\color{blue}\tiny[m0190]}      \input{modules/m0190_Power_Handling_Coaxial_Cable}
+      \vfill\break
+    \section{Why 50 Ohms?}
+{\color{blue}\tiny[m0191]}      \input{modules/m0191_Why_50_Ohms}
+      %\vfill\break
+{\color{blue}\tiny[m0187]}    \input{modules/m0187_Ch_End_Matter_Transmission_Lines_Redux}
+  \chapter{Optical Fiber}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Optical Fiber: Method of Operation}
+{\color{blue}\tiny[m0178]}      \input{modules/m0178_Optical_Fiber_Method_of_Operation}
+      \vfill\break
+    \section{Acceptance Angle}
+{\color{blue}\tiny[m0192]}      \input{modules/m0192_Acceptance_Angle}
+      \vfill\break
+    \section{Dispersion in Optical Fiber}
+{\color{blue}\tiny[m0193]}      \input{modules/m0193_Dispersion_Optical_Fiber}
+      %\vfill\break
+{\color{blue}\tiny[m0209]}    \input{modules/m0209_Ch_End_Matter_Optical_Fiber}
+  \chapter{Radiation}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Radiation from a Current Moment}
+{\color{blue}\tiny[m0194]}      \input{modules/m0194_Radiation_Current_Moment}
+      \vfill\break
+    \section{Magnetic Vector Potential}
+{\color{blue}\tiny[m0195]}      \input{modules/m0195_Magnetic_Vector_Potential}
+      \vfill\break
+    \section{Solution of the Wave Equation for Magnetic Vector Potential}
+{\color{blue}\tiny[m0196]}      \input{modules/m0196_Solution_of_the_Wave_Equation_for_Magnetic_Vector_Potential}
+      \vfill\break
+    \section{Radiation from a Hertzian Dipole}
+{\color{blue}\tiny[m0197]}      \input{modules/m0197_Radiation_from_a_Hertzian_Dipole}
+      \vfill\break
+    \section{Radiation from an Electrically-Short Dipole}
+{\color{blue}\tiny[m0198]}      \input{modules/m0198_Radiation_from_an_Electrically-Short_Dipole}
+      \vfill\break
+    \section{Far-Field Radiation from a Thin Straight Filament of Current}
+{\color{blue}\tiny[m0199]}      \input{modules/m0199_Radiation_from_a_Thin_Straight_Filament_of_Current}
+      \vfill\break
+    \section{Far-Field Radiation from a Half-Wave Dipole}
+{\color{blue}\tiny[m0200]}      \input{modules/m0200_Radiation_from_a_Half-Wave_Dipole}
+      \vfill\break
+    \section{Radiation from Surface and Volume Distributions of Current}
+{\color{blue}\tiny[m0221]}      \input{modules/m0221_Radiation_from_Surface_and_Volume_Current}
+      %\vfill\break
+{\color{blue}\tiny[m0217]}    \input{modules/m0217_Ch_End_Matter_Radiation}
+  \chapter{Antennas}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{How Antennas Radiate}
+{\color{blue}\tiny[m0201]}      \input{modules/m0201_How_Antennas_Radiate}
+      \vfill\break
+    \section{Power Radiated by an Electrically-Short Dipole}
+{\color{blue}\tiny[m0207]}      \input{modules/m0207_Total_Power_Radiated_by_an_Electrically-Short_Dipole}
+      \vfill\break
+    \section{Power Dissipated by an Electrically-Short Dipole}
+{\color{blue}\tiny[m0208]}      \input{modules/m0208_Total_Power_Dissipated_by_an_Electrically-Short_Dipole}
+      \vfill\break
+    \section{Reactance of the Electrically-Short Dipole}
+{\color{blue}\tiny[m0210]}      \input{modules/m0210_Reactance_of_the_Electrically-Short_Dipole}
+      \vfill\break
+    \section{Equivalent Circuit Model for Transmission; Radiation Efficiency}
+{\color{blue}\tiny[m0202]}      \input{modules/m0202_Equivalent_Circuit_Model_for_Transmission}
+      \vfill\break
+    \section{Impedance of the Electrically-Short Dipole}
+{\color{blue}\tiny[m0204]}      \input{modules/m0204_Impedance_of_the_Electrically-Short_Dipole}
+      \vfill\break
+    \section{Directivity and Gain}
+{\color{blue}\tiny[m0203]}      \input{modules/m0203_Directivity_and_Gain}
+      \vfill\break
+    \section{Radiation Pattern}
+{\color{blue}\tiny[m0205]}      \input{modules/m0205_Radiation_Pattern}
+      \vfill\break
+    \section{Equivalent Circuit Model for Reception}
+{\color{blue}\tiny[m0206]}      \input{modules/m0206_Equivalent_Circuit_Model_for_Reception}
+      \vfill\break
+    \section{Reciprocity}
+{\color{blue}\tiny[m0214]}      \input{modules/m0214_Reciprocity}
+      \vfill\break
+    \section{Potential Induced in a Dipole}
+{\color{blue}\tiny[m0215]}      \input{modules/m0215_Voltage_Induced_in_a_Dipole}
+      \vfill\break
+    \section{Equivalent Circuit Model for Reception, Redux}
+{\color{blue}\tiny[m0216]}      \input{modules/m0216_Equivalent_Circuit_Model_for_Reception_Redux}
+      \vfill\break
+    \section{Effective Aperture}
+{\color{blue}\tiny[m0218]}      \input{modules/m0218_Effective_Aperture}
+      \vfill\break
+    \section{Friis Transmission Equation}
+{\color{blue}\tiny[m0219]}      \input{modules/m0219_Friis_Transmission_Equation}
+      %\vfill\break
+{\color{blue}\tiny[m0211]}    \input{modules/m0211_Ch_End_Matter_Antennas}
+\appendix
+  \chapter{Constitutive Parameters of Some Common Materials}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Permittivity of Some Common Materials}
+{\color{blue}\tiny[m0135]}      \input{modules/m0135_Table_of_Permittivities}
+      \vfill\break
+    \section{Permeability of Some Common Materials}
+{\color{blue}\tiny[m0136]}      \input{modules/m0136_Table_of_Permeabilities}
+      \vfill\break
+    \section{Conductivity of Some Common Materials}
+{\color{blue}\tiny[m0137]}      \input{modules/m0137_Table_of_Conductivities}
+      \vfill\break
+  \chapter{Mathematical Formulas}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+    \section{Trigonometry}
+{\color{blue}\tiny[m0138]}      \input{modules/m0138_Trigonometry}
+      \vfill\break
+    \section{Vector Operators}
+{\color{blue}\tiny[m0139]}      \input{modules/m0139_Vector_Operators}
+      \vfill\break
+    \section{Vector Identities}
+{\color{blue}\tiny[m0140]}      \input{modules/m0140_Vector_Identities}
+      \vfill\break
+  \chapter{Physical Constants}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol.~2}. ~\copyright~2020 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-2}}
+{\color{blue}\tiny[m0141]}    \input{modules/m0141_Physical_Constants}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}

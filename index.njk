@@ -1,0 +1,29 @@
+---
+title: Home
+layout: default
+---
+
+<div class="landing">
+  <h1 class="page-title">{{ site.title }}</h1>
+  <p><em>{{ site.tagline }}</em></p>
+  <p>{{ site.description }}</p>
+  <p>
+    This is the web edition of the open textbook by {{ site.author }} (Virginia Tech),
+    licensed
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>.
+    The print edition of record is available at
+    <a href="{{ site.doi }}">doi.org/10.21061/electromagnetics-vol-2</a>.
+  </p>
+
+  <div class="landing-actions">
+    <a href="/preface-about-this-book/">Start reading</a>
+    <a class="secondary" href="/book-index.html">Index</a>
+  </div>
+
+  <h2>Contents</h2>
+  <ol class="chapter-list">
+    {% for ch in book.chapters %}
+      <li><a href="{{ ch.url }}">{{ ch.displayTitle }}</a></li>
+    {% endfor %}
+  </ol>
+</div>

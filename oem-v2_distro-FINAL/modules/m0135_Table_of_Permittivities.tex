@@ -1,0 +1,96 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Permittivity of Some Common Materials
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191128   # yyyymmdd
+%ORB ABSTRACT Permittivity of Some Commonly-Encountered Materials Materials
+
+\label{m0135_Table_of_Permittivities} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{permittivity!of common materials|(}
+
+The values below are relative permittivity $\epsilon_r \triangleq \epsilon/\epsilon_0$ for a few materials that are commonly encountered in electrical engineering applications, and for which permittivity emerges as a consideration.
+Note that ``relative permittivity'' 
+\index{permittivity!relative}
+is sometimes referred to as \emph{dielectric constant}.
+\index{dielectric constant}
+
+Here we consider only the physical (real-valued) permittivity, which is the real part of the complex permittivity (typically indicated as $\epsilon'$ or $\epsilon_r'$) for materials exhibiting significant loss.
+
+Permittivity varies significantly as a function of frequency.
+The values below are representative of frequencies from a few kHz to about 1~GHz.
+The values given are also representative of optical frequencies for materials such as silica that are used in optical applications.
+Permittivity also varies as a function of temperature.
+In applications where precision better than about 10\% is required, primary references accounting for frequency and temperature should be consulted.
+The values presented here are gathered from a variety of references, including those indicated in ``Additional References.''
+  
+{\bf Free Space} (vacuum): $\epsilon_r \triangleq 1$
+
+\vfill\break
+{\bf Solid Dielectrics}:
+\index{dielectric (material)!examples}
+%
+\begin{tabular}{lll}
+Material                   & $\epsilon_r$ & Common uses \\
+\hline
+Styrofoam$^1$              & 1.1 & \\ \index{styrofoam} % https://en.wikipedia.org/wiki/Styrofoam 
+Teflon$^2$                 & 2.1 & \\ \index{Teflon} % HPC, https://en.wikipedia.org/wiki/Polytetrafluoroethylene
+Polyethylene               & 2.3 & coaxial cable \index{polyethylene} \\ % HPC
+Polypropylene              & 2.3 & \\ \index{polypropylene} % HPC
+Silica                     & 2.4 & optical fiber$^3$ \index{silica} \\ %https://en.wikipedia.org/wiki/Optical_fiber
+Polystyrene                & 2.6 & \\ \index{polystyrene} % HPC, https://en.wikipedia.org/wiki/Polystyrene
+Polycarbonate              & 2.8 & \\ \index{polycarbonate} % HPC, https://en.wikipedia.org/wiki/Polycarbonate
+Rogers RO3003              & 3.0 & PCB substrate \\ \index{printed circuit board (PCB)!material}
+FR4 (glass epoxy laminate) & 4.5 & PCB substrate \index{FR4} \\ % https://en.wikipedia.org/wiki/FR-4
+\end{tabular}
+%
+~\\
+$^1$ Properly known as \emph{extruded polystyrene foam} (XPS).\\
+$^2$ Properly known as \emph{polytetrafluoroethylene} (PTFE).\\ \index{polytetrafluoroethylene}
+$^3$ Typically doped with small amounts of other materials to slightly raise or lower the index of refraction 
+\index{index of refraction}
+($=\sqrt{\epsilon_r}$).
+
+Non-conducting spacing materials used in discrete capacitors exhibit $\epsilon_r$ ranging from about 5 to 50.
+
+{\bf Semiconductors} 
+\index{semiconductor (material)}
+commonly appearing in electronics -- including carbon, silicon, 
+\index{silicon}
+geranium, 
+\index{geranium}
+indium phosphide, 
+\index{indium phosphide}
+and so on -- typically exhibit $\epsilon_r$ in the range 5--15.  
+% https://www.microwaves101.com/encyclopedias/indium-phosphide
+
+{\bf Glass} 
+\index{glass}
+exhibits $\epsilon_r$ in the range 4--10, depending on composition.
+
+{\bf Gasses}, including air, typically exhibit $\epsilon_r\cong 1$ to within a tiny fraction of a percent. 
+
+{\bf Liquid water} 
+\index{water}
+typically exhibits $\epsilon_r$ in the range 72--81. Distilled water exhibits $\epsilon_r \approx 81$ at room temperature, whereas sea water tends to be at the lower end of the range.    
+
+{\bf Other liquids} typically exhibit $\epsilon_r$ in the range 10--90, with considerable variation as a function of temperature and frequency.  Animal flesh and blood consists primarily of liquid matter and so also exhibits permittivity in this range.
+
+{\bf Soil} 
+\index{soil}
+typically exhibits $\epsilon_r$ in the range 2.5--3.5 when dry and higher when wet.  The permittivity of soil varies considerably depending on composition.
+
+%--------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item \href{http://hbcponline.com}{\emph{CRC Handbook of Chemistry and Physics}}.
+\item ``\href{https://en.wikipedia.org/wiki/Relative_permittivity}{Relative permittivity}'' on Wikipedia.
+\item ``\href{http://www.microwaves101.com/encyclopedias/miscellaneous-dielectric-constants}{Miscellaneous Dielectric Constants}'' on \href{http://www.microwaves101.com}{microwaves101.com}.
+\end{itemize}
+
+\index{permittivity!of common materials|)}
+
+

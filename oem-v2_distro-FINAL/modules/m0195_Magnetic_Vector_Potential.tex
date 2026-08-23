@@ -1,0 +1,269 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Magnetic Vector Potential
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191123   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0195_Magnetic_Vector_Potential} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{magnetic vector potential|(}
+
+A common problem in electromagnetics is to determine the fields radiated by a specified current distribution.
+This problem can be solved using Maxwell's equations
+\index{Maxwell's equations} 
+along with the appropriate electromagnetic boundary conditions.
+For time-harmonic 
+\index{time-harmonic}
+(sinusoidally-varying) currents, we use phasor representation.\footnote{Recall that there is no loss of generality in doing so, since any other time-domain variation in the current distribution can be represented using sums of time-harmonic solutions via the Fourier transform.}
+Given the specified current distribution $\widetilde{\bf J}$ and the desired electromagnetic fields $\widetilde{\bf E}$ and $\widetilde{\bf H}$, the
+appropriate equations are:
+%
+\begin{equation}
+\nabla \cdot \widetilde{\bf E} = \widetilde{\rho}_v/\epsilon
+\label{m0195_eMDE0}
+\end{equation}
+%
+\begin{equation}
+\nabla \times  \widetilde{\bf E} = -j\omega\mu\widetilde{\bf H} 
+\label{m0195_eMCE}
+\end{equation}
+%
+\begin{equation}
+\nabla \cdot \widetilde{\bf H} = 0 
+\label{m0195_eMDH}
+\end{equation}
+%
+\begin{equation}
+\nabla \times \widetilde{\bf H}  = \widetilde{\bf J} + j\omega\epsilon\widetilde{\bf E}
+\label{m0195_eMCH} 
+\end{equation}
+%
+where $\widetilde{\rho}_v$ is the volume charge density.
+In most engineering problems, one is concerned with propagation through media which are well-modeled as homogeneous media with neutral charge, such as free space.\footnote{A counter-example would be propagation through a plasma,
+\index{plasma}
+which by definition consists of non-zero net charge.}
+Therefore, in this section, we shall limit our scope to problems in which $\widetilde{\rho}_v=0$. 
+Thus, Equation~\ref{m0195_eMDE0} simplifies to:
+%
+\begin{equation}
+\nabla \cdot \widetilde{\bf E} = 0
+\label{m0195_eMDE}
+\end{equation}
+%
+To solve the linear system of partial differential Equations \ref{m0195_eMCE}--\ref{m0195_eMDE}, it is useful to invoke the concept of \emph{magnetic vector potential}.
+The magnetic vector potential is a vector field that has the useful property that it is able to represent both the electric and magnetic fields as a single field.
+This allows the formidable system of equations identified above to be reduced to a single equation which is simpler to solve.
+Furthermore, this single equation turns out to be the wave equation, 
+\index{wave equation!electromagnetic}
+with the slight difference that the equation will be mathematically inhomogeneous, with the inhomogeneous part representing the source current.
+
+The magnetic vector potential $\widetilde{\bf A}$ is defined by the following relationship:
+%
+\begin{equation}
+\boxed{
+\widetilde{\bf B} \triangleq \nabla \times \widetilde{\bf A}
+}
+\label{m0195_eMVPdef}
+\end{equation}
+%
+where $\widetilde{\bf B}=\mu\widetilde{\bf H}$ is the magnetic flux density.
+\index{magnetic flux density}
+The magnetic field appears in three of Maxwell's equations. 
+For Equation~\ref{m0195_eMVPdef} to be a reasonable definition, $\nabla \times \widetilde{\bf A}$ must yield reasonable results when substituted for $\mu\widetilde{\bf H}$ in each of these equations.
+Let us first check for consistency with Gauss' law for magnetic fields,
+\index{Gauss' law!magnetic field}
+Equation~\ref{m0195_eMDH}.
+Making the substitution, we obtain:
+%
+\begin{equation}
+\nabla \cdot  \left( \nabla \times \widetilde{\bf A} \right) = 0
+\end{equation}
+%
+This turns out to be a mathematical identity that applies to \emph{any} vector field (see Equation~\ref{m0140_eNdNxA} in Appendix~\ref{m0140_Vector_Identities}).
+Therefore, Equation~\ref{m0195_eMVPdef} is consistent with Gauss' law for magnetic fields.
+
+Next we check for consistency with Equation~\ref{m0195_eMCE}.  Making the substitution:
+%
+\begin{equation}
+\nabla \times  \widetilde{\bf E} = -j\omega\left(\nabla \times \widetilde{\bf A}\right)
+\end{equation}
+%
+Gathering terms on the left, we obtain
+%
+\begin{equation}
+\nabla \times  \left( \widetilde{\bf E} +j\omega \widetilde{\bf A} \right) = 0
+\label{m0195_ephi1}
+\end{equation}
+%
+Now, for reasons that will become apparent in just a moment, we define a new scalar field $\widetilde{V}$ and require it to satisfy the following relationship:
+%
+\begin{equation}
+-\nabla\widetilde{V} \triangleq \widetilde{\bf E} +j\omega \widetilde{\bf A}
+\label{m0195_ephi2} 
+\end{equation}
+%
+Using this definition, Equation~\ref{m0195_ephi1} becomes:
+%
+\begin{equation}
+\nabla \times  \left( -\nabla\widetilde{V} \right) = 0
+\end{equation}
+%
+which is simply
+%
+\begin{equation}
+\nabla \times  \nabla\widetilde{V} = 0
+\end{equation}
+%
+Once again we have obtained a mathematical identity that applies to \emph{any} vector field (see Equation~\ref{m0140_eNxNA} in Appendix~\ref{m0140_Vector_Identities}).
+Therefore, $\widetilde{V}$ can be \emph{any} mathematically-valid scalar field.
+Subsequently, Equation~\ref{m0195_eMVPdef} is consistent with Equation~\ref{m0195_eMCE} (Maxwell's curl equation for the electric field) for any choice of $\widetilde{V}$ that we are inclined to make. 
+
+Astute readers might already realize what we're up to here.  
+Equation~\ref{m0195_ephi2} is very similar to the relationship ${\bf E} = -\nabla V$ from electrostatics,\footnote{Note: No tilde in this expression.} in which $V$ is the scalar electric potential field.
+Evidently Equation~\ref{m0195_ephi2} is an enhanced version of that relationship that accounts for the coupling with ${\bf H}$ (here, represented by ${\bf A}$) in the time-varying (decidedly non-static) case.
+That assessment is correct, but let's not get too far ahead of ourselves:  As demonstrated in the previous paragraph, we are not yet compelled to make any particular choice for $\widetilde{V}$, and this freedom will be exploited later in this section.
+
+Next we check for consistency with Equation~\ref{m0195_eMCH}.  Making the substitution:
+%
+\begin{equation}
+\nabla \times \left(\frac{1}{\mu}\nabla \times \widetilde{\bf A}\right) = \widetilde{\bf J} +j\omega\epsilon\widetilde{\bf E}
+\end{equation}
+%
+Multiplying both sides of the equation by $\mu$:
+%
+\begin{equation}
+\nabla \times \nabla \times \widetilde{\bf A} = \mu\widetilde{\bf J} +j\omega\mu\epsilon\widetilde{\bf E}
+\end{equation}
+%
+Next we use Equation~\ref{m0195_ephi2} to eliminate $\widetilde{\bf E}$, yielding:
+%
+\begin{equation}
+\nabla \times \nabla \times \widetilde{\bf A} = \mu\widetilde{\bf J} +j\omega\mu\epsilon\left(-\nabla\widetilde V -j\omega \widetilde{\bf A}\right)
+\end{equation}
+%
+After a bit of algebra, we obtain
+%
+\begin{equation}
+\nabla \times \nabla \times \widetilde{\bf A}
+= \omega^2\mu\epsilon\widetilde{\bf A} - j\omega\mu\epsilon\nabla\widetilde V + \mu\widetilde{\bf J} 
+\label{m0195_e1}
+\end{equation}
+%
+Now we replace the left side of this equation using vector identity \ref{m0140_eNxNxA} in Appendix~\ref{m0140_Vector_Identities}:
+%
+\begin{equation}
+\nabla \times \nabla \times \widetilde{\bf A} \equiv \nabla\left(\nabla \cdot \widetilde{\bf A}\right) - \nabla^2 \widetilde{\bf A}
+\end{equation}
+%
+Equation~\ref{m0195_e1} becomes:
+%
+\begin{equation}
+\nabla\left(\nabla \cdot \widetilde{\bf A}\right) - \nabla^2 \widetilde{\bf A}
+= \omega^2\mu\epsilon\widetilde{\bf A} - j\omega\mu\epsilon\nabla\widetilde V + \mu\widetilde{\bf J} 
+\end{equation}
+%
+Now multiplying both sides by $-1$ and rearranging terms:
+%
+\begin{equation}
+\nabla^2 \widetilde{\bf A}
++\omega^2\mu\epsilon\widetilde{\bf A} 
+= 
+\nabla\left(\nabla \cdot \widetilde{\bf A}\right)
++j\omega\mu\epsilon\nabla\widetilde V 
+-\mu\widetilde{\bf J} 
+\end{equation}
+%
+Combining terms on the right side:
+%
+\begin{equation}
+\nabla^2 \widetilde{\bf A}
++\omega^2\mu\epsilon\widetilde{\bf A} 
+= 
+\nabla\left( \nabla \cdot \widetilde{\bf A} +j\omega\mu\epsilon\widetilde V\right) 
+-\mu\widetilde{\bf J} 
+\label{m0195_eWEA1}
+\end{equation}
+%
+Now consider the expression
+$\nabla \cdot \widetilde{\bf A} +j\omega\mu\epsilon\widetilde V$
+appearing in the parentheses on the right side of the equation.
+We established earlier that $\widetilde V$ can be essentially any scalar field -- from a mathematical perspective, we are free to choose.
+Invoking this freedom, we now require $\widetilde V$ to satisfy the following expression:
+%
+\begin{equation}
+\nabla \cdot \widetilde{\bf A} +j\omega\mu\epsilon\widetilde V = 0
+\label{m0195_eLGC}
+\end{equation}
+%
+Clearly this is advantageous in the sense that Equation~\ref{m0195_eWEA1} is now dramatically simplified. This equation becomes:
+%
+\begin{equation}
+\boxed{
+\nabla^2 \widetilde{\bf A}
++\omega^2\mu\epsilon\widetilde{\bf A} 
+= 
+-\mu\widetilde{\bf J} 
+}
+\label{m0195_ePDEA}
+\end{equation}
+%
+Note that this expression is a \emph{wave equation}.
+\index{wave equation!electromagnetic}
+\index{wave equation!magnetic vector potential}
+In fact it is the \emph{same} wave equation that determines $\widetilde{\bf E}$ and $\widetilde{\bf H}$ in source-free regions, \emph{except} the right-hand side is not zero.
+Using mathematical terminology, we have obtained an equation for $\widetilde{\bf A}$ in the form of an \emph{inhomogeneous} partial differential equation, where the inhomogeneous part includes -- no surprise here -- the source current $\widetilde{\bf J}$.
+
+Now we have what we need to find the electromagnetic fields radiated by a current distribution.
+The procedure is simply as follows:
+%
+\begin{enumerate}
+\item Solve the partial differential Equation~\ref{m0195_ePDEA} for $\widetilde{\bf A}$ along with the appropriate electromagnetic boundary conditions.
+\item $\widetilde{\bf H} = (1/\mu) \nabla \times \widetilde{\bf A}$
+\item $\widetilde{\bf E}$ may now be determined from $\widetilde{\bf H}$ using Equation~\ref{m0195_eMCH}.
+\end{enumerate}
+
+Summarizing:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The magnetic vector potential $\widetilde{\bf A}$ is a vector field, defined by Equation~\ref{m0195_eMVPdef}, that is able to represent both the electric and magnetic fields simultaneously.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Also:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+To determine the electromagnetic fields radiated by a current distribution $\widetilde{\bf J}$, one may solve Equation~\ref{m0195_ePDEA} for $\widetilde{\bf A}$ and then use Equation~\ref{m0195_eMVPdef} to determine $\widetilde{\bf H}$ and subsequently $\widetilde{\bf E}$.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Specific techniques for performing this procedure -- in particular, for solving the differential equation -- vary depending on the problem, and are discussed in other sections of this book.
+
+We conclude this section with a few comments about Equation~\ref{m0195_eLGC}.
+This equation is known as the \emph{Lorenz gauge condition}.
+\index{Lorenz gauge condition}
+This constraint is not quite as arbitrary as the preceding derivation implies; rather, there is some deep physics at work here.
+Specifically, the Lorenz gauge leads to the classical interpretation of $\widetilde{V}$ as the familiar scalar electric potential, as noted previously in this section. (For additional information on that idea, recommended starting points are included in ``Additional Reading'' at the end of this section.)
+
+At this point, it should be clear that the electric and magnetic fields are not merely coupled quantities, but in fact two aspects of the same field; namely, the magnetic vector potential.
+In fact modern physics (quantum mechanics) yields the magnetic vector potential as a description of the ``electromagnetic force,'' a single entity which constitutes one of the four fundamental forces recognized in modern physics; the others being gravity, the strong nuclear force, and the weak nuclear force. 
+For more information on that concept, an excellent starting point is the video ``Quantum Invariance \& The Origin of The Standard Model'' referenced at the end of this section.
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Lorenz_gauge_condition}{Lorenz gauge condition}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Magnetic_potential}{Magnetic potential}'' on Wikipedia.
+\item PBS Space Time video ``\href{https://youtu.be/V5kgruUjVBs}{Quantum Invariance} \& The Origin of The Standard Model,'' available on YouTube.
+\end{itemize}
+
+\index{magnetic vector potential|)}
+
+

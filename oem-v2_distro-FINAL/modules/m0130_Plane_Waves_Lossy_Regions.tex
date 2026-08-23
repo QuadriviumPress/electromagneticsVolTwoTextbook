@@ -1,0 +1,139 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Plane Waves in Lossy Regions
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT  
+
+\label{m0130_Plane_Waves_Lossy_Regions} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waves!plane|(}
+
+The electromagnetic wave equations
+\index{wave equation!electromagnetic}
+for source-free regions consisting of possibly-lossy material are (see Section~\ref{m0128_Wave_Equations_Lossy_Regions}):
+%
+\begin{flalign}
+\nabla^2\widetilde{\bf E} -\gamma^2 \widetilde{\bf E} &= 0 \label{m0130_eEg} \\
+\nabla^2\widetilde{\bf H} -\gamma^2 \widetilde{\bf H} &= 0 \label{m0130_eHg}
+\end{flalign} 
+%
+where
+%
+\begin{equation}
+\gamma^2 \triangleq -\omega^2\mu\epsilon_c 
+\label{m0130_egammadef}
+\end{equation}
+%
+We now turn our attention to the question, what are the characteristics of waves that propagate in these conditions?
+As in the lossless case, these equations permit waves having a variety of geometries including plane waves, cylindrical waves, and spherical waves.
+In this section, we will consider the important special case of uniform plane waves.
+
+To obtain the general expression for the uniform plane wave solution, we follow precisely the same procedure described in the section ``Uniform Plane Waves: Derivation.''\footnote{Depending on the version of this book, this section may appear in a different volume.}
+Although that section presumed lossless media, the only difference in the present situation is that the real-valued constant $+\beta^2$ is replaced with the complex-valued constant $-\gamma^2$.  Thus, we obtain the desired solution through a simple modification of the solution for the lossless case.  For a wave exhibiting uniform magnitude and phase in planes of constant $z$, we find that the electric field is:
+%
+\begin{equation}
+\widetilde{\bf E} = \hat{\bf x}\widetilde{E}_x + \hat{\bf y}\widetilde{E}_y
+\end{equation}
+%
+where
+%
+\begin{flalign}
+\widetilde{E}_x &= E_{x0}^+ e^{-\gamma z} + E_{x0}^- e^{+\gamma z} \label{m0130_eEx} \\
+\widetilde{E}_y &= E_{y0}^+ e^{-\gamma z} + E_{y0}^- e^{+\gamma z} \label{m0130_eEy} 
+\end{flalign}
+%
+where the complex-valued coefficients $E_{x0}^+$, $E_{x0}^-$, $E_{y0}^+$, and $E_{y0}^-$ are determined by boundary conditions (possibly including sources) outside the region of interest.  This result can be confirmed by verifying that Equations~\ref{m0130_eEx} and \ref{m0130_eEy} each satisfy Equation~\ref{m0130_eEg}.
+Also, it may be helpful to note that these expressions are identical to those obtained for the voltage and current in lossy transmission lines, 
+\index{transmission line!lossy}
+\index{waves!transmission line analogy}
+as described in the section ``Wave Equation for a TEM Transmission Line.''\footnote{Depending on the version of this book, this section may appear in a different volume.} 
+
+Let's consider the special case of an $\hat{\bf x}$-polarized plane wave propagating in the $+\hat{\bf z}$ direction:
+%
+\begin{equation}
+\widetilde{\bf E} = \hat{\bf x}E_{x0}^+ e^{-\gamma z}
+\end{equation}
+%
+We established in Section~\ref{m0128_Wave_Equations_Lossy_Regions} that $\gamma$ may be written explicitly in terms of its real and imaginary components as follows:
+%
+\begin{equation}
+\gamma = \alpha + j\beta
+\end{equation}
+%
+where $\alpha$ and $\beta$ are positive real-valued constants depending on frequency ($\omega$) and constitutive properties of the medium; i.e., permittivity, permeability, and conductivity.  Thus:
+%
+\begin{flalign}
+\widetilde{\bf E} &= \hat{\bf x}E_{x0}^+ e^{-\left(\alpha+j\beta\right) z} \nonumber \\
+                  &= \hat{\bf x}E_{x0}^+ e^{-\alpha z} e^{-j\beta z}
+\end{flalign}
+%
+Observe that the variation of phase with distance is determined by $\beta$ through the factor $e^{-j\beta z}$; thus, $\beta$ is the phase propagation constant 
+\index{propagation constant!phase}
+and plays precisely the same role as in the lossless case.
+Observe also that the variation in magnitude is determined by $\alpha$ through the real-valued factor $e^{-\alpha z}$.  
+Specifically, magnitude is reduced inverse-exponentially with increasing distance along the direction of propagation.  Thus, $\alpha$ is the attenuation constant
+\index{propagation constant!attenuation}
+and plays precisely the same role as the attenuation constant for a lossy transmission line.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The presence of loss in material gives rise to a real-valued factor $e^{-\alpha z}$ which describes the attenuation of the wave with propagation (in this case, along $z$) in the material.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We may continue to exploit the similarity of the potentially-lossy and lossless plane wave results to quickly ascertain the characteristics of the magnetic field.  In particular, the plane wave relationships 
+\index{plane wave relationships}
+apply exactly as they do in the lossless case.  These relationships are:
+%
+%
+\begin{equation}
+\widetilde{\bf H} = \frac{1}{\eta} \hat{\bf k} \times \widetilde{\bf E} 
+\label{m0130_ePWRH}
+\end{equation}
+%
+\begin{equation}
+\widetilde{\bf E} = -\eta \hat{\bf k} \times \widetilde{\bf H} 
+\label{m0130_ePWRE}
+\end{equation}
+%
+where $\hat{\bf k}$ is the direction of propagation and $\eta$ is the wave impedance.
+\index{wave impedance}
+In the lossless case, $\eta=\sqrt{\mu/\epsilon}$; however, in the possibly-lossy case we must replace $\epsilon=\epsilon'$ with $\epsilon_c=\epsilon'-j\epsilon''$.  Thus:
+%
+\begin{flalign}
+\eta \rightarrow \eta_c &= \sqrt{\frac{\mu}{\epsilon_c}} = \sqrt{\frac{\mu}{\epsilon'-j\epsilon''}} \nonumber \\
+                        &= \sqrt{\frac{\mu}{\epsilon'}}\sqrt{\frac{1}{1-j\left(\epsilon''/\epsilon'\right)}} 
+\end{flalign}
+%
+Thus:
+%
+\begin{equation}
+\boxed{
+\eta_c = \sqrt{\frac{\mu}{\epsilon'}} \cdot \left[ 1-j\frac{\epsilon''}{\epsilon'} \right]^{-1/2}
+}
+\label{m0130_eetac}
+\end{equation}
+%
+Remarkably, we find that the wave impedance for a lossy material is equal to $\sqrt{\mu/\epsilon}$ -- the wave impedance we would calculate if we neglected loss (i.e., assumed $\sigma=0$) -- times a correction factor that accounts for the loss.  This correction factor is complex-valued; therefore, ${\bf E}$ and ${\bf H}$ are not in phase when propagating through lossy material.  We now see that in the phasor domain:
+%
+\begin{equation}
+\widetilde{\bf H} = \frac{1}{\eta_c} \hat{\bf k} \times \widetilde{\bf E} \label{m0130_eEpw}
+\end{equation}
+%
+\begin{equation}
+\widetilde{\bf E} = -\eta_c \hat{\bf k} \times \widetilde{\bf H} \label{m0130_eHpw}
+\end{equation}   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The plane wave relationships in media which are possibly lossy are given by Equations~\ref{m0130_eEpw} and \ref{m0130_eHpw}, with the complex-valued wave impedance given by Equation~\ref{m0130_eetac}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\index{waves!plane|)}
+

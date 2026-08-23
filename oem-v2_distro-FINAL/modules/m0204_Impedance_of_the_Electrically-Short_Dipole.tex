@@ -1,0 +1,160 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Impedance of the Electrically-Short Dipole
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191127   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0204_The_Electrically-Short_Dipole} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{antenna!electrically-short dipole (ESD)|(}
+
+In this section, we determine the impedance of the electrically-short dipole (ESD) antenna.  
+The physical theory of operation for the ESD is introduced in Section~\ref{m0198_Radiation_from_an_Electrically-Short_Dipole}, and additional relevant aspects of the ESD antenna are addressed in Sections~\ref{m0201_How_Antennas_Radiate}--\ref{m0210_Reactance_of_the_Electrically-Short_Dipole}. 
+The concept of antenna impedance is addressed in Section~\ref{m0202_Equivalent_Circuit_Model_for_Transmission}.
+Review of those sections is suggested before attempting this section.
+
+The impedance of any antenna may be expressed as
+%
+\begin{equation}
+Z_A = R_{rad} + R_{loss} +jX_A
+\end{equation}
+%
+where the real-valued quantities $R_{rad}$, 
+\index{radiation resistance}
+$R_{loss}$, and $X_A$ represent the radiation resistance, loss resistance, and reactance of the antenna, respectively.
+
+{\bf Radiation resistance.}
+The radiation resistance of any antenna can be expressed as:
+%
+\begin{equation}
+R_{rad} = 2P_{rad} \left|I_0\right|^{-2}
+\end{equation}
+%
+where $\left|I_0\right|$ is the magnitude of the current at the antenna terminals, and $P_{rad}$ is the resulting total power radiated. 
+For an ESD (Section~\ref{m0207_Total_Power_Radiated_by_an_Electrically-Short_Dipole}):
+%
+\begin{equation}
+P_{rad} \approx \eta \frac{\left|I_0\right|^2\left(\beta L\right)^2}{48\pi}
+\label{m0204_ePT}
+\end{equation}
+%
+so
+%
+\begin{equation}
+R_{rad} \approx \eta \frac{\left(\beta L\right)^2}{24\pi}
+\label{m0204_eRrad}
+\end{equation}
+%
+It is useful to have an alternative form of this expression in terms of wavelength $\lambda$.
+This is derived as follows.
+First, note:
+%
+\begin{equation}
+\beta L = \frac{2\pi}{\lambda} L = 2\pi\frac{L}{\lambda}
+\end{equation}
+%
+where $L/\lambda$ is the antenna length in units of wavelength.
+Substituting this expression into Equation~\ref{m0204_eRrad}:
+%
+\begin{flalign}
+R_{rad} &\approx \eta \left(2\pi\frac{L}{\lambda}\right)^2 \frac{1}{24\pi} \nonumber \\
+        &\approx \eta \frac{\pi}{6} \left(\frac{L}{\lambda}\right)^2
+\end{flalign}
+%
+Assuming free-space conditions, $\eta\cong 376.7~\Omega$, which is $\approx 120\pi~\Omega$. Subsequently,
+%
+\begin{equation}
+\boxed{
+R_{rad} \approx 20\pi^2 \left(\frac{L}{\lambda}\right)^2
+}
+\label{m0204_eRrad2}
+\end{equation}
+%
+This remarkably simple expression indicates that the radiation resistance of an ESD is very small (since $L\ll\lambda$ for an ESD), but increases as the square of the length.
+
+At this point, a warning is in order.  
+The radiation resistance of an ``electrically-short dipole'' is sometimes said to be $80\pi^2 \left(L/\lambda\right)^2$; i.e., 4 times the right side of Equation~\ref{m0204_eRrad2}.  
+This higher value is not for a \emph{physically-realizable} ESD, but rather for the \emph{Hertzian dipole} (sometimes also referred to as an ``ideal dipole'').
+\index{Hertzian dipole}
+The Hertzian dipole is an electrically-short dipole with a current distribution that has uniform magnitude over the length of the dipole.\footnote{See Section~\ref{m0197_Radiation_from_a_Hertzian_Dipole} for additional information about the Hertzian dipole.}
+The Hertzian dipole is quite difficult to realize in practice, and nearly all practical electrically-short dipoles exhibit a current distribution that is closer to that of the ESD.
+The ESD has a current distribution which is maximum in the center and goes approximately linearly to zero at the ends.
+The factor-of-4 difference in the radiation resistance of the Hertzian dipole relative to the (practical) ESD is a straightforward consequence of the difference in the current distributions.
+
+{\bf Loss resistance.}  The loss resistance of the ESD is derived in Section~\ref{m0208_Total_Power_Dissipated_by_an_Electrically-Short_Dipole} and is found to be
+%
+\begin{equation}
+R_{loss} \approx \frac{L}{6a} \sqrt{\frac{\mu f}{\pi \sigma}}  
+\label{m0204_eRloss}
+\end{equation}
+%
+where $a$, $\mu$, and $\sigma$ are the radius, permeability, and conductivity of the wire comprising the antenna, and $f$ is frequency.
+
+{\bf Reactance.} The reactance of the ESD is addressed in Section~\ref{m0210_Reactance_of_the_Electrically-Short_Dipole}.  A suitable expression for this reactance is (see, e.g., Johnson (1993) in ``Additional References'' at the end of this section):
+%
+\begin{equation}
+X_A \approx -\frac{120~\Omega}{\pi L/\lambda} \left[ \ln{\left(\frac{L}{2a}\right)}-1 \right]
+\label{m0204_eXA}
+\end{equation}
+%
+where $a\ll L$ is assumed.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Impedance of an ESD.
+\\~\\
+A thin, straight dipole antenna operates at 30~MHz in free space.  
+The length and radius of the dipole are 1~m and 1~mm respectively. 
+The dipole is comprised of aluminum having conductivity $\approx 3.7 \times 10^7$~S/m and $\mu\approx\mu_0$.
+What is the impedance and radiation efficiency of this antenna?
+
+{\bf Solution.}
+The free-space wavelength at $f=30$~MHz is $\lambda=c/f\cong10$~m.
+Therefore, $L\cong 0.1\lambda$, and this is an ESD.
+Since this is an ESD, we may compute the radiation resistance using Equation~\ref{m0204_eRrad2}, yielding $R_{rad} \approx 1.97~\Omega$.
+The radius $a=1$~mm and $\sigma\approx 3.7 \times 10^7$~S/m; thus, we find that the loss resistance $R_{loss} \approx 94.9~\mbox{m}\Omega$ using Equation~\ref{m0204_eRloss}.
+Using Equation~\ref{m0204_eXA}, the reactance is found to be $X_A \approx -1991.8~\Omega$.
+The impedance of this antenna is therefore
+%
+\begin{flalign}
+Z_A &= R_{rad} + R_{loss} +jX_A \nonumber \\
+    &\approx \underline{2.1-j1991.8~\Omega}
+\end{flalign}
+%
+and the radiation efficiency of this antenna is
+%
+\begin{equation}
+e_{rad} = \frac{R_{rad}}{R_{rad}+R_{loss}} \approx \underline{95.4\%}
+\end{equation}
+%
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the preceding example, the radiation efficiency is a respectable 95.4\%. 
+However, the real part of the impedance of the ESD is much less than the characteristic impedance of typical transmission lines (typically 10s to 100s of ohms).
+Another problem is that the reactance of the ESD is very large.
+Some form of impedance matching is required to efficiently transfer power from a transmitter or transmission line to this form of antenna.
+Failure to do so will result in reflection of a large fraction of the power incident on antenna terminals.
+A common solution is to insert series inductance to reduce -- nominally, cancel -- the negative reactance of the ESD.
+In the preceding example, about $10~\mu$H would be needed.
+The remaining mismatch in the real-valued components of impedance is then relatively easy to mitigate using common ``real-to-real'' impedance matching techniques. 
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item R.C.\ Johnson (Ed.), \emph{Antenna Systems Handbook} (Ch.\ 4), McGraw-Hill, 1993.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\index{antenna!electrically-short dipole (ESD)|)}
+

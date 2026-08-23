@@ -1,0 +1,168 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Phase and Group Velocity
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191121   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0176_Phase_and_Group_Velocity} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{phase velocity|(}
+\index{group velocity|(}
+
+Phase velocity is the speed at which a point of constant phase travels as the wave propagates.\footnote{Formally, ``velocity'' is a vector which indicates both the direction and rate of motion.  It is common practice to use the terms ``phase velocity'' and ``group velocity'' even though we are actually referring merely to rate of motion.  The direction is, of course, in the direction of propagation.}
+For a sinusoidally-varying wave, this speed is easy to quantify.
+To see this, consider the wave:
+%
+\begin{equation}
+%w(z,t) = 
+A\cos\left(\omega t -\beta z + \psi \right)
+\label{m0176_ewzt}
+\end{equation}
+%
+where $\omega=2\pi f$ is angular frequency, $z$ is position, and $\beta$ is the phase propagation constant.
+At any given time, the distance between points of constant phase is one wavelength $\lambda$.
+Therefore, the phase velocity $v_p$ is
+%
+\begin{equation}
+v_p = \lambda f 
+\label{m0176_evp}
+\end{equation}
+%
+Since $\beta=2\pi/\lambda$, this may also be written as follows:
+%
+\begin{equation}
+\boxed{
+v_p = \frac{\omega}{\beta} 
+}
+\label{m0176_evp2}
+\end{equation}
+%
+Noting that $\beta=\omega\sqrt{\mu\epsilon}$ for simple matter, we may also express $v_p$ in terms of the constitutive parameters $\mu$ and $\epsilon$ as follows:
+%
+\begin{equation}
+v_p = \frac{1}{\sqrt{\mu\epsilon}}
+\label{m0176_evpm}
+\end{equation}
+%
+Since $v_p$ in this case depends \emph{only} on the constitutive properties $\mu$ and $\epsilon$, it is reasonable to view phase velocity also as a property of matter.
+
+Central to the concept of phase velocity is uniformity over space and time.
+Equations~\ref{m0176_evp}--\ref{m0176_evpm} presume a wave having the form of Equation~\ref{m0176_ewzt}, which exhibits precisely the same behavior over all possible time $t$ from $-\infty$ to $+\infty$ and over all possible $z$ from $-\infty$ to $+\infty$.
+This uniformity over all space and time precludes the use of such a wave to send information.
+To send information, the source of the wave needs to vary at least one parameter as a function of time; for example 
+$A$ (resulting in amplitude modulation), $\omega$ (resulting in frequency modulation), or $\psi$ (resulting in phase modulation).
+In other words, information can be transmitted only by making the wave non-uniform in some respect.
+Furthermore, some materials and structures can cause changes in $\psi$ or other combinations of parameters which vary with position or time.  
+Examples include dispersion
+\index{dispersion}
+and propagation within waveguides.
+Regardless of the cause, varying the parameters $\omega$ or $\psi$ as a function of time means that the instantaneous distance between points of constant phase may be very different from $\lambda$.
+Thus, the \emph{instantaneous} frequency of variation as a function of time and position may be very different from $f$.
+In this case Equations~\ref{m0176_evp}--\ref{m0176_evpm} may not necessarily provide a meaningful value for the speed of propagation.
+   
+Some other concept is required to describe the speed of propagation of such waves.
+That concept is \emph{group velocity}, $v_g$, defined as follows:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+\emph{Group velocity}, $v_g$, is the ratio of the apparent change in frequency $\omega$ to the associated change in the phase propagation constant $\beta$; i.e., $\Delta\omega/\Delta\beta$.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Letting $\Delta\beta$ become vanishingly small, we obtain
+%
+\begin{equation}
+\boxed{
+v_g \triangleq \frac{\partial\omega}{\partial\beta}
+}
+\label{m0176_evg}
+\end{equation}
+%
+Note the similarity to the definition of phase velocity in Equation~\ref{m0176_evp2}.
+Group velocity can be interpreted as the speed at which a \emph{disturbance} in the wave propagates.
+Information may be conveyed as meaningful disturbances relative to a steady-state condition, so group velocity is also the speed of information in a wave.
+
+Note Equation~\ref{m0176_evg} yields the expected result for waves in the form of Equation~\ref{m0176_ewzt}:
+%
+\begin{flalign}
+v_g &= \left(\frac{\partial\beta}{\partial\omega}\right)^{-1} = \left(\frac{\partial}{\partial\omega}\omega\sqrt{\mu\epsilon}\right)^{-1} \nonumber \\
+    &= \frac{1}{\sqrt{\mu\epsilon}} = v_p
+\end{flalign}
+%
+In other words, the group velocity of a wave in the form of Equation~\ref{m0176_ewzt} is equal to its phase velocity. 
+
+To observe a difference between $v_p$ and $v_g$,  $\beta$ must somehow vary as a function of something other than just $\omega$ and the constitutive parameters.  Again, modulation (introduced by the source of the wave) and dispersion (frequency-dependent constitutive parameters) are examples in which $v_g$ is not necessarily equal to $v_p$.   
+Here's an example involving dispersion:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Phase and group velocity for a material exhibiting square-law dispersion.
+\\~\\
+A broad class of non-magnetic dispersive media exhibit relative permittivity $\epsilon_r$ that varies as the square of frequency over a narrow range of frequencies centered at $\omega_0$.  For these media we presume
+%
+\begin{equation}
+\epsilon_r = K\left(\frac{\omega}{\omega_0}\right)^2
+\end{equation}
+% 
+where $K$ is a real-valued positive constant.
+What is the phase and group velocity for a sinusoidally-varying wave in this material?
+
+{\bf Solution.}
+First, note 
+%
+\begin{flalign}
+\beta &= \omega\sqrt{\mu_0\epsilon} = \omega\sqrt{\mu_0\epsilon_0}\sqrt{\epsilon_r} \nonumber \\
+      &= \frac{\sqrt{K}\cdot\omega^2}{\omega_0}\sqrt{\mu_0\epsilon_0} \label{m0176_eex1beta}
+\end{flalign}
+%
+The phase velocity is:
+%
+\begin{equation}
+v_p = \frac{\omega}{\beta} = \frac{\omega_0}{\sqrt{K}\cdot\omega \sqrt{\mu_0\epsilon_0}}
+\end{equation}
+%
+Whereas the group velocity is:
+%
+\begin{flalign}
+v_g &= \frac{\partial\omega}{\partial\beta} = \left( \frac{\partial\beta}{\partial\omega} \right)^{-1} \\
+    &= \left( \frac{\partial}{\partial\omega} \frac{\sqrt{K}\cdot\omega^2}{\omega_0}\sqrt{\mu_0\epsilon_0}  \right)^{-1} \\
+    &= \left( 2\frac{\sqrt{K}\cdot\omega}{\omega_0}\sqrt{\mu_0\epsilon_0}  \right)^{-1} 
+\end{flalign}
+%
+Now simplifying using Equation~\ref{m0176_eex1beta}:
+%
+\begin{flalign}
+v_g &= \left( 2\frac{\beta}{\omega} \right)^{-1} \\
+    &= \frac{1}{2}\frac{\omega}{\beta} \\
+    &= \frac{1}{2}v_p
+\end{flalign}
+%
+Thus, we see that in this case the group velocity is always half the phase velocity.
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Another commonly-encountered example for which $v_g$ is not necessarily equal to $v_p$ is the propagation of guided waves; e.g., waves within a waveguide.
+In fact, such waves may exhibit phase velocity greater than the speed of light in a vacuum, $c$. 
+However, the group velocity remains less than $c$, which means the speed at which information may propagate in a waveguide is less than $c$.
+No physical laws are violated, since the universal ``speed limit'' $c$ applies to information, and not simply points of constant phase.
+(See ``Additional Reading'' at the end of this section for more on this concept.)
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Group_velocity}{Group velocity}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Phase_velocity}{Phase velocity}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Speed_of_light}{Speed of light}'' on Wikipedia.
+\end{itemize}
+
+\index{phase velocity|)}
+\index{group velocity|)}
+
+

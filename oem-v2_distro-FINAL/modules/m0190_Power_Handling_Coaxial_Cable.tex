@@ -1,0 +1,184 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Power Handling Capability of Coaxial Cable
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191122   # yyyymmdd
+%ORB ABSTRACT  
+
+\label{m0190_Power_Handling_Coaxial_Cable} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{transmission line!coaxial|(}
+\index{transmission line!power handling|(}
+\index{power handling|see{transmission line}}
+
+The term ``power handling'' refers to maximum power that can be safely transferred by a transmission line.
+This power is limited because when the electric field becomes too large, dielectric breakdown and arcing may occur.
+This may result in damage to the line and connected devices, and so must be avoided.
+Let $E_{pk}$ be the maximum safe value of the electric field intensity within the line, and  
+let $P_{max}$ be the power that is being transferred under this condition.  
+This section addresses the following question: 
+How does one design a coaxial cable to maximize $P_{max}$ for a given $E_{pk}$?
+
+We begin by finding the electric potential $V$ within the cable.
+This can be done using Laplace's equation: 
+\index{Laplace's Equation}
+%
+\begin{equation}
+\nabla^2 V = 0
+\end{equation}
+%
+Using the cylindrical ($\rho, \phi, z$) coordinate system with the $z$ axis along the inner conductor, we have $\partial V /\partial \phi = 0$ due to symmetry. 
+Also we set $\partial V /\partial z = 0$ since the result should not depend on $z$. 
+Thus, we have:
+\begin{equation}
+\frac{1}{\rho} \frac{\partial}{\partial\rho} \left( \rho \frac{\partial V}{\partial\rho} \right) = 0
+\end{equation}
+%
+Solving for $V$, we have
+%
+\begin{equation}
+V(\rho) = A\ln\rho + B 
+\end{equation}
+%
+where $A$ and $B$ are arbitrary constants, presumably determined by boundary conditions.
+Let us assume a voltage $V_0$ measured from the inner conductor (serving as the ``$+$'' terminal) to the outer conductor (serving as the ``$-$'' terminal).  For this choice, we have:
+%
+\begin{flalign}
+V(a) = V_0 ~~~ &\rightarrow ~~~ A\ln a + B = V_0 \\
+V(b) = 0   ~~~ &\rightarrow ~~~ A\ln b + B = 0  
+\end{flalign}
+%
+Subtracting the second equation from the first and solving for $A$, we find $A=-V_0/\ln\left(b/a\right)$.
+Subsequently, $B$ is found to be $V_0\ln\left(b\right)/\ln\left(b/a\right)$, and so
+%
+\begin{equation}
+V(\rho) = \frac{-V_0}{\ln\left(b/a\right)} \ln \rho + \frac{V_0\ln\left(b\right)}{\ln\left(b/a\right)} 
+\end{equation}
+
+The electric field intensity is given by:
+%
+\begin{equation}
+{\bf E} = -\nabla V
+\end{equation}
+%
+Again we have 
+$\partial V /\partial \phi = \partial V /\partial z = 0$, so 
+%
+\begin{flalign}
+{\bf E} &= -\hat{\bf \rho} \frac{\partial}{\partial \rho} V \\
+        &= -\hat{\bf \rho} \frac{\partial}{\partial \rho} \left[ \frac{-V_0}{\ln\left(b/a\right)} \ln \rho + \frac{V_0\ln\left(b\right)}{\ln\left(b/a\right)} \right] \\
+        &= +\hat{\bf \rho} \frac{V_0}{\rho \ln\left(b/a\right) } 
+\end{flalign}
+%
+Note that the maximum electric field intensity in the spacer occurs at $\rho=a$; i.e., at the surface of the inner conductor. Therefore:
+%
+\begin{equation}
+E_{pk} = \frac{V_0}{a \ln\left(b/a\right) }  
+\end{equation}
+
+The power transferred by the line is maximized when the impedances of the source and load are matched to $Z_0$. 
+In this case, the power transferred is $V_0^2/2Z_0$. 
+Recall that the characteristic impedance $Z_0$ is given in the ``low-loss'' case as
+%
+\begin{equation}
+Z_0 \approx \frac{1}{2\pi}\frac{\eta_0}{\sqrt{\epsilon_r}}\ln\left(\frac{b}{a}\right) 
+\label{eZ0cc}
+\end{equation}
+%
+Therefore, the maximum safe power is
+%
+\begin{flalign}
+P_{max} &= \frac{V_0^2}{2Z_0} \\
+        &\approx  \frac{E_{pk}^2 ~a^2 \ln^2\left(b/a\right)}{2\cdot\left(1/2\pi\right)\left(\eta_0/\sqrt{\epsilon_r}\right)\ln\left(b/a\right) } \\
+        &= \frac{ \pi E_{pk}^2  }{\eta_0/\sqrt{\epsilon_r}} ~ a^2 \ln\left(b/a\right) \label{m0190_ePH}
+\end{flalign}
+%
+Now let us consider if there is a value of $a$ which maximizes $P_{max}$.  We do this by seeing if 
+$\partial P_{max}/\partial a = 0$ for some values of $a$ and $b$.
+The derivative is worked out in an addendum at the end of this section.  
+Using the result from the addendum, we find:
+%
+\begin{equation}
+\frac{\partial }{\partial a} P_{max}
+= \frac{ \pi E_{pk}^2  }{\eta_0/\sqrt{\epsilon_r}} ~\left[ 2a\ln\left(b/a\right)-a \right] 
+\label{m0190_ePH2}
+\end{equation}
+%
+For the above expression to be zero, it must be true that $2\ln\left(b/a\right)-1 = 0$.  Solving for $b/a$, we obtain:
+%
+\begin{equation}
+\frac{b}{a} = \sqrt{e}  \cong 1.65
+\label{m0190_eOptba} 
+\end{equation}
+%
+for optimum power handling.
+In other words, 1.65 is the ratio of the radii of the outer and inner conductors that maximizes the power that can be safely handled by the cable.  
+
+Equation~\ref{m0190_ePH} suggests that $\epsilon_r$ should be maximized in order to maximize power handling, and you wouldn't be wrong for noting that, however, there are some other factors that may indicate otherwise.  For example, a material with higher $\epsilon_r$ may also have higher $\sigma_s$, which means more current flowing through the spacer and thus more ohmic heating.  This problem is so severe that cables that handle high RF power often use air as the spacer, even though it has the \emph{lowest} possible value of $\epsilon_r$. 
+Also worth noting is that $\sigma_{ic}$ and $\sigma_{oc}$ do not matter according to the analysis we've just done; however, to the extent that limited conductivity results in significant ohmic heating in the conductors -- which we have also not considered -- there may be something to consider.
+Suffice it to say, the actionable finding here concerns the ratio of the radii; the other parameters have not been suitably constrained by this analysis.
+
+Substituting $\sqrt{e}$ for $b/a$ in Equation~\ref{eZ0cc}, we find:
+\begin{equation}
+Z_0 \approx \frac{30.0~\Omega}{\sqrt{\epsilon_r}} 
+\end{equation}
+This is the characteristic impedance of coaxial line that optimizes power handling, subject to the caveats identified above.  For air-filled cables, we obtain $30~\Omega$.  Since $\epsilon_r\ge 1$, this optimum impedance is less for dielectric-filled cables than it is for air-filled cables.  
+
+Summarizing:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power handling capability of coaxial transmission line is optimized when the ratio of radii of the outer to inner conductors $b/a$ is about 1.65.  
+For the air-filled cables typically used in high-power applications, this corresponds to a characteristic impedance of about $30~\Omega$.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\bf Addendum: Derivative of $\left(1/a+C/b\right)/\ln(b/a)$.}
+Evaluation of Equation~\ref{m0190_ePH} requires finding the derivative of $\left(1/a+C/b\right)/\ln(b/a)$ with respect to $a$.
+Using the chain rule, we find:
+%
+\begin{flalign}
+\frac{\partial}{\partial a} \left[ \frac{ 1/a + C/b  }{  \ln\left(b/a\right) }\right]
+   &= \left[ \frac{\partial}{\partial a} \left(\frac{1}{a} + \frac{C}{b}\right) \right] \ln^{-1}\left(\frac{b}{a}\right) \nonumber \\
+   &+ \left(\frac{1}{a} + \frac{C}{b}\right) \left[ \frac{\partial}{\partial a} \ln^{-1}\left(\frac{b}{a}\right) \right] 
+\end{flalign}
+%
+Note
+%
+\begin{equation}
+\frac{\partial}{\partial a} \left(\frac{1}{a} + \frac{C}{b}\right) = -\frac{1}{a^2}
+\end{equation}
+%
+To handle the quantity in the second set of square brackets, first define $v = \ln u$, where $u=b/a$.
+Then:
+%
+\begin{flalign}
+\frac{\partial}{\partial a} v^{-1} 
+&= \left[ \frac{\partial}{\partial v} v^{-1} \right]
+   \left[ \frac{\partial v}{\partial u} \right]
+   \left[ \frac{\partial u}{\partial a} \right] \nonumber \\
+&= \left[ -v^{-2} \right]
+   \left[ \frac{1}{u} \right]
+   \left[ -ba^{-2} \right] \nonumber \\
+&= \left[ -\ln^{-2}\left(\frac{b}{a}\right) \right]
+   \left[ \frac{a}{b} \right]
+   \left[ -ba^{-2} \right] \nonumber \\
+&= \frac{1}{a}\ln^{-2}\left(\frac{b}{a}\right)
+\end{flalign}
+%
+So:
+%
+\begin{flalign} 
+\frac{\partial}{\partial a} \left[ \frac{ 1/a + C/b  }{  \ln\left(b/a\right) }\right]
+&= \left[ -\frac{1}{a^2} \right] \ln^{-1}\left(\frac{b}{a}\right) \nonumber \\ 
+&+ \left(\frac{1}{a} + \frac{C}{b}\right) \left[ \frac{1}{a}\ln^{-2}\left(\frac{b}{a}\right) \right]
+\end{flalign}
+%
+This result is substituted in Equation~\ref{m0190_ePH} to obtain Equation~\ref{m0190_ePH2}.
+ 
+\index{transmission line!coaxial|)}
+\index{transmission line!power handling|)}
+

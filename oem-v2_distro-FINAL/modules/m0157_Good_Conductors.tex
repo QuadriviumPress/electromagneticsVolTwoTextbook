@@ -1,0 +1,229 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Good Conductors
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191116   # yyyymmdd
+%ORB ABSTRACT
+
+\label{m0157_Good_Conductors} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{conductor!good|(}
+
+A \emph{good conductor} is a material which behaves in most respects as a perfect conductor, 
+\index{conductor!perfect}
+yet exhibits significant loss.
+Now, we have to be very careful: The term ``loss'' applied to the concept of a ``conductor'' means something quite different from the term ``loss'' applied to other types of materials.
+Let us take a moment to disambiguate this term.
+
+Conductors are materials which are intended to efficiently sustain current, which requires high conductivity $\sigma$.
+In contrast, non-conductors are materials which are intended to efficiently sustain the electric field, which requires low $\sigma$. 
+``Loss'' for a non-conductor (see in particular ``poor conductors,'' Section~\ref{m0156_Poor_Conductors}) means the conversion of energy in the electric field into current. 
+In contrast, ``loss'' for a conductor refers to energy \emph{already} associated with current, which is subsequently dissipated in resistance.
+Summarizing: A good (``low-loss'') conductor is a material with \emph{high} conductivity, such that power dissipated in the resistance of the material is low.
+
+A quantitative criterion for a good conductor can be obtained from the concept of complex permittivity $\epsilon_c$, which has the form:
+%
+\begin{equation}
+\epsilon_c = \epsilon' - j\epsilon''
+\end{equation}
+%
+Recall that $\epsilon''$ is proportional to conductivity ($\sigma$) and so $\epsilon''$ is very large for a good conductor.
+Therefore, we may identify a good conductor using the ratio $\epsilon''/\epsilon'$, which is sometimes referred to as ``loss tangent''
+\index{loss tangent}
+(see Section~\ref{m0132_Loss_Tangent}).
+Using this quantity we define a good conductor as a material for which:
+%
+\begin{equation}
+\frac{\epsilon''}{\epsilon'} \gg 1 ~~~ \mbox{(good conductor)}
+\label{m0157_eDef}
+\end{equation}
+%
+This condition is met for most materials classified as ``metals,'' and especially for metals exhibiting very high conductivity such as gold, 
+\index{gold}
+copper, 
+\index{copper}
+and aluminum.
+\index{aluminum}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+A good conductor is a material having loss tangent much greater than 1.    
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The imprecise definition of Equation~\ref{m0157_eDef} is sufficient to derive some characteristics that are common to materials over a wide range of conductivity.
+To derive these characteristics, first recall that the propagation constant $\gamma$ is given in general as follows:
+%
+\begin{equation}
+\gamma^2 = -\omega^2\mu\epsilon_c
+\end{equation}
+%
+Therefore:
+%
+\begin{equation}
+\gamma = \sqrt{-\omega^2\mu\epsilon_c}
+\end{equation}
+%
+In general, a number has two square roots, so some caution is required here. 
+In this case, we may proceed as follows:
+%
+\begin{flalign}
+\gamma &= j\omega\sqrt{\mu}\sqrt{\epsilon'-j\epsilon''} \nonumber \\
+       &= j\omega\sqrt{\mu\epsilon'}\sqrt{1-j\frac{\epsilon''}{\epsilon'}} \label{m0157_eGE}
+\end{flalign}
+%
+Since $\epsilon''/\epsilon' \gg 1$ for a good conductor, 
+%
+\begin{flalign}
+\gamma &\approx j\omega\sqrt{\mu\epsilon'}\sqrt{- j\frac{\epsilon''}{\epsilon'}} \nonumber \\
+       &\approx j\omega\sqrt{\mu\epsilon''}\sqrt{-j}
+\end{flalign}
+%
+To proceed, we must determine the principal value of $\sqrt{-j}$.
+The answer is that $\sqrt{-j} = \left(1-j\right)/\sqrt{2}$.\footnote{You can confirm this simply by squaring this result.  The easiest way to derive this result is to work in polar form, in which $-j$ is 1 at an angle of $-\pi/2$, and the square root operation consists of taking the square root of the magnitude and dividing the phase by 2.}
+Continuing:
+%
+\begin{equation}
+\gamma \approx j\omega\sqrt{\frac{\mu\epsilon''}{2}} + \omega\sqrt{\frac{\mu\epsilon''}{2}} 
+\end{equation}
+
+We are now able to identify expressions for the attenuation and phase propagation constants:
+%
+\begin{equation}
+\boxed{\alpha \triangleq \mbox{Re}\left\{\gamma\right\} \approx \omega\sqrt{\frac{\mu\epsilon''}{2}} ~~~\mbox{(good conductor)}} \label{m0157_ealpha1} 
+\end{equation}
+%
+\begin{equation}
+\boxed{\beta  \triangleq \mbox{Im}\left\{\gamma\right\} \approx \alpha ~~~\mbox{(good conductor)}}
+\end{equation}
+%
+Remarkably, we find that $\alpha\approx\beta$ for a good conductor, and neither $\alpha$ nor $\beta$ depend on $\epsilon'$.
+
+In the special case that $\epsilon_c$ is determined entirely by conductivity loss (i.e., $\sigma>0$) and is not accounting for delayed polarization response (as described in Section~\ref{m0134_Complex_Permittivity}), then
+%
+\begin{equation}
+\epsilon'' = \frac{\sigma}{\omega}
+\end{equation}
+%
+Under this condition, Equation~\ref{m0157_ealpha1} may be rewritten:
+%
+\begin{equation}
+\alpha \approx \omega\sqrt{\frac{\mu\sigma}{2\omega}} = \sqrt{\frac{\omega\mu\sigma}{2}}  ~~~\mbox{(good conductor)}
+\end{equation}
+%
+Since $\omega = 2\pi f$, another possible form for this expression is
+%
+\begin{equation}
+\boxed{
+\alpha \approx \sqrt{\pi f\mu\sigma}  ~~~\mbox{(good conductor)}
+}
+\end{equation}
+%
+The conductivity of most materials changes very slowly with frequency, so this expression indicates that $\alpha$ (and $\beta$) increases approximately in proportion to the square root of frequency for good conductors.
+This is commonly observed in electrical engineering applications.
+For example, the attenuation rate 
+\index{attenuation rate}
+of transmission lines increases approximately as $\sqrt{f}$.  
+This is so because the principal contribution to the attenuation is resistance in the conductors comprising the line.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The attenuation rate for signals conveyed by transmission lines is approximately proportional to the square root of frequency.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us now consider the wave impedance $\eta_c$ in a good conductor.  
+Recall:
+%
+\begin{equation}
+\eta_c = \sqrt{\frac{\mu}{\epsilon'}} \cdot \left[ 1-j\frac{\epsilon''}{\epsilon'} \right]^{-1/2}
+\end{equation}
+%
+Applying the same approximation applied to $\gamma$ earlier in this section, the previous expression may be written
+%
+\begin{flalign}
+\eta_c &\approx \sqrt{\frac{\mu}{\epsilon'}} \cdot \left[ -j\frac{\epsilon''}{\epsilon'} \right]^{-1/2} ~~~\mbox{(good conductor)} \nonumber \\
+       &\approx \sqrt{\frac{\mu}{\epsilon''}} \cdot \frac{1}{\sqrt{-j}}
+\end{flalign}
+%
+We've already established that $\sqrt{-j} = \left(1-j\right)/\sqrt{2}$.  Applying that result here:
+%
+\begin{equation}
+\eta_c \approx \sqrt{\frac{\mu}{\epsilon''}} \cdot \frac{\sqrt{2}}{1-j}
+\end{equation}
+%
+Now multiplying numerator and denominator by $1+j$, we obtain
+%
+\begin{equation}
+\eta_c \approx \sqrt{\frac{\mu}{2\epsilon''}} \cdot \left(1+j\right)
+\end{equation}
+%
+In the special case that $\epsilon_c$ is determined entirely by conductivity loss and is not accounting for delayed polarization response, then $\epsilon''=\sigma/\omega$, and we find:
+%
+\begin{equation}
+\boxed{
+\eta_c \approx \sqrt{\frac{\mu\omega}{2\sigma}} \cdot \left(1+j\right)
+}
+\end{equation}
+%
+There are at least two other ways in which this expression is commonly written.  
+First, we can use $\omega=2\pi f$ to obtain:
+%
+\begin{equation}
+\eta_c \approx \sqrt{\frac{\pi f\mu}{\sigma}} \cdot \left(1+j\right)
+\end{equation}
+%
+Second, we can use the fact that $\alpha\approx\sqrt{\pi f \mu\sigma}$ for good conductors to obtain:
+%
+\begin{equation}
+\eta_c \approx \frac{\alpha}{\sigma} \cdot \left(1+j\right)
+\end{equation}
+%
+In any event, we see that the magnitude of the wave impedance bears little resemblance to the wave impedance for a poor conductor.
+In particular, there is no dependence on the physical permittivity $\epsilon'=\epsilon$, as we saw also for $\alpha$ and $\beta$.
+In this sense, the concept of permittivity does not apply to good conductors, and especially so for perfect conductors.
+
+Note also that $\psi_{\eta}$, the phase of $\eta_c$, is always $\approx\pi/4$ for a good conductor, in contrast to $\approx 0$ for a poor conductor.  This has two implications that are useful to know.  
+First, since $\eta_c$ is the ratio of the magnitude of the electric field intensity to the magnitude of the magnetic field intensity, the phase of the magnetic field will be shifted by $\approx\pi/4$ relative to the phase of the electric field in a good conductor.
+Second, recall from Section~\ref{m0133_Wave_Power_in_a_Lossy_Medium} that the power density for a wave is proportional to $\cos\psi_{\eta}$.
+Therefore, the extent to which a good conductor is able to ``extinguish'' a wave propagating through it is determined entirely by $\alpha$, and specifically is proportional to $e^{-\alpha l}$ where $l$ is distance traveled through the material.
+In other words, only a perfect conductor ($\sigma\to\infty$) is able to completely suppress wave propagation, whereas waves are always able to penetrate some distance into any conductor which is merely ``good.''
+A measure of this distance is the \emph{skin depth} 
+\index{skin depth}
+of the material.  The concept of skin depth is presented in Section~\ref{m0158_Skin_Depth}.
+
+The dependence of $\beta$ on conductivity leads to a particularly surprising result for the phase velocity of the beleaguered waves that do manage to propagate within a good conductor.
+Recall that for both lossless and low-loss (``poor conductor'') materials, the phase velocity $v_p$ is either exactly or approximately $c/\sqrt{\epsilon_r}$, where $\epsilon_r\triangleq \epsilon'/\epsilon_0$, resulting in typical phase velocities within one order of magnitude of $c$.  
+For a good conductor, we find instead:
+%
+\begin{equation}
+v_p = \frac{\omega}{\beta} \approx \frac{\omega}{\sqrt{\pi f\mu\sigma}}~~~\mbox{(good conductor)}
+\end{equation}
+%
+and since $\omega=2\pi f$:
+%
+\begin{equation}
+v_p \approx \sqrt{\frac{4\pi f}{\mu\sigma}} ~~~\mbox{(good conductor)}
+\end{equation}
+%
+Note that the phase velocity in a good conductor increases with frequency and decreases with conductivity.
+In contrast to poor conductors and non-conductors, the phase velocity in good conductors is usually a tiny fraction of $c$.
+For example, for a non-magnetic ($\mu\approx\mu_0$) good conductor with typical $\sigma\sim 10^6$~S/m, we find 
+$ v_p \sim 100$~km/s at 1~GHz -- just $\sim 0.03$\% of the speed of light in free space.
+
+This result also tells us something profound about the nature of signals that are conveyed by transmission lines.  Regardless of whether we analyze such signals as voltage and current waves associated with the conductors or in terms of guided waves between the conductors, we find that the phase velocity is within an order of magnitude or so of $c$.  Thus, \emph{the information conveyed by signals propagating along transmission lines travels primarily within the space between the conductors, and not within the conductors}.  Information cannot travel primarily in the conductors, as this would then result in apparent phase velocity which is orders of magnitude less than $c$, as noted previously.  Remarkably, classical transmission line theory employing the $R'$, $G'$, $C'$, $L'$ equivalent circuit model\footnote{Depending on the version of this book, this topic may appear in another volume.} gets this right, even though that approach does not explicitly consider the possibility of guided waves traveling between the conductors.      
+
+%%%%%%%%%%%%%%%%%%%%%
+
+%{\bf Additional Reading:}
+%\begin{itemize}
+%\item ``\href{https://en.wikipedia.org/wiki/Binomial_series}{Binomial series}'' on Wikipedia.
+%\end{itemize}
+
+\index{conductor!good|)}
+
+

@@ -1,0 +1,129 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Units     
+%ORB AUTHOR 0       # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE   20191113
+%ORB ABSTRACT SI system of units, prefixes (i.e., "kilo-", "milli-" etc), ref to 
+
+\label{m0072_Units} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{units|(}
+
+The term ``unit'' refers to the measure used to express a physical quantity.
+For example, the mean radius of the Earth is about 6,371,000~meters; in this case, the unit is the meter.
+
+A number like ``6,371,000'' becomes a bit cumbersome to write, so it is common to use a prefix to modify the unit.
+For example, the radius of the Earth is more commonly said to be 6371~kilometers, where one kilometer is understood to mean 1000~meters. 
+It is common practice to use prefixes, such as ``kilo-,'' that yield values in the range of $0.001$ to $10,000$.  
+A list of standard prefixes appears in Table~\ref{m0072_tPrefix}.
+%
+\begin{table}[b!]
+\begin{center}
+\begin{tabular}{lll}
+Prefix & Abbreviation & Multiply by: \\
+\hline
+exa & E & $10^{18}$ \\
+peta & P & $10^{15}$ \\
+tera & T & $10^{12}$ \\
+giga & G & $10^{9}$ \\
+mega & M & $10^{6}$ \\
+kilo & k & $10^{3}$ \\
+milli & m & $10^{-3}$ \\
+micro & $\mu$ & $10^{-6}$ \\
+nano & n & $10^{-9}$ \\
+pico & p & $10^{-12}$ \\
+femto & f & $10^{-15}$ \\
+atto & a & $10^{-18}$ \\
+\end{tabular}
+\end{center}
+\caption{Prefixes used to modify units.}
+\label{m0072_tPrefix}
+\end{table}
+
+Writing out the names of units can also become tedious.
+For this reason, it is common to use standard abbreviations; e.g., ``6731~km'' as opposed to ``6371~kilometers,'' where ``k'' is the standard abbreviation for the prefix ``kilo'' and ``m'' is the standard abbreviation for ``meter.''
+A list of commonly-used base units and their abbreviations are shown in Table~\ref{m0072_tUnits}.
+%
+\begin{table}
+\begin{center}
+\begin{tabular}{lll}
+Unit & Abbreviation & Quantifies: \\
+\hline
+ampere & A & electric current \\
+coulomb & C & electric charge\\
+farad & F & capacitance \\
+henry & H & inductance \\
+hertz & Hz & frequency\\
+joule & J & energy \\
+meter & m & distance \\
+newton & N & force \\
+ohm & $\Omega$ & resistance\\
+second & s & time\\
+tesla & T & magnetic flux density \\
+volt & V & electric potential\\
+watt & W & power\\
+weber & Wb & magnetic flux \\
+\end{tabular}
+\end{center}
+\caption{Some units that are commonly used in electromagnetics.  
+}
+\label{m0072_tUnits}
+\end{table}
+
+To avoid ambiguity, it is important to always indicate the units of a quantity; e.g., writing ``6371~km'' as opposed to ``6371.''
+Failure to do so is a common source of error and misunderstandings.  
+An example is the expression: 
+$$l = 3t$$ 
+where $l$ is length and $t$ is time.  It could be that $l$ is in meters and $t$ is in seconds, in which case ``$3$'' really means ``3~m/s.''
+However, if it is intended that $l$ is in kilometers and $t$ is in hours, then ``$3$'' really means ``3~km/h,'' and the equation is literally different.
+To patch this up, one might write ``$l = 3t$~m/s''; however, note that this does not resolve the ambiguity we just identified -- i.e., we still don't know the units of the constant ``3.''
+Alternatively, one might write ``$l=3t$ where $l$ is in meters and $t$ is in seconds,'' which is unambiguous but becomes quite awkward for more complicated expressions.
+A better solution is to write instead:
+$$l = \left(3~\mbox{m/s}\right)t$$
+or even better:
+$$l = at ~~~\mbox{where $a=3$~m/s}$$
+since this separates the issue of units from the perhaps more-important fact that $l$ is proportional to $t$ and the constant of proportionality ($a$) is known.
+
+The meter is the fundamental unit of length in the International System of Units, known by its French acronym ``SI'' 
+\index{SI (system of units)}
+and sometimes informally referred to as the ``metric system.''  
+\index{metric system}
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+In this work, we will use SI units exclusively.
+\end{mdframed}
+
+Although SI is probably the most popular for engineering use overall, other systems remain in common use.  
+For example, the English system, 
+\index{English system of units}
+where the radius of the Earth might alternatively be said to be about 3959~miles, continues to be used in various applications and to a lesser or greater extent in various regions of the world.
+An alternative system in common use in physics and material science applications is the CGS
+\index{CGS (system of units)}
+(``centimeter-gram-second'') system. The CGS system is similar to SI, but with some significant differences. For example, the base unit of energy in the CGS system is not the ``joule'' but rather the ``erg,'' and the values of some physical constants become unitless. Therefore -- once again -- it is very important to include units whenever values are stated.
+
+SI defines seven fundamental units from which all other units can be derived.  These fundamental units are
+distance in meters (m),
+time in seconds (s), 
+current in amperes (A),
+mass in kilograms (kg),
+temperature in kelvin (K),
+particle count in moles (mol), and
+luminosity in candela (cd).
+SI units for electromagnetic quantities such as coulombs (C) for charge and volts (V) for electric potential are derived from these fundamental units.
+
+A frequently-overlooked feature of units is their ability to assist in error-checking mathematical expressions.
+For example, the electric field intensity may be specified in volts per meter (V/m), so an expression for the electric field intensity that yields units of V/m is said to be ``dimensionally correct'' (but not necessarily correct), whereas an expression that cannot be reduced to units of V/m \emph{cannot} be correct. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/International_System_of_Units}{International System of Units}'' on Wikipedia.
+\index{SI (system of units)}
+\item ``\href{https://en.wikipedia.org/wiki/Centimetre-gram-second_system_of_units}{Centimetre-gram-second system of units}'' on Wikipedia.
+\index{CGS (system of units)}
+\end{itemize}
+
+\index{units|)}

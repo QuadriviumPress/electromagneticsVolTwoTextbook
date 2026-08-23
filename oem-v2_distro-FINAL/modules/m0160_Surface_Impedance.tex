@@ -1,0 +1,63 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Surface Impedance
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191116   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0160_Surface_Impedance} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{impedance!surface|(}
+
+In Section~\ref{m0159_Impedance_of_a_Wire}, we derived the following expression for the impedance $Z$ of a good conductor having width $W$, length $l$, and which is infinitely deep:
+%
+\begin{equation}
+Z \approx \frac{1+j}{\sigma\delta_s} \cdot \frac{l}{W} ~~~\mbox{(AC case)}
+\label{m0160_eZ}
+\end{equation}
+%
+where $\sigma$ is conductivity (SI base units of S/m) and $\delta_s$ is skin depth.
+Note that $\delta_s$ and $\sigma$ are constitutive parameters of material, and do not depend on geometry; whereas $l$ and $W$ describe geometry.
+With this in mind, we define the \emph{surface impedance} 
+$Z_S$ as follows:
+%
+\begin{equation}
+\boxed{
+Z_S \triangleq \frac{1+j}{\sigma\delta_s}
+\label{m0160_eCFGC-Z}
+}
+\end{equation}
+%
+so that
+%
+\begin{equation}
+Z \approx Z_S \frac{l}{W}
+\end{equation}
+ 
+Unlike the terminal impedance $Z$, $Z_S$ is strictly a materials property.
+In this way, it is like the intrinsic or ``wave'' impedance $\eta$, which is also a materials property.
+Although the units of $Z_S$ are those of impedance (i.e., ohms), surface impedance is usually indicated as having units of ``$\Omega/\square$'' (``ohms per square'') to prevent confusion with the terminal impedance.
+Summarizing:  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Surface impedance $Z_S$ (Equation~\ref{m0160_eCFGC-Z}) is a materials property having units of $\Omega/\square$, and which characterizes the AC impedance of a material independently of the length and width of the material.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Surface impedance is often used to specify sheet materials used in the manufacture of electronic and semiconductor devices, where the real part of the surface impedance is more commonly known as the \emph{surface resistance} or \emph{sheet resistance}.
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+%\item ``\href{https://en.wikipedia.org/wiki/Skin_effect}{Skin effect}'' on Wikipedia.
+\item ``\href{http://en.wikipedia.org/wiki/Sheet_resistance}{Sheet resistance}'' on Wikipedia.
+\end{itemize}
+
+\index{impedance!surface|)}
+
+

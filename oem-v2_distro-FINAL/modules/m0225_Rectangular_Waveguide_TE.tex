@@ -1,0 +1,308 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Rectangular Waveguide: TE Modes
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191121   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0225_Rectangular_Waveguide_TE} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waveguide!rectangular|(}
+%\index{rectangular waveguide|see{waveguide}}
+\index{transverse electric|(}
+
+A rectangular waveguide is a conducting cylinder of rectangular cross section used to guide the propagation of waves.
+Rectangular waveguide is commonly used for the transport of radio frequency signals at frequencies in the SHF band (3--30~GHz) and higher.
+The fields in a rectangular waveguide consist of a number of propagating modes which depends on the electrical dimensions of the waveguide.
+These modes are broadly classified as either transverse magnetic (TM) or transverse electric (TE). 
+In this section, we consider the TE modes.
+
+Figure~\ref{m0225_fRectangularWaveguide} shows the geometry of interest.
+Here the walls are located at $x=0$, $x=a$, $y=0$, and $y=b$; thus, the cross-sectional dimensions of the waveguide are $a$ and $b$. 
+The interior of the waveguide is presumed to consist of a lossless material exhibiting real-valued permeability $\mu$ and real-valued permittivity $\epsilon$, and the walls are assumed to be perfectly-conducting.
+%
+\begin{figure}[b!] % <--- "[b]" for first figure in section *only*; delete for 2nd and subsequent figures
+\begin{center}
+\pdftooltip{{  % note double braces
+\includegraphics[width=1.0\columnwidth]{modules/m0225_fRectWG.eps} 
+% https://commons.wikimedia.org/wiki/File:Geometry_for_analysis_of_fields_in_parallel_plate_waveguide.svg
+}}{An x-y-z coordinate system with x horizontal, y vertical, and z out of the page. Rectangular structure with cross section width a in the x dimension and b in the y dimension.}
+\end{center}
+%\centerline{\scriptsize 
+%\copyright~\hyperref[m0225_fParallelPlateWaveguide_Credit]{C.\ Wang} 
+%\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} 
+%} % \centerline 
+\caption{
+\label{m0225_fRectangularWaveguide}
+Geometry for analysis of fields in a rectangular waveguide.
+}
+\end{figure}
+
+Let us limit our attention to a region within the waveguide which is free of sources.
+Expressed in phasor form, the magnetic field intensity within the waveguide is governed by the wave equation:
+%
+\begin{equation}
+\nabla^2 \widetilde{\bf H} + \beta^2 \widetilde{\bf H} = 0
+\label{m0225_eWE}
+\end{equation} 
+%
+where
+%
+\begin{equation}
+\beta = \omega \sqrt{\mu \epsilon}
+\end{equation}
+%
+Equation~\ref{m0225_eWE} is a partial differential equation.
+This equation, combined with boundary conditions imposed by the perfectly-conducting plates, is sufficient to determine a unique solution.
+This solution is most easily determined in Cartesian coordinates, as we shall now demonstrate.
+First we express $\widetilde{\bf H}$ in Cartesian coordinates:
+%
+\begin{equation}
+\widetilde{\bf H} = \hat{\bf x}\widetilde{H}_x + \hat{\bf y}\widetilde{H}_y + \hat{\bf z}\widetilde{H}_z
+\label{m0225_eE}
+\end{equation}
+%
+This facilitates the decomposition of Equation~\ref{m0225_eWE} into separate equations governing the $\hat{\bf x}$, $\hat{\bf y}$, and $\hat{\bf z}$ components of $\widetilde{\bf H}$:
+%
+\begin{flalign}
+\nabla^2 \widetilde{H}_x + \beta^2 \widetilde{H}_x &= 0 \\
+\nabla^2 \widetilde{H}_y + \beta^2 \widetilde{H}_y &= 0 \\
+\nabla^2 \widetilde{H}_z + \beta^2 \widetilde{H}_z &= 0 
+\end{flalign} 
+
+Next we observe that the operator $\nabla^2$ may be expressed in Cartesian coordinates as follows:
+%
+\begin{equation}
+\nabla^2 = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} 
+\end{equation}
+%
+so the equations governing the Cartesian components of $\widetilde{\bf H}$ may be written as follows:
+%
+\begin{flalign}
+\frac{\partial^2}{\partial x^2}\widetilde{H}_x + \frac{\partial^2}{\partial y^2}\widetilde{H}_x + \frac{\partial^2}{\partial z^2}\widetilde{H}_x + \beta^2 \widetilde{H}_x &= 0 \label{m0225_eEfx} \\
+\frac{\partial^2}{\partial x^2}\widetilde{H}_y + \frac{\partial^2}{\partial y^2}\widetilde{H}_y + \frac{\partial^2}{\partial z^2}\widetilde{H}_y + \beta^2 \widetilde{H}_y &= 0 \label{m0225_eEfy} \\
+\frac{\partial^2}{\partial x^2}\widetilde{H}_z + \frac{\partial^2}{\partial y^2}\widetilde{H}_z + \frac{\partial^2}{\partial z^2}\widetilde{H}_z + \beta^2 \widetilde{H}_z &= 0 \label{m0225_eEfz} 
+\end{flalign} 
+
+In general, we expect the total field in the waveguide to consist of unidirectional waves propagating in the $+\hat{\bf z}$ and $-\hat{\bf z}$ directions. 
+We may analyze either of these waves; then the other wave is easily derived via symmetry, and the total field is simply a linear combination (superposition)
+\index{superposition} 
+of these waves.
+With this in mind, we limit our focus to the wave propagating in the $+\hat{\bf z}$ direction.
+
+In Section~\ref{m0222_General_Relationships_Unidirectional_Waves},
+%(``General Relationships for Unidirectional Waves'') 
+it is shown that all components of the electric and magnetic fields can be easily calculated once $\widetilde{E}_z$ and $\widetilde{H}_z$ are known.  
+The problem is further simplified by decomposing the unidirectional wave into TM and TE components.  
+In this decomposition, the TE component is defined by the property that $\widetilde{E}_z=0$; i.e., is transverse (perpendicular) to the direction of propagation.
+Thus, the TE component is completely determined by $\widetilde{H}_z$. 
+Equations~\ref{m0222_eExu}--\ref{m0222_eHyu} simplify to become:
+%
+\begin{flalign}
+\widetilde{E}_x &= -j\frac{\omega\mu}{k_{\rho}^2} \frac{\partial \widetilde{H}_z}{\partial y} \label{m0225_eExu} \\
+\widetilde{E}_y &= +j\frac{\omega\mu}{k_{\rho}^2} \frac{\partial \widetilde{H}_z}{\partial x} \label{m0225_eEyu} \\
+\widetilde{H}_x &= -j\frac{k_z      }{k_{\rho}^2} \frac{\partial \widetilde{H}_z}{\partial x} \label{m0225_eHxu} \\
+\widetilde{H}_y &= -j\frac{k_z      }{k_{\rho}^2} \frac{\partial \widetilde{H}_z}{\partial y} \label{m0225_eHyu} 
+\end{flalign}
+%
+where 
+%
+\begin{equation}
+k_{\rho}^2 \triangleq \beta^2 - k_z^2 \label{m0225_ekrho}
+\end{equation}
+%
+and $k_z$ is the phase propagation constant; i.e., the wave is assumed to propagate according to $e^{-jk_z z}$.
+
+Now let us address the problem of finding $\widetilde{H}_z$, which will then completely determine the TE field.  As in Section~\ref{m0222_General_Relationships_Unidirectional_Waves}, we recognize that $\widetilde{H}_z$ can be represented as the propagation factor $e^{-jk_z z}$ times a factor that describes variation with respect to the remaining spatial dimensions $x$ and $y$:
+%
+\begin{equation}
+\widetilde{H}_z = \widetilde{h}_z(x,y) e^{-jk_z z} 
+\end{equation}
+%
+Substitution of this expression into Equation~\ref{m0225_eEfz} and dividing out the common factor of $e^{-jk_z z}$ yields:
+%
+\begin{equation}
+\frac{\partial^2}{\partial x^2}\widetilde{h}_z + \frac{\partial^2}{\partial y^2}\widetilde{h}_z - k_z^2 \widetilde{h}_z + \beta^2 \widetilde{h}_z = 0
+\end{equation}
+%
+The last two terms may be combined using Equation~\ref{m0225_ekrho}, yielding:
+%
+\begin{equation}
+\frac{\partial^2}{\partial x^2}\widetilde{h}_z + \frac{\partial^2}{\partial y^2}\widetilde{h}_z + k_{\rho}^2 \widetilde{h}_z = 0 \label{m0225_eDE1}
+\end{equation}
+%
+This is a partial differential equation for $\widetilde{h}_z$ in the variables $x$ and $y$.
+This equation may be solved using the technique of \emph{separation of variables}.
+\index{separation of variables}
+In this technique, we recognize that $\widetilde{h}_z(x,y)$ can be written as the product of a function $X(x)$ which depends only on $x$, and a function $Y(y)$ that depends only on $y$.
+That is,
+%
+\begin{equation}
+\widetilde{h}_z(x,y) = X(x) Y(y)
+\end{equation}
+%
+Substituting this expression into Equation~\ref{m0225_eDE1}, we obtain:
+%
+\begin{equation}
+Y\frac{\partial^2}{\partial x^2}X + X\frac{\partial^2}{\partial y^2}Y + k_{\rho}^2 XY = 0 \label{m0225_eDE2}
+\end{equation}
+%
+Next dividing through by $XY$, we obtain:
+%
+\begin{equation}
+\frac{1}{X}\frac{\partial^2}{\partial x^2}X + \frac{1}{Y}\frac{\partial^2}{\partial y^2}Y + k_{\rho}^2 = 0 \label{m0225_eDE3}
+\end{equation}
+%
+Note that the first term depends only on $x$, the second term depends only on $y$, and the remaining term is a constant.
+Therefore, the sum of the first and second terms is a constant; namely $-k_{\rho}^2$.
+Since these terms depend on either $x$ or $y$, and not both, the first term must equal some constant, the second term must equal some constant, and these constants must sum to $-k_{\rho}^2$.
+Therefore, we are justified in separating the equation into two equations as follows:
+%
+\begin{flalign}
+\frac{1}{X}\frac{\partial^2}{\partial x^2}X + k_x^2 &= 0 \label{m0225_eDE4x} \\
+\frac{1}{Y}\frac{\partial^2}{\partial y^2}Y + k_y^2 &= 0 \label{m0225_eDE4y}
+\end{flalign}
+%
+where the new constants $k_x^2$ and $k_y^2$ must satisfy
+%
+\begin{equation}
+k_x^2+k_y^2 = k_{\rho}^2
+\end{equation}
+%
+Now multiplying Equations~\ref{m0225_eDE4x} and \ref{m0225_eDE4y} by $X$ and $Y$, respectively, we find:
+%
+\begin{flalign}
+\frac{\partial^2}{\partial x^2}X + k_x^2 X &= 0 \label{m0225_eDE5x} \\
+\frac{\partial^2}{\partial y^2}Y + k_y^2 Y &= 0 \label{m0225_eDE5y}
+\end{flalign}
+%
+These are familiar one-dimensional differential equations.  The solutions are:\footnote{Students are encouraged to confirm that these are correct by confirming that they are solutions to Equations~\ref{m0225_eDE5x} and \ref{m0225_eDE5x}, respectively.}
+%
+\begin{flalign}
+X &= A\cos\left(k_x x\right) + B\sin\left(k_x x\right) \label{m0225_eX} \\
+Y &= C\cos\left(k_y y\right) + D\sin\left(k_y y\right) \label{m0225_eY}
+\end{flalign}
+%
+where $A$, $B$, $C$, and $D$ -- like $k_x$ and $k_y$ -- are constants to be determined.  
+At this point, we observe that the wave we seek can be expressed as follows:
+%
+\begin{flalign}
+\widetilde{H}_z &= \widetilde{h}_z(x,y) e^{-jk_z z} \nonumber \\
+                &= X(x)~Y(y)~e^{-jk_z z} \label{m0225_eEzXYz} 
+\end{flalign}
+%
+The solution is essentially complete except for the values of the constants $A$, $B$, $C$, $D$, $k_x$, and $k_y$.
+The values of these constants are determined by applying the relevant electromagnetic boundary condition.
+In this case, it is required that any component of $\widetilde{\bf E}$ that is tangent to a perfectly-conducting wall must be zero.
+Therefore:
+%
+\begin{flalign}
+\widetilde{E}_y\left(x=0\right) &= 0 \\
+\widetilde{E}_y\left(x=a\right) &= 0 \\
+\widetilde{E}_x\left(y=0\right) &= 0 \\
+\widetilde{E}_x\left(y=b\right) &= 0 
+\end{flalign}
+%
+Referring to Equation~\ref{m0225_eEzXYz} and employing Equations~\ref{m0225_eExu}--\ref{m0225_eHyu}, we obtain:
+%
+\begin{flalign}
+\frac{\partial}{\partial x} X\left(x=0\right) &= 0 \\
+\frac{\partial}{\partial x} X\left(x=a\right) &= 0 \\
+\frac{\partial}{\partial y} Y\left(y=0\right) &= 0 \\
+\frac{\partial}{\partial y} Y\left(y=b\right) &= 0 
+\end{flalign}
+%
+Evaluating the partial derivatives and dividing out common factors of $k_x$ and $k_y$, we find:
+%
+\begin{flalign}
+-A\sin(k_x \cdot 0) + B\cos(k_x \cdot 0) &= 0 \\
+-A\sin(k_x \cdot a) + B\cos(k_x \cdot a) &= 0 \\
+-C\sin(k_y \cdot 0) + D\cos(k_y \cdot 0) &= 0 \\
+-C\sin(k_y \cdot b) + D\cos(k_y \cdot b) &= 0 
+\end{flalign}
+%
+Evaluating:
+%
+\begin{flalign}
+-A\cdot 0                + B\cdot 1                  &= 0 \label{m0225_eXbc1} \\
+-A\sin\left(k_x a\right) + B\cos\left(k_x a\right)   &= 0 \label{m0225_eXbc2} \\
+-C\cdot 0                + D\cdot 1                  &= 0 \label{m0225_eYbc1} \\
+-C\sin\left(k_y b\right) + D\cos\left(k_y b\right)   &= 0 \label{m0225_eYbc2}
+\end{flalign}
+%
+Equations~\ref{m0225_eXbc1} and \ref{m0225_eYbc1} can be satisfied only if $B=0$ and $D=0$, respectively.
+Subsequently, Equations~\ref{m0225_eXbc2} and \ref{m0225_eYbc2} reduce to:
+%
+\begin{flalign}
+\sin\left(k_x a\right)   &= 0 \label{m0225_eXbc2a}  \\
+\sin\left(k_y b\right)   &= 0 \label{m0225_eYbc2a} 
+\end{flalign}
+%
+This in turn requires:
+%
+\begin{flalign}
+k_x &= \frac{m\pi}{a}~, ~~~ m=0, 1, 2 ... \label{m0225_ekxm}\\
+k_y &= \frac{n\pi}{b}~, ~~~ n=0, 1, 2 ... \label{m0225_ekyn}
+\end{flalign}
+%
+Each positive integer value of $m$ and $n$ leads to a valid expression for $\widetilde{H}_z$ known as a \emph{mode}.
+\index{mode}
+Summarizing:
+%
+\begin{equation}
+\widetilde{H}_z = \sum_{m=0}^{\infty} \sum_{n=0}^{\infty} \widetilde{H}_z^{(m,n)} \label{m0225_eEzTEall}
+\end{equation}
+%
+where
+ %
+\begin{equation}
+%\widetilde{H}_z^{(m,n)} \triangleq H_0^{(m,n)} \cos\left(k_x x\right) \cos\left(k_y y\right) e^{-jk_z^{(m,n)} z} \label{m0225_eEzTE}
+\widetilde{H}_z^{(m,n)} \triangleq H_0^{(m,n)} \cos\left(\frac{m\pi}{a} x\right) \cos\left(\frac{n\pi}{b} y\right) e^{-jk_z^{(m,n)} z} \label{m0225_eEzTE}
+\end{equation}
+%
+where 
+$H_0^{(m,n)}$ is an arbitrary constant (consolidating the constants $A$ and $C$),  
+and, since $k_x^2 + k_y^2 = k_{\rho}^2 \triangleq \beta^2-k_z^2$:
+% 
+\begin{equation}
+k_z^{(m,n)} = \sqrt{ \omega^2\mu\epsilon - \left(\frac{m\pi}{a}\right)^2 - \left(\frac{n\pi}{b}\right)^2   } \label{m0225_ekzm}
+\end{equation}
+
+Summarizing:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The TE ($\widetilde{E}_z=0$) component of the unidirectional ($+\hat{\bf z}$-traveling) wave in a rectangular waveguide is completely determined by Equation~\ref{m0225_eEzTEall}, and consists of modes as defined by Equations~\ref{m0225_eEzTE}, \ref{m0225_ekzm}, \ref{m0225_ekxm}, and \ref{m0225_ekyn}.  The remaining non-zero field components can be determined using Equations~\ref{m0225_eExu}--\ref{m0225_eHyu}.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+It is customary and convenient to refer to the TE modes in a rectangular waveguide using the notation ``TE$_{mn}$.''
+For example, the mode TE$_{12}$ is given by Equation~\ref {m0225_eEzTE} with $m=1$ and $n=2$.
+
+Although Equation~\ref{m0225_eEzTEall} implies the existence of a TE$_{00}$ mode, it should be noted that this wave has no non-zero electric field components.
+This can be determined mathematically by following the procedure outlined above.
+However, this is also readily confirmed as follows:
+$\widetilde{E}_x$ is constant for the TE$_{00}$ mode because $k_{\rho}=0$ for this mode, however, $\widetilde{E}_x$ must be zero to meet the boundary conditions on the walls at $y=0$ and $y=b$.
+Similarly,
+$\widetilde{E}_y$ is constant for the TE$_{00}$ mode, however, $\widetilde{E}_y$ must be zero to meet the boundary conditions on the walls at $x=0$ and $x=b$.
+
+Finally, note that values of $k_z^{(m,n)}$ obtained from Equation~\ref{m0225_ekzm} are not necessarily real-valued.  
+It is apparent that for any given value of $m$, $k_z^{(m,n)}$ will be imaginary-valued for all values of $n$ greater than some value.
+Similarly, 
+it is apparent that for any given value of $n$, $k_z^{(m,n)}$ will be imaginary-valued for all values of $m$ greater than some value.
+This phenomenon is common to both TE and TM components, and so is addressed in a separate section (Section~\ref{m0224_Rectangular_Waveguide_Prop}).
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Waveguide_(radio_frequency)}{Waveguide (radio frequency)}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Separation_of_variables}{Separation of variables}'' on Wikipedia.
+\end{itemize}
+
+\index{waveguide!rectangular|)}
+\index{transverse electric|)}
+

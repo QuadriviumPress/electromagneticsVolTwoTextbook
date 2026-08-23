@@ -1,0 +1,87 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Attenuation Rate
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191115   # yyyymmdd
+%ORB ABSTRACT
+
+\label{m0154_Attenuation_Rate} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{attenuation rate|(}
+
+\emph{Attenuation rate} is a convenient way to quantify loss in general media, including transmission lines, using the decibel scale.
+
+Consider a transmission line carrying a wave in the $+z$ direction.
+Let $P_0$ be the power at $z=0$.
+Let $P_1$ be the power at $z=l$.
+Then the power at $z=0$ relative to the power at $z=l$ is:
+%
+\begin{equation}
+\frac{P_0}{P_1} = \frac{e^{-2\alpha\cdot 0}}{e^{-2\alpha\cdot l}} = e^{2\alpha l} ~~~\mbox{(linear units)}
+\end{equation}
+%
+where $\alpha$ is the attenuation constant; that is, the real part of the propagation constant $\gamma=\alpha+j\beta$.
+\index{propagation constant!attenuation}
+Expressed in this manner, the power ratio is a loss; that is, a number greater than $1$ represents attenuation.
+In the decibel scale, the loss is
+%
+\begin{flalign}
+10\log_{10}\frac{P_0}{P_1} &= 10\log_{10} e^{2\alpha l} \nonumber \\
+                           &= 20\alpha l \log_{10} e \nonumber \\
+                           &\cong 8.69\alpha l~~\mbox{dB} 
+\end{flalign}
+%
+Attenuation rate is defined as this quantity per unit length.  Dividing by $l$, we obtain:
+%
+\begin{equation}
+\mbox{attenuation rate} \cong 8.69\alpha
+\end{equation}
+% 
+This has units of dB/length, where the units of length are the same length units in which $\alpha$ is expressed.
+For example, if $\alpha$ is expressed in units of m$^{-1}$, then attenuation rate has units of dB/m.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Attenuation rate $\cong 8.69\alpha$ is the loss in dB, per unit length.
+\end{mdframed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+The utility of the attenuation rate concept is that it allows us to quickly calculate loss for any distance of wave travel:
+This loss is simply attenuation rate (dB/m) times length (m), which yields loss in dB.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Attenuation rate in a long cable.
+\\~\\
+A particular coaxial cable has an attenuation constant $\alpha\cong 8.5\times 10^{-3}$~m$^{-1}$.
+What is the attenuation rate and the loss in dB for 100~m of this cable?
+
+The attenuation rate is
+$$ \cong 8.69\alpha \cong \underline{0.0738~\mbox{dB/m}} $$
+The loss in 100~m of this cable is
+$$ \cong \left(0.0738~\mbox{dB/m}\right)\left(100~\mbox{m}\right) \cong \underline{7.4~\mbox{dB}} $$
+Note that it would be entirely appropriate, and equivalent, to state that the attenuation rate for this cable is $7.4$~dB/(100~m).
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The concept of attenuation rate is used in precisely the same way to relate ratios of spatial power densities for unguided waves.  
+This works because spatial power density has SI base units of W/m$^2$, so the common units of m$^{-2}$ in the numerator and denominator cancel in the power density ratio, leaving a simple power ratio.
+
+%%%%%%%%%%%%%%%%%%%%%
+
+%{\bf Additional Reading:}
+%\begin{itemize}
+%\item ``\href{https://en.wikipedia.org/wiki/Attenuation}{Attenuation}'' on Wikipedia.
+%\end{itemize}
+
+\index{attenuation rate|)}
+
+

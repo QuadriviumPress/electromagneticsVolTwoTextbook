@@ -1,0 +1,54 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Vector Identities
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20191128   # yyyymmdd
+%ORB ABSTRACT Vector Identities
+
+\label{m0140_Vector_Identities} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{vector!identity}
+
+{\bf Algebraic Identities}
+\index{vector!arithmetic}
+%
+\begin{flalign}
+&{\bf A}\cdot\left({\bf B}\times{\bf C}\right) = {\bf B}\cdot\left({\bf C}\times{\bf A}\right) = {\bf C}\cdot\left({\bf A}\times{\bf B}\right) & \label{m0140_eVI1} \\
+&{\bf A}\times\left({\bf B}\times{\bf C}\right) = {\bf B}\left({\bf A}\cdot{\bf C}\right) - {\bf C}\left({\bf A}\cdot{\bf B}\right) \label{m0140_eVI2} &
+\end{flalign}
+
+{\bf Identities Involving Differential Operators}
+%
+\begin{flalign}
+&\nabla \cdot \left(\nabla \times {\bf A}\right) = 0 & \label{m0140_eNdNxA} \\
+&\nabla \times \left(\nabla f\right) = 0 & \label{m0140_eNxNA} \\
+&\nabla \times \left(f{\bf A}\right) = f\left(\nabla\times{\bf A}\right) + \left(\nabla f\right)\times{\bf A} & \\
+&\nabla \cdot \left({\bf A}\times {\bf B}\right) = {\bf B}\cdot\left(\nabla \times{\bf A}\right)-{\bf A}\cdot\left(\nabla \times{\bf B}\right) & \label{m0140_edFxG} \\
+&\nabla \cdot \left(\nabla f\right) = \nabla^2 f & \\
+&\nabla \times \nabla \times {\bf A} = \nabla\left(\nabla\cdot{\bf A}\right)-\nabla^2{\bf A} & \label{m0140_eNxNxA} \\
+&\nabla^2 {\bf A} = \nabla\left(\nabla\cdot{\bf A}\right) - \nabla\times\left(\nabla\times{\bf A}\right) &
+\end{flalign}
+
+{\bf Divergence Theorem:} 
+\index{divergence theorem}
+Given a closed surface ${\mathcal S}$ enclosing a contiguous volume ${\mathcal V}$,
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf A} \right) dv = \oint_{\mathcal S} {\bf A}\cdot d{\bf s}
+\end{equation}
+%
+where the surface normal $d{\bf s}$ is pointing out of the volume.
+
+{\bf Stokes' Theorem:} 
+\index{Stokes' theorem}
+Given a closed curve ${\mathcal C}$ bounding a contiguous surface ${\mathcal S}$,
+%
+\begin{equation}
+\int_{\mathcal S} \left( \nabla \times {\bf A} \right) \cdot d{\bf s} = \oint_{\mathcal C} {\bf A}\cdot d{\bf l}
+\end{equation}
+%
+where the direction of the surface normal $d{\bf s}$ is related to the direction of integration along ${\mathcal C}$ by the ``right hand rule.''
+\index{right hand rule!Stokes' theorem}
+
