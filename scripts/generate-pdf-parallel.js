@@ -6,7 +6,7 @@
  * chapter-print.njk) with Playwright Chromium, waiting for MathJax to finish
  * typesetting. Reads generated/print-manifest.json (written by the build).
  *
- * Usage: node scripts/generate-pdf-parallel.js [--base-url http://localhost:4000/ElectromagneticsVolTwoTextbook]
+ * Usage: node scripts/generate-pdf-parallel.js [--base-url http://localhost:4000/electromagneticsVolTwoTextbook]
  * Output: pdf-output/<pdfName>
  */
 import fs from 'node:fs';
@@ -21,7 +21,7 @@ const argIdx = process.argv.indexOf('--base-url');
 const baseUrl =
   argIdx !== -1
     ? process.argv[argIdx + 1].replace(/\/$/, '')
-    : 'http://localhost:4000/ElectromagneticsVolTwoTextbook';
+    : 'http://localhost:4000/electromagneticsVolTwoTextbook';
 const maxConcurrency = Number(process.env.MAX_CONCURRENCY || 4);
 
 const manifestPath = path.join(baseDir, 'generated', 'print-manifest.json');

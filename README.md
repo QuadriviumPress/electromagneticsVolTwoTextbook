@@ -4,7 +4,7 @@ Eleventy build of **Electromagnetics, Volume 2** by Steven W. Ellingson
 (VT Publishing, 2020), rendering the original LaTeX source to a searchable,
 offline-capable web textbook.
 
-- **Live site:** https://quadriviumpress.github.io/ElectromagneticsVolTwoTextbook/
+- **Live site:** https://quadriviumpress.github.io/electromagneticsVolTwoTextbook/
 - **Print edition of record:** https://doi.org/10.21061/electromagnetics-vol-2
 - **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
@@ -46,7 +46,7 @@ npm ci
 npm run update:vendor   # populate self-hosted MathJax + MiniSearch (once)
 npm run build           # figures -> Eleventy -> search index
 npm run verify          # integrity checks over _site
-npm run serve           # dev server at http://localhost:4000/ElectromagneticsVolTwoTextbook/
+npm run serve           # dev server at http://localhost:4000/electromagneticsVolTwoTextbook/
 ```
 
 ## Deployment

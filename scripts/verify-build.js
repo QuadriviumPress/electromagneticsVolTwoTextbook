@@ -29,7 +29,7 @@ import { buildModel } from '../lib/model/numbering.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const siteDir = path.join(root, '_site');
-const PREFIX = process.env.VERCEL ? '' : '/ElectromagneticsVolTwoTextbook';
+const PREFIX = process.env.VERCEL ? '' : '/electromagneticsVolTwoTextbook';
 const CI = !!process.env.CI;
 
 let failures = 0;

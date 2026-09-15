@@ -10,9 +10,9 @@ export default {
   url: 'https://quadriviumpress.github.io',
   // Absolute URL of the canonical deployment (origin + path prefix, no trailing
   // slash). Used for absolute links and social metadata.
-  baseUrl: 'https://quadriviumpress.github.io/ElectromagneticsVolTwoTextbook',
+  baseUrl: 'https://quadriviumpress.github.io/electromagneticsVolTwoTextbook',
   // GitHub repository URL for footer links and metadata.
-  repositoryUrl: 'https://github.com/QuadriviumPress/ElectromagneticsVolTwoTextbook',
+  repositoryUrl: 'https://github.com/QuadriviumPress/electromagneticsVolTwoTextbook',
   // Print edition of record; the web edition mirrors its numbering.
   doi: 'https://doi.org/10.21061/electromagnetics-vol-2',
 };
